@@ -41,15 +41,20 @@ def post_reel(ig_user, token, video_url, caption, cover_url=None):
     if cover_url:
         p["cover_url"] = cover_url
     container = _api("POST", f"{ig_user}/media", p)["id"]
-    # poll processing (Reels need encoding time)
-    for _ in range(40):
+    # poll processing (Reels need encoding time). IG can flicker through a
+    # transient ERROR before settling on FINISHED, so tolerate a few errors
+    # and keep waiting rather than bailing immediately.
+    errors = 0
+    for _ in range(75):  # up to ~10 min
         st = _api("GET", container, {"fields": "status_code", "access_token": token})
         code = st.get("status_code")
         if code == "FINISHED":
             break
-        if code == "ERROR":
-            raise RuntimeError(f"container {container} failed processing")
-        time.sleep(6)
+        if code in ("ERROR", "EXPIRED"):
+            errors += 1
+            if errors >= 6:  # persistent failure
+                raise RuntimeError(f"container {container} failed: {st}")
+        time.sleep(8)
     pub = _api("POST", f"{ig_user}/media_publish",
                {"creation_id": container, "access_token": token})
     return pub.get("id")
