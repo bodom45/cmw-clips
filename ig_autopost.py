@@ -65,8 +65,18 @@ def load_rows():
         return list(csv.DictReader(f))
 
 
+def _name(s):
+    # accept old "dateTtime|path/clip.mp4" keys OR new "clip.mp4" basenames
+    return s.split("|", 1)[-1].split("/")[-1]
+
+
 def load_state():
-    return set(json.loads(STATE.read_text())) if STATE.exists() else set()
+    # state is a SET OF CLIP BASENAMES — a clip posts once, ever, regardless of
+    # what date/time slot it sits in. This makes re-dating the schedule safe:
+    # moving a posted clip to a new slot can never cause a duplicate post.
+    if not STATE.exists():
+        return set()
+    return {_name(x) for x in json.loads(STATE.read_text())}
 
 
 def save_state(done):
@@ -75,6 +85,10 @@ def save_state(done):
 
 def key(r):
     return f"{r['post_date']}T{r['post_time']}|{r['clip_file']}"
+
+
+def clipname(r):
+    return Path(r['clip_file']).name
 
 
 def env():
@@ -92,7 +106,7 @@ def main():
         now = dt.datetime.now()
         for i, r in enumerate(rows, 1):
             when = dt.datetime.fromisoformat(f"{r['post_date']}T{r['post_time']}")
-            mark = "✅posted" if key(r) in done else ("⏰due" if when <= now else "  queued")
+            mark = "✅posted" if clipname(r) in done else ("⏰due" if when <= now else "  queued")
             print(f"{i:>2}. {mark}  {r['post_date']} {r['post_time']}  {r['clip_file']}")
         return
     ig, tok, base = env()
@@ -110,13 +124,13 @@ def main():
             if posted >= cap:
                 break
             when = dt.datetime.fromisoformat(f"{r['post_date']}T{r['post_time']}")
-            if when <= now and key(r) not in done:
+            if when <= now and clipname(r) not in done:
                 vid = f"{base}/{urllib.parse.quote(Path(r['clip_file']).name)}"
                 cov = f"{base}/{urllib.parse.quote(Path(r['cover_file']).name)}" if r.get('cover_file') else None
                 try:
                     mid = post_reel(ig, tok, vid, r['caption'], cov)
                     posted += 1
-                    done.add(key(r)); save_state(done)
+                    done.add(clipname(r)); save_state(done)
                     print(f"✅ {r['clip_file']} -> {mid}")
                 except Exception as e:
                     print(f"❌ {r['clip_file']}: {e}")
