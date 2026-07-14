@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Creative Music Television — Brandon · Pitch Résumé</title>
+<style>
+  :root{
+    --bg:#0b0b0d;
+    --ink:#f4f2ec;
+    --mut:#9a978f;
+    --gold:#f5b301;
+    --gold2:#ffd35c;
+    --red:#e23636;
+    --panel:#141417;
+    --panel2:#1b1b1f;
+    --line:rgba(245,179,1,.28);
+    --hair:rgba(255,255,255,.09);
+    --disp:"Arial Black","Helvetica Neue Bold",Helvetica,Arial,sans-serif;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#000;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+
+  @page{ size:1280px 720px; margin:0; }
+
+  .slide{
+    position:relative;
+    width:1280px; height:720px;
+    background:
+      radial-gradient(1100px 620px at 82% -12%, rgba(245,179,1,.14), transparent 60%),
+      radial-gradient(900px 700px at -10% 120%, rgba(226,54,54,.10), transparent 55%),
+      var(--bg);
+    overflow:hidden;
+    page-break-after:always;
+  }
+  .slide:last-child{page-break-after:auto}
+
+  /* faint broadcast scanlines */
+  .slide::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(to bottom, rgba(255,255,255,.035) 0 1px, transparent 1px 4px);
+    opacity:.5;mix-blend-mode:overlay;
+  }
+
+  /* ---------- top chrome ---------- */
+  .chrome{
+    position:absolute;top:0;left:0;right:0;height:64px;
+    display:flex;align-items:center;gap:16px;
+    padding:0 44px;
+    border-bottom:1px solid var(--hair);
+    background:linear-gradient(180deg, rgba(0,0,0,.35), transparent);
+    z-index:3;
+  }
+  .mono{
+    font-family:var(--disp);font-weight:900;font-size:19px;letter-spacing:1px;
+    color:#0b0b0d;background:var(--gold);
+    padding:6px 9px;border-radius:4px;line-height:1;
+  }
+  .wm{font-family:var(--disp);font-weight:900;letter-spacing:3.5px;font-size:14px;color:var(--ink);text-transform:uppercase}
+  .wm b{color:var(--gold)}
+  .chrome .spacer{flex:1}
+  .onair{
+    display:flex;align-items:center;gap:8px;
+    font-family:var(--disp);font-weight:900;letter-spacing:2px;font-size:12px;color:var(--ink);
+    border:1px solid rgba(226,54,54,.55);border-radius:999px;padding:5px 12px;
+  }
+  .onair .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+  .chan{font-family:var(--disp);font-weight:900;letter-spacing:2px;font-size:13px;color:var(--gold)}
+
+  /* ---------- bottom chrome ---------- */
+  .foot{
+    position:absolute;left:0;right:0;bottom:0;height:48px;
+    display:flex;align-items:center;gap:14px;
+    padding:0 44px;
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg, transparent, rgba(0,0,0,.55));
+    font-size:12.5px;letter-spacing:.8px;color:#b9b6ad;
+    z-index:3;
+  }
+  .foot .spacer{flex:1}
+  .foot b{color:#fff;font-weight:700}
+  .tc{font-family:var(--disp);letter-spacing:1.5px;color:var(--gold)}
+
+  /* ---------- stage ---------- */
+  .stage{position:absolute;left:44px;right:44px;top:64px;bottom:48px;z-index:2;
+    display:flex;flex-direction:column;justify-content:center;padding:34px 0}
+
+  .kicker{font-family:var(--disp);font-weight:900;letter-spacing:4px;text-transform:uppercase;
+    font-size:14px;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:34px;height:3px;background:var(--gold);display:inline-block}
+
+  h1{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-1px}
+  h2{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.98;letter-spacing:-.5px;font-size:46px}
+  p{font-size:19px;line-height:1.5;color:#d9d6cf}
+  .mut{color:var(--mut)}
+
+  /* ---------- cover ---------- */
+  .cover .stage{justify-content:center}
+  .cover h1{font-size:150px;color:var(--ink);text-shadow:0 6px 40px rgba(0,0,0,.5)}
+  .cover .role{font-family:var(--disp);font-weight:900;letter-spacing:3px;text-transform:uppercase;
+    font-size:22px;color:var(--gold);margin-top:10px}
+  .cover .tag{font-size:22px;color:#d9d6cf;margin-top:22px;max-width:820px;line-height:1.45}
+  .cover .prep{margin-top:26px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13px;letter-spacing:1px;color:var(--ink)}
+  .cover .prep b{color:var(--gold)}
+
+  /* ---------- pull quote ---------- */
+  .quote{border-left:4px solid var(--gold);padding:14px 0 14px 22px;margin:22px 0}
+  .quote .q{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:30px;line-height:1.06;color:var(--ink)}
+  .quote .qs{color:var(--gold)}
+  .quote .cite{margin-top:10px;font-size:13px;letter-spacing:1px;color:var(--mut)}
+
+  .lede{font-size:22px;line-height:1.55;color:#e6e3db;max-width:1050px}
+  .lede b{color:#fff}
+
+  .chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .chip{font-family:var(--disp);font-weight:900;letter-spacing:1.5px;text-transform:uppercase;font-size:13px;
+    color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:11px 15px}
+  .chip .d{color:var(--gold)}
+
+  /* ---------- kpi row ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:6px}
+  .kpi{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--hair);
+    border-top:3px solid var(--gold);border-radius:10px;padding:22px 20px}
+  .kpi .n{font-family:var(--disp);font-weight:900;font-size:52px;line-height:1;color:var(--gold)}
+  .kpi .n small{font-size:26px}
+  .kpi .l{margin-top:12px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#cfccc4;line-height:1.35}
+  .kpi.alt .n{color:var(--ink)}
+
+  /* ---------- three columns ---------- */
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--hair);border-radius:12px;
+    padding:24px 22px;position:relative;overflow:hidden}
+  .card .num{font-family:var(--disp);font-weight:900;font-size:15px;letter-spacing:1px;color:#0b0b0d;
+    background:var(--gold);width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center}
+  .card h3{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:.3px;margin:16px 0 10px;color:var(--ink)}
+  .card p{font-size:16px;line-height:1.5;color:#c9c6bf}
+
+  /* ---------- pipeline ---------- */
+  .pipe{display:flex;align-items:stretch;gap:0;margin-top:24px;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .pipe .step{flex:1;padding:20px 18px;background:var(--panel);border-right:1px solid var(--hair);position:relative}
+  .pipe .step:last-child{border-right:0}
+  .pipe .step .t{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:16px;color:var(--gold);letter-spacing:.5px}
+  .pipe .step .s{font-size:13px;color:var(--mut);margin-top:7px;line-height:1.4}
+  .pipe .step .arw{position:absolute;right:-9px;top:50%;transform:translateY(-50%);z-index:4;color:var(--gold);font-size:18px;font-weight:900}
+
+  /* ---------- two-column layout (product / fit) ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start;margin-top:6px}
+  .list{list-style:none}
+  .list li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid var(--hair);font-size:17px;line-height:1.45;color:#dedbd3}
+  .list li:last-child{border-bottom:0}
+  .list li::before{content:"";position:absolute;left:0;top:19px;width:12px;height:12px;background:var(--gold);
+    transform:rotate(45deg);border-radius:2px}
+  .list li b{color:#fff}
+
+  .panelbox{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--hair);border-radius:12px;padding:22px 22px}
+  .panelbox h4{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:1.5px;color:var(--gold);margin-bottom:14px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
+  .contact .row .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut)}
+  .contact .row .v{font-size:16px;color:var(--ink);margin-top:2px;font-weight:600}
+  .cta{margin-top:20px;font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:24px;letter-spacing:.3px;color:var(--gold);line-height:1.1}
+
+  .fill{color:var(--gold2)} /* editable placeholder tint */
+
+  .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1px;color:var(--mut);
+    border:1px solid var(--hair);border-radius:999px;padding:6px 12px;margin-top:18px}
+  .badge .g{width:8px;height:8px;border-radius:50%;background:#39d353;box-shadow:0 0 8px #39d353}
+</style>
+</head>
+<body>
+
+<!-- ===================== SLIDE 1 — COVER ===================== -->
+<section class="slide cover">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;01</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">Founder · Artist · Broadcaster</div>
+    <h1>BRANDON</h1>
+    <div class="role">Founder — Creative Music Television</div>
+    <div class="tag">From a bedroom catalog to <b style="color:#fff">millions of streams</b> — to building a music network of my own. Artist development, creative direction, and the pipeline that puts independent artists <b style="color:#fff">on air</b>.</div>
+    <div class="prep">PREPARED FOR &nbsp;·&nbsp; <b>&nbsp;Music / A&amp;R + Creative role</b></div>
+  </div>
+  <div class="foot">
+    <span class="tc">● REC 00:00:01</span>
+    <span class="spacer"></span>
+    <span><b>admin@creativemusictelevision.com</b></span>
+    <span>·</span>
+    <span class="fill">creativemusictelevision.com</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 2 — PROFILE / VISION ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;02</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">Who's On Air</div>
+    <h2 style="font-size:44px;margin-bottom:18px">The artist who built the network</h2>
+    <p class="lede">I'm a recording artist, DJ and producer who grew an independent catalog to <b>millions of streams</b> and shared stages with acts like <b>Juice&nbsp;WRLD</b>. I learned the hard way that talent isn't the bottleneck — <b>distribution and platform are</b>. So I built one: <b>Creative Music Television</b>, an always-on music network, and <b>the Artist Hub</b> to put independent artists on screen.</p>
+    <div class="quote">
+      <div class="q">"I built 4 million streams. <span class="qs">Virality wasn't the goal — the network was.</span>"</div>
+      <div class="cite">— From the "If I Was Ur Music Manager" series</div>
+    </div>
+    <div class="chips">
+      <span class="chip"><span class="d">▸</span> A&amp;R &amp; Talent Development</span>
+      <span class="chip"><span class="d">▸</span> Creative Direction</span>
+      <span class="chip"><span class="d">▸</span> Distribution &amp; Growth</span>
+      <span class="chip"><span class="d">▸</span> Content Franchises</span>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="tc">CMW · PROFILE</span>
+    <span class="spacer"></span>
+    <span><b>BRANDON</b> — Founder, Creative Music Television</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 3 — TRACK RECORD ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;03</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">The Numbers</div>
+    <h2 style="font-size:42px;margin-bottom:20px">A track record, not a pitch</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="n">4M<small>+</small></div><div class="l">Streams built independently</div></div>
+      <div class="kpi alt"><div class="n" style="font-size:38px">JUICE&nbsp;WRLD</div><div class="l">Shared the stage — opened for national acts</div></div>
+      <div class="kpi"><div class="n">100<small>+</small></div><div class="l">Artists in network reach</div></div>
+      <div class="kpi"><div class="n">24/7</div><div class="l">Always-on multi-platform broadcast</div></div>
+    </div>
+    <ul class="list" style="margin-top:26px">
+      <li><b>Recording artist / DJ / producer</b> — grew a catalog to millions of streams with no major-label machine behind it.</li>
+      <li><b>Live &amp; touring</b> — opened for <b>Juice&nbsp;WRLD</b> and other national artists.</li>
+      <li><b>Creator &amp; educator</b> — built the <b>"If I Was Ur Music Manager"</b> franchise breaking down real artist development.</li>
+    </ul>
+  </div>
+  <div class="foot">
+    <span class="tc">CMW · TRACK RECORD</span>
+    <span class="spacer"></span>
+    <span class="mut">Figures self-reported · confirm exact numbers before sending</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 4 — THE NETWORK ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;04</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">The Vision</div>
+    <h2 style="font-size:42px;margin-bottom:6px">Creative Music Television</h2>
+    <p class="mut" style="font-size:18px;margin-bottom:22px">A new music network built for the streaming generation — always on, everywhere at once.</p>
+    <div class="cols">
+      <div class="card">
+        <div class="num">1</div>
+        <h3>Always-On Broadcast</h3>
+        <p>Programming publishes to Instagram Reels and YouTube Shorts around the clock — the channel never goes dark.</p>
+      </div>
+      <div class="card">
+        <div class="num">2</div>
+        <h3>Original Programming</h3>
+        <p>Signature franchises like "If I Was Ur Music Manager," DJ sets, and artist features — a real content slate.</p>
+      </div>
+      <div class="card">
+        <div class="num">3</div>
+        <h3>Built to Scale</h3>
+        <p>A repeatable engine that turns any artist's catalog into daily programming across channels.</p>
+      </div>
+    </div>
+    <div class="badge"><span class="g"></span> Running live now — automated hourly across platforms</div>
+  </div>
+  <div class="foot">
+    <span class="tc">CMW · THE NETWORK</span>
+    <span class="spacer"></span>
+    <span><b>BRANDON</b> — Founder, Creative Music Television</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 5 — THE ARTIST HUB ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;05</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">The Product</div>
+    <h2 style="font-size:42px;margin-bottom:6px">The Artist Hub</h2>
+    <p class="lede" style="font-size:20px;max-width:1000px"><span class="fill">The front door into the network</span> — where independent artists bring their catalog, get scheduled, and get broadcast across CMW's channels. <span class="mut">(Confirm the one-line description you want here.)</span></p>
+    <div class="panelbox" style="margin-top:22px">
+      <h4>Under the hood — real, running infrastructure</h4>
+      <p style="font-size:16px;color:#c9c6bf;line-height:1.5">A distribution pipeline (Python + GitHub Actions) that <b style="color:#fff">schedules and auto-publishes clips hourly</b> to Instagram and YouTube, <b style="color:#fff">dedupes</b> so nothing double-posts, and <b style="color:#fff">fail-softs</b> so the network stays live even when a credential lapses. Not a mockup — production code.</p>
+    </div>
+    <div class="pipe">
+      <div class="step"><div class="t">Catalog</div><div class="s">Artist clips come in</div><span class="arw">›</span></div>
+      <div class="step"><div class="t">Schedule</div><div class="s">Slotted into the grid</div><span class="arw">›</span></div>
+      <div class="step"><div class="t">Auto-Publish</div><div class="s">Hourly, deduped</div><span class="arw">›</span></div>
+      <div class="step"><div class="t">On Air</div><div class="s">Instagram + YouTube</div></div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="tc">CMW · THE ARTIST HUB</span>
+    <span class="spacer"></span>
+    <span class="mut">Built &amp; operated end-to-end</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 6 — ROSTER & REACH ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;06</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">Roster &amp; Reach</div>
+    <h2 style="font-size:42px;margin-bottom:18px">I don't just bring myself. I bring a pipeline and a roster.</h2>
+    <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+      <div class="kpi"><div class="n">100<small>+</small></div><div class="l">Artists within reach, ready to activate</div></div>
+      <div class="kpi"><div class="n">120<small>+</small></div><div class="l">Clips already in broadcast rotation</div></div>
+      <div class="kpi"><div class="n">2</div><div class="l">Live channels — Instagram + YouTube, with room to add more</div></div>
+    </div>
+    <ul class="list" style="margin-top:26px">
+      <li><b>Access to hundreds of artists</b> at our disposal — a network, not a résumé of one.</li>
+      <li><b>A working distribution footprint</b> across Instagram Reels and YouTube Shorts, expandable to new channels and radio.</li>
+      <li><b>Relationships + infrastructure</b> — the two hardest things to fake in this industry, already in place.</li>
+    </ul>
+  </div>
+  <div class="foot">
+    <span class="tc">CMW · ROSTER &amp; REACH</span>
+    <span class="spacer"></span>
+    <span class="mut">Roster / clip counts — confirm exact figures before sending</span>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 7 — FIT + CONTACT ===================== -->
+<section class="slide">
+  <div class="chrome">
+    <span class="mono">CMW</span>
+    <span class="wm">Creative <b>Music</b> Television</span>
+    <span class="spacer"></span>
+    <span class="onair"><span class="dot"></span>ON AIR</span>
+    <span class="chan">CH&nbsp;07</span>
+  </div>
+  <div class="stage">
+    <div class="kicker">Why Me</div>
+    <h2 style="font-size:40px;margin-bottom:18px">Built for a Music / A&amp;R + Creative role</h2>
+    <div class="split">
+      <ul class="list">
+        <li><b>A&amp;R instinct, proven</b> — built a 4M+ stream catalog and can spot and develop talent that travels.</li>
+        <li><b>Creative direction</b> — a full network brand and content franchise, shipped and on air.</li>
+        <li><b>An operator who ships</b> — designed and runs real distribution infrastructure end-to-end.</li>
+        <li><b>Network &amp; access</b> — hundreds of artists ready to activate on day one.</li>
+      </ul>
+      <div class="panelbox">
+        <h4>Contact</h4>
+        <div class="contact">
+          <div class="row"><div class="k">Email</div><div class="v">admin@creativemusictelevision.com</div></div>
+          <div class="row"><div class="k">Website</div><div class="v fill">creativemusictelevision.com</div></div>
+          <div class="row"><div class="k">Phone</div><div class="v fill">(add your number)</div></div>
+          <div class="row"><div class="k">Based in</div><div class="v fill">(add city)</div></div>
+          <div class="row"><div class="k">Instagram</div><div class="v fill">@yourhandle</div></div>
+          <div class="row"><div class="k">YouTube</div><div class="v fill">@yourchannel</div></div>
+        </div>
+        <div class="cta">Let's put the next wave of artists on air.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <span class="tc">● REC · END OF BROADCAST</span>
+    <span class="spacer"></span>
+    <span><b>BRANDON</b> — Founder, Creative Music Television</span>
+  </div>
+</section>
+
+</body>
+</html>
