@@ -60,6 +60,35 @@ def post_reel(ig_user, token, video_url, caption, cover_url=None):
     return pub.get("id")
 
 
+def post_trial_reel(ig_user, token, video_url, caption):
+    """Publish the SAME reel as a Trial Reel (non-followers only, ~72h;
+    winners auto-graduate via SS_PERFORMANCE). Never raises — a trial
+    failure must not affect the regular post."""
+    try:
+        p = {"media_type": "REELS", "video_url": video_url, "caption": caption,
+             "trial_params": json.dumps({"graduation_strategy": "SS_PERFORMANCE"}),
+             "access_token": token}
+        container = _api("POST", f"{ig_user}/media", p)["id"]
+        errors = 0
+        for _ in range(75):
+            st = _api("GET", container, {"fields": "status_code", "access_token": token})
+            code = st.get("status_code")
+            if code == "FINISHED":
+                break
+            if code in ("ERROR", "EXPIRED"):
+                errors += 1
+                if errors >= 6:
+                    print(f"  trial-twin container failed: {st}")
+                    return None
+            time.sleep(8)
+        pub = _api("POST", f"{ig_user}/media_publish",
+                   {"creation_id": container, "access_token": token})
+        return pub.get("id")
+    except Exception as e:
+        print(f"  trial-twin failed (regular post unaffected): {e}")
+        return None
+
+
 def load_rows():
     with open(CSV) as f:
         return list(csv.DictReader(f))
@@ -132,6 +161,10 @@ def main():
                     posted += 1
                     done.add(clipname(r)); save_state(done)
                     print(f"✅ {r['clip_file']} -> {mid}")
+                    if os.environ.get("TRIAL_DUPLICATE", "1") == "1":
+                        tid = post_trial_reel(ig, tok, vid, r['caption'])
+                        if tid:
+                            print(f"🧪 trial twin -> {tid}")
                 except Exception as e:
                     print(f"❌ {r['clip_file']}: {e}")
         return
