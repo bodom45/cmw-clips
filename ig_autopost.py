@@ -157,6 +157,19 @@ def main():
                 vid = f"{base}/{urllib.parse.quote(Path(r['clip_file']).name)}"
                 cov = f"{base}/{urllib.parse.quote(Path(r['cover_file']).name)}" if r.get('cover_file') else None
                 try:
+                    # DJ TRIAL-ONLY (Brandon 2026-09-02): DJ clips publish ONLY as
+                    # Trial Reels (non-followers, ~72h) until he says otherwise.
+                    # AI clips keep normal behaviour. DJ_TRIAL_ONLY=0 reverts.
+                    dj_trial = (os.environ.get("DJ_TRIAL_ONLY", "1") == "1"
+                                and clipname(r).startswith("DJ_"))
+                    if dj_trial:
+                        mid = post_trial_reel(ig, tok, vid, r['caption'])
+                        if not mid:
+                            raise RuntimeError("trial-only publish failed; retry next run")
+                        posted += 1
+                        done.add(clipname(r)); save_state(done)
+                        print(f"🧪 {r['clip_file']} -> TRIAL-ONLY {mid}")
+                        continue
                     mid = post_reel(ig, tok, vid, r['caption'], cov)
                     posted += 1
                     done.add(clipname(r)); save_state(done)
