@@ -114,16 +114,9 @@
 // ---------- Real-time pitch shifter (AudioWorklet) ----------
 // Two read heads sweep through a delay line faster or slower than it's written,
 // crossfading with Hann windows so the jumps can't be heard.
-const WORKLET = `
-class PitchShifter extends AudioWorkletProcessor {
-  static get parameterDescriptors() {
-    return [
-      { name: 'ratio', defaultValue: 2, minValue: 0.25, maxValue: 4 },
-      { name: 'windowSec', defaultValue: 0.035, minValue: 0.01, maxValue: 0.1 },
-    ];
-  }
-  constructor() {
-    super();
+class ShiftCore {
+  constructor(sr) {
+    this.sr = sr;
     this.size = 16384;
     this.buf = new Float32Array(this.size);
     this.w = 0;
@@ -136,15 +129,10 @@ class PitchShifter extends AudioWorkletProcessor {
     const a = this.buf[i % this.size], b = this.buf[(i + 1) % this.size];
     return a + (b - a) * f;
   }
-  process(inputs, outputs, params) {
-    const input = inputs[0] && inputs[0][0];
-    const out = outputs[0];
-    const n = out[0].length;
-    const ratio = params.ratio[0];
-    const W = Math.max(64, Math.floor(params.windowSec[0] * sampleRate));
+  run(input, out, ratio, windowSec) {
+    const W = Math.max(64, Math.floor(windowSec * this.sr));
     const step = (1 - ratio) / W;
-    const ch0 = out[0];
-    for (let k = 0; k < n; k++) {
+    for (let k = 0; k < out.length; k++) {
       this.buf[this.w] = input ? input[k] : 0;
       let p = this.phase + step;
       p -= Math.floor(p);
@@ -152,10 +140,26 @@ class PitchShifter extends AudioWorkletProcessor {
       const q = (p + 0.5) % 1;
       const ga = Math.sin(Math.PI * p) ** 2;
       const gb = Math.sin(Math.PI * q) ** 2;
-      ch0[k] = ga * this.read(p * W + 2) + gb * this.read(q * W + 2);
+      out[k] = ga * this.read(p * W + 2) + gb * this.read(q * W + 2);
       this.w = (this.w + 1) % this.size;
     }
-    for (let c = 1; c < out.length; c++) out[c].set(ch0);
+  }
+}
+
+const WORKLET = `
+const ShiftCore = ${ShiftCore.toString()};
+class PitchShifter extends AudioWorkletProcessor {
+  static get parameterDescriptors() {
+    return [
+      { name: 'ratio', defaultValue: 2, minValue: 0.25, maxValue: 4 },
+      { name: 'windowSec', defaultValue: 0.035, minValue: 0.01, maxValue: 0.1 },
+    ];
+  }
+  constructor() { super(); this.core = new ShiftCore(sampleRate); }
+  process(inputs, outputs, params) {
+    const out = outputs[0];
+    this.core.run(inputs[0] && inputs[0][0], out[0], params.ratio[0], params.windowSec[0]);
+    for (let c = 1; c < out.length; c++) out[c].set(out[0]);
     return true;
   }
 }
@@ -168,13 +172,48 @@ const setStatus = (msg, cls = '') => { statusEl.textContent = msg; statusEl.clas
 
 let ctx, stream, micNode, shifter, dryGain, wetGain, master, analyser, recDest;
 let rainSrc, rainGain, recorder, running = false;
+// Current shifter settings; set via setShift() so either engine can use them.
+const shift = { ratio: 2, windowSec: 0.035, set: null };
+
+async function tryWorklet() {
+  if (!window.AudioWorkletNode || !ctx.audioWorklet) return null;
+  const urls = [
+    () => URL.createObjectURL(new Blob([WORKLET], { type: 'application/javascript' })),
+    () => 'data:application/javascript;charset=utf-8,' + encodeURIComponent(WORKLET),
+  ];
+  for (const make of urls) {
+    try {
+      await ctx.audioWorklet.addModule(make());
+      const node = new AudioWorkletNode(ctx, 'pitch-shifter', { outputChannelCount: [2] });
+      shift.set = () => {
+        const t = ctx.currentTime;
+        node.parameters.get('ratio').setTargetAtTime(shift.ratio, t, 0.02);
+        node.parameters.get('windowSec').setValueAtTime(shift.windowSec, t);
+      };
+      return node;
+    } catch (e) { console.warn('Worklet load failed, trying next option', e); }
+  }
+  return null;
+}
+
+// Fallback for browsers/pages that block worklet modules.
+function scriptProcessorShifter() {
+  const core = new ShiftCore(ctx.sampleRate);
+  const node = ctx.createScriptProcessor(1024, 1, 2);
+  node.onaudioprocess = (e) => {
+    const out0 = e.outputBuffer.getChannelData(0);
+    core.run(e.inputBuffer.getChannelData(0), out0, shift.ratio, shift.windowSec);
+    e.outputBuffer.getChannelData(1).set(out0);
+  };
+  shift.set = () => {};
+  return node;
+}
 
 async function buildGraph() {
   ctx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
-  const url = URL.createObjectURL(new Blob([WORKLET], { type: 'application/javascript' }));
-  await ctx.audioWorklet.addModule(url);
+  shifter = await tryWorklet();
+  if (!shifter) shifter = scriptProcessorShifter();
 
-  shifter = new AudioWorkletNode(ctx, 'pitch-shifter', { outputChannelCount: [2] });
   // Thin out the low end a little so it sounds more cartoonish.
   const hp = new BiquadFilterNode(ctx, { type: 'highpass', frequency: 160 });
   const presence = new BiquadFilterNode(ctx, { type: 'peaking', frequency: 3500, gain: 3, Q: 0.8 });
@@ -258,8 +297,9 @@ function applyAll() {
   document.querySelectorAll('#presets button').forEach((b) => b.classList.toggle('active', +b.dataset.st === st));
   if (!ctx) return;
   const t = ctx.currentTime;
-  shifter.parameters.get('ratio').setTargetAtTime(Math.pow(2, st / 12), t, 0.02);
-  shifter.parameters.get('windowSec').setValueAtTime($('grain').value / 1000, t);
+  shift.ratio = Math.pow(2, st / 12);
+  shift.windowSec = $('grain').value / 1000;
+  shift.set();
   wetGain.gain.setTargetAtTime(mix, t, 0.02);
   dryGain.gain.setTargetAtTime(1 - mix, t, 0.02);
   master.gain.setTargetAtTime($('vol').value / 100, t, 0.02);
@@ -285,7 +325,7 @@ $('power').addEventListener('click', async () => {
     return;
   }
   try {
-    if (!navigator.mediaDevices || !window.AudioWorkletNode) throw new Error('This browser does not support live audio. Try Chrome, Edge, Firefox or Safari.');
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('This browser does not support live audio. Try Chrome, Edge, Firefox or Safari.');
     if (!ctx) await buildGraph();
     await ctx.resume();
     await connectMic();
