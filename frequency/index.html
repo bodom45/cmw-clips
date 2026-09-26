@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frequency Sessions · Gallery DeFi</title>
+<meta name="description" content="Frequency Sessions — 20 Dallas artists, one live house band, and you help pick the winner. Wed Sept 30 at Gallery DeFi.">
+<meta property="og:title" content="Frequency Sessions · Wed Sept 30 · Gallery DeFi">
+<meta property="og:description" content="20 Dallas artists. One live band. Your vote counts. Neighbors: buy one, get one free.">
+<meta property="og:image" content="img/room-performer.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ EDIT THESE ============ */
+  /* (see CONFIG in the <script> at the bottom for the checkout link + code) */
+  :root{
+    --plum:#8e1450; --plum-deep:#5e0c35; --ink:#0d0d0f; --paper:#f4f1ec;
+    --yellow:#f5ee3a; --blue:#2f7bf2; --muted:#a9a4ad; --line:rgba(255,255,255,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+  /* hero */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,15,.15) 0%,rgba(13,13,15,.35) 45%,var(--ink) 96%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:28px;width:100%}
+  .kicker{display:inline-block;background:var(--plum);color:#fff;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:4px}
+  h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(48px,13vw,112px);line-height:.9;margin:14px 0 10px;letter-spacing:.01em;text-transform:uppercase}
+  h1 span{color:var(--yellow)}
+  .when{font-size:18px;font-weight:600}
+  .when small{display:block;color:var(--muted);font-weight:400;font-size:15px}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--yellow);color:var(--ink);text-decoration:none;font-weight:800;font-size:18px;padding:18px 20px;border-radius:12px;margin-top:20px;box-shadow:0 8px 30px rgba(245,238,58,.18)}
+  .btn:active{transform:translateY(1px)}
+  .deal{margin-top:10px;font-size:14px;color:var(--muted);text-align:center}
+  .deal b{color:var(--paper)}
+  .code{font-family:ui-monospace,Menlo,monospace;background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.35);padding:2px 8px;border-radius:6px;color:var(--yellow);font-weight:700;letter-spacing:.05em}
+
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  h2{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;font-size:36px;line-height:1;margin:0 0 16px;letter-spacing:.01em}
+  p{margin:0 0 14px;font-size:17px}
+  .lede{font-size:19px}
+
+  .steps{display:grid;gap:12px;margin:18px 0 0;padding:0;list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;background:#17161a;border:1px solid var(--line);border-radius:12px;padding:16px 16px 16px 58px;position:relative}
+  .steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--plum);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
+  .steps b{display:block;font-size:17px}
+  .steps span{color:var(--muted);font-size:15px}
+
+  .vote{background:var(--plum);border-radius:16px;padding:22px 18px;margin-top:22px}
+  .vote h3{margin:0 0 8px;font-size:20px}
+  .split{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:14px 0 8px;background:rgba(0,0,0,.25)}
+  .split i{display:block}
+  .split .j{width:70%;background:rgba(255,255,255,.35)}
+  .split .c{width:30%;background:var(--yellow)}
+  .legend{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+  .legend .c{color:var(--yellow)}
+
+  .prize{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+  .prize div{background:#17161a;border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;font-size:14px;color:var(--muted)}
+  .prize strong{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:26px;color:var(--paper);line-height:1.1}
+
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+  .gallery figure{margin:0;border-radius:12px;overflow:hidden;background:#17161a}
+  .gallery img{width:100%;height:100%;object-fit:cover}
+  .gallery .tall{grid-row:span 2}
+  .gallery .wide{grid-column:span 2;aspect-ratio:720/230}
+  .gallery .sq{aspect-ratio:1/1}
+
+  .details{display:grid;gap:10px;margin-top:4px}
+  .row{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row dt{flex:0 0 76px;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .row dd{margin:0;font-weight:600}
+  .row dd a{color:var(--yellow)}
+
+  .final{padding:48px 0 72px;text-align:center}
+  footer{color:var(--muted);font-size:13px;text-align:center;padding:0 16px 40px}
+  footer a{color:var(--paper)}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(13,13,15,0),rgba(13,13,15,.95) 35%);transform:translateY(110%);transition:transform .25s ease;z-index:10}
+  .sticky.on{transform:none}
+  .sticky .btn{margin:0 auto;max-width:688px;padding:15px 18px;font-size:16px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/room-performer.jpg" alt="The typography room at Gallery DeFi, a performer mid-move">
+  <div class="wrap">
+    <span class="kicker">Creative Music Television presents</span>
+    <h1>Frequency<br><span>Sessions</span></h1>
+    <div class="when">Wednesday, Sept 30 · Doors 7 PM
+      <small>Gallery DeFi · 2200 Evanston Ave, Dallas</small></div>
+    <a class="btn js-checkout" href="#">Get tickets — buy 1, get 1 free →</a>
+    <div class="deal js-deal">Neighbor deal applies automatically at checkout. Code <span class="code js-code"></span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>What is this?</h2>
+    <p class="lede">A live music competition inside a 16,000 sq ft art gallery. <b>20 Dallas artists</b>, one song each, all backed by the same live house band — Tiny Desk style, no backing tracks.</p>
+    <p>You walk the gallery, catch sets on five stages, and at the end of the night <b>you help decide who moves on.</b></p>
+
+    <ul class="steps">
+      <li><b>Pull up at 7</b><span>Doors open, drinks, art. Sets run 7:30–11 PM.</span></li>
+      <li><b>Watch 20 artists go head to head</b><span>4 minutes each, live with the band, plus a quick interview with the host.</span></li>
+      <li><b>Vote for your favorite</b><span>Your ticket is your vote. The crowd picks alongside the judges.</span></li>
+      <li><b>Top 4 go to the Finale</b><span>Announced the next day at noon on <a href="https://instagram.com/creativemusictelevision">@creativemusictelevision</a>.</span></li>
+    </ul>
+
+    <div class="vote">
+      <h3>Your vote actually counts.</h3>
+      <p style="margin:0;font-size:16px">The winners aren't picked in a back room. The live crowd carries almost a third of the score.</p>
+      <div class="split"><i class="j"></i><i class="c"></i></div>
+      <div class="legend"><span>Judges 70%</span><span class="c">You, the crowd 30%</span></div>
+    </div>
+
+    <div class="prize">
+      <div><strong>$1,000</strong>cash</div>
+      <div><strong>Music video</strong>fully directed</div>
+      <div><strong>Promo</strong>push on next single</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The room</h2>
+    <p>Gallery DeFi is one of the most visually wild spaces in Dallas — walls, floors and ceilings covered in work from renowned and local artists.</p>
+    <div class="gallery">
+      <figure class="tall"><img src="img/room.jpg" alt="Hand-lettered typography covering the walls and floor of a Gallery DeFi room"></figure>
+      <figure class="sq"><img src="img/art-floor.jpg" alt="Performers in costume on the gallery floor in front of a painted mural"></figure>
+      <figure class="sq" style="background:var(--plum);display:grid;place-items:center;padding:14px;text-align:center"><div style="font-family:Anton,Impact,sans-serif;font-size:26px;line-height:1.05;text-transform:uppercase">16,000<br>sq ft<br><span style="color:var(--yellow)">5 stages</span></div></figure>
+      <figure class="wide"><img src="img/crowd.jpg" alt="A packed crowd at a Gallery DeFi event"></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>The details</h2>
+    <dl class="details">
+      <div class="row"><dt>When</dt><dd>Wednesday, September 30<br>Doors 7:00 PM · Show 7:30–11:00 PM</dd></div>
+      <div class="row"><dt>Where</dt><dd><a href="https://maps.google.com/?q=2200+Evanston+Ave,+Dallas,+TX+75208">Gallery DeFi<br>2200 Evanston Ave, Dallas, TX 75208</a></dd></div>
+      <div class="row"><dt>Deal</dt><dd class="js-dealtext">Neighbors: buy one ticket, get one free.</dd></div>
+    </dl>
+  </section>
+
+  <section class="final">
+    <h2>Bring a neighbor.<br><span style="color:var(--yellow)">Pick a winner.</span></h2>
+    <a class="btn js-checkout" href="#">Get tickets — buy 1, get 1 free →</a>
+    <div class="deal">Code <span class="code js-code"></span> is already applied when you tap through.</div>
+  </section>
+
+</main>
+
+<footer>
+  Presented by Creative Music Television · <a href="https://instagram.com/creativemusictelevision">@creativemusictelevision</a><br>
+  Questions? <a href="mailto:admin@creativemusictelevision.com">admin@creativemusictelevision.com</a>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn js-checkout" href="#">Get tickets — buy 1, get 1 free →</a></div>
+
+<script>
+  // ============ CONFIG — the only two lines you need to touch ============
+  var CONFIG = {
+    // Your Stripe Payment Link for Frequency Sessions tickets (buy.stripe.com/...)
+    checkoutUrl: "https://buy.stripe.com/REPLACE_WITH_TICKET_LINK",
+    // The Stripe promotion code for the neighbor BOGO deal
+    promoCode: "NEIGHBOR"
+  };
+  // A different code can ride in on the QR: .../frequency/?code=MAPLEBOGO
+  // ======================================================================
+
+  (function(){
+    var qs = new URLSearchParams(location.search);
+    var code = (qs.get("code") || CONFIG.promoCode || "").trim().toUpperCase();
+    var url = CONFIG.checkoutUrl;
+    if (code) url += (url.indexOf("?") > -1 ? "&" : "?") + "prefilled_promo_code=" + encodeURIComponent(code);
+
+    document.querySelectorAll(".js-checkout").forEach(function(a){ a.href = url; });
+    document.querySelectorAll(".js-code").forEach(function(el){ el.textContent = code; });
+    if (!code) document.querySelectorAll(".js-deal").forEach(function(el){ el.style.display = "none"; });
+
+    var sticky = document.getElementById("sticky");
+    var hero = document.querySelector(".hero .btn");
+    var last = document.querySelector(".final .btn");
+    function onScroll(){
+      var h = hero.getBoundingClientRect(), f = last.getBoundingClientRect();
+      var show = h.bottom < 0 && f.top > window.innerHeight;
+      sticky.classList.toggle("on", show);
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+</body>
+</html>
