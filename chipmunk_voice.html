@@ -45,18 +45,43 @@
   .tip { font-size: 14px; color: var(--muted); }
   .rec { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .rec a { color: var(--accent); }
+  .field { display: grid; gap: 4px; margin: 10px 0; font-size: 14px; color: var(--muted); }
+  select {
+    font: inherit; font-size: 15px; color: var(--text); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px; width: 100%;
+  }
+  .meters { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; margin: 6px 0 12px; }
+  .meter { font-size: 12px; color: var(--muted); }
+  .meter .bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin-top: 3px; }
+  .meter .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 60ms linear; }
+  .meter.on { color: var(--text); font-weight: 600; }
   h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 8px; }
 </style>
 </head>
 <body>
 <main>
   <h1>🐿️ Chipmunk Voice</h1>
-  <p class="sub">Sing into your mic and hear yourself as a chipmunk through your speakers, live.</p>
+  <p class="sub">Sing into your mic (straight in or through your Rane) and hear yourself as a chipmunk through your speakers, live.</p>
 
   <div class="panel">
     <button id="power" class="primary">🎤 Start singing</button>
     <div id="status" class="status">Click start, then allow microphone access.</div>
     <canvas id="scope" width="1040" height="180" aria-label="Live waveform"></canvas>
+  </div>
+
+  <div class="panel">
+    <h2>Audio gear</h2>
+    <label class="field">Mic input (pick your Rane if your mic is plugged into it)
+      <select id="inDev"><option value="">System default</option></select>
+    </label>
+    <label class="field">Input channel (sing and pick the one whose meter moves)
+      <select id="inCh"><option value="0,1">1 + 2</option></select>
+    </label>
+    <div id="meters" class="meters"></div>
+    <label class="field">Play chipmunk voice through
+      <select id="outDev"><option value="">System default</option></select>
+    </label>
+    <p class="tip">Device names show up after you click Start and allow the mic. To hear the chipmunk through the speakers on your Rane, set the output to the Rane and switch a mixer channel's input to USB / PC. If you hear your normal voice too, that's the Rane sending the mic straight to the speakers, so turn the mic down in the mixer's main mix.</p>
   </div>
 
   <div class="panel">
@@ -83,15 +108,6 @@
     <label class="row">Smoothness
       <input id="grain" type="range" min="15" max="80" step="1" value="35">
       <span class="val" id="grainVal">35 ms</span>
-    </label>
-  </div>
-
-  <div class="panel">
-    <h2>Rain</h2>
-    <div class="check"><input type="checkbox" id="rainOn"><label for="rainOn">🌧️ Sing in the rain (rain sounds in the background)</label></div>
-    <label class="row">Rain level
-      <input id="rainVol" type="range" min="0" max="100" step="1" value="35">
-      <span class="val" id="rainVal">35%</span>
     </label>
   </div>
 
@@ -171,7 +187,11 @@ const statusEl = $('status');
 const setStatus = (msg, cls = '') => { statusEl.textContent = msg; statusEl.className = 'status ' + cls; };
 
 let ctx, stream, micNode, shifter, dryGain, wetGain, master, analyser, recDest;
-let rainSrc, rainGain, recorder, running = false;
+let splitter, micIn, chanMeters = [], outEl, recorder, running = false;
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
 // Current shifter settings; set via setShift() so either engine can use them.
 const shift = { ratio: 2, windowSec: 0.035, set: null };
 
@@ -230,18 +250,16 @@ async function buildGraph() {
   master.connect(ctx.destination);
   master.connect(analyser);
   master.connect(recDest);
-
-  rainGain = new GainNode(ctx, { gain: 0 });
-  rainGain.connect(ctx.destination);
-  rainGain.connect(recDest);
-  startRain();
   applyAll();
 }
 
 async function connectMic() {
   const speaker = $('speakerMode').checked;
+  const devId = $('inDev').value;
   stream = await navigator.mediaDevices.getUserMedia({
     audio: {
+      deviceId: devId ? { exact: devId } : undefined,
+      channelCount: { ideal: 8 },
       echoCancellation: speaker,
       noiseSuppression: speaker,
       autoGainControl: false,
@@ -249,40 +267,109 @@ async function connectMic() {
     },
   });
   micNode = ctx.createMediaStreamSource(stream);
-  micNode.connect(shifter);
-  micNode.connect(dryGain);
+  const n = Math.max(1, stream.getAudioTracks()[0].getSettings().channelCount || 2);
+  splitter = ctx.createChannelSplitter(n);
+  micIn = new GainNode(ctx, { channelCount: 1, channelCountMode: 'explicit', channelInterpretation: 'discrete' });
+  micNode.connect(splitter);
+  micIn.connect(shifter);
+  micIn.connect(dryGain);
+
+  // One level meter per input channel so you can see where the mic lands.
+  chanMeters = [];
+  $('meters').replaceChildren();
+  for (let k = 0; k < n; k++) {
+    const an = new AnalyserNode(ctx, { fftSize: 512 });
+    splitter.connect(an, k);
+    const el = document.createElement('div');
+    el.className = 'meter';
+    el.innerHTML = `Ch ${k + 1}<div class="bar"><i></i></div>`;
+    $('meters').append(el);
+    chanMeters.push({ an, el, fill: el.querySelector('i'), data: new Float32Array(512) });
+  }
+
+  const want = $('inCh').value || store.get('chipmunk.ch');
+  $('inCh').replaceChildren();
+  if (n >= 2) $('inCh').add(new Option('1 + 2 (both)', '0,1'));
+  for (let k = 0; k < n; k++) $('inCh').add(new Option(`Channel ${k + 1}`, String(k)));
+  if (want && [...$('inCh').options].some((o) => o.value === want)) $('inCh').value = want;
+  routeChannel();
+}
+
+function routeChannel() {
+  if (!splitter) return;
+  try { splitter.disconnect(micIn); } catch {} // throws if nothing was connected yet
+  const chans = $('inCh').value.split(',').map(Number);
+  chans.forEach((k) => splitter.connect(micIn, k));
+  micIn.gain.value = 1 / chans.length;
+  chanMeters.forEach((m, k) => m.el.classList.toggle('on', chans.includes(k)));
 }
 
 function disconnectMic() {
-  if (micNode) micNode.disconnect();
+  [micNode, splitter, micIn, ...chanMeters.map((m) => m.an)].forEach((n) => n && n.disconnect());
   if (stream) stream.getTracks().forEach((t) => t.stop());
-  micNode = stream = null;
+  micNode = stream = splitter = micIn = null;
+  chanMeters = [];
 }
 
-// ---------- Rain: filtered noise plus random droplets ----------
-function startRain() {
-  const len = ctx.sampleRate * 4;
-  const buf = ctx.createBuffer(2, len, ctx.sampleRate);
-  for (let c = 0; c < 2; c++) {
-    const d = buf.getChannelData(c);
-    let b0 = 0, b1 = 0, b2 = 0;
-    for (let i = 0; i < len; i++) {
-      const white = Math.random() * 2 - 1;
-      b0 = 0.99765 * b0 + white * 0.099;
-      b1 = 0.963 * b1 + white * 0.2965;
-      b2 = 0.57 * b2 + white * 1.0527;
-      d[i] = (b0 + b1 + b2 + white * 0.1848) * 0.12;
-      if (Math.random() < 0.0009) {
-        const amp = 0.2 + Math.random() * 0.5;
-        for (let j = 0; j < 300 && i + j < len; j++) d[i + j] += amp * Math.exp(-j / 40) * (Math.random() * 2 - 1);
-      }
-    }
+// ---------- Devices ----------
+function fillDevices(sel, list, key, pickRane) {
+  const prev = sel.value || store.get(key) || '';
+  sel.replaceChildren(new Option('System default', ''));
+  list.forEach((d, i) => {
+    if (d.deviceId && d.deviceId !== 'default') sel.add(new Option(d.label || `Device ${i + 1}`, d.deviceId));
+  });
+  const opts = [...sel.options];
+  if (opts.some((o) => o.value === prev)) sel.value = prev;
+  else if (pickRane) {
+    const rane = opts.find((o) => /rane/i.test(o.text));
+    if (rane) sel.value = rane.value;
   }
-  rainSrc = new AudioBufferSourceNode(ctx, { buffer: buf, loop: true });
-  const lp = new BiquadFilterNode(ctx, { type: 'lowpass', frequency: 5500 });
-  const hp = new BiquadFilterNode(ctx, { type: 'highpass', frequency: 300 });
-  rainSrc.connect(hp).connect(lp).connect(rainGain);
-  rainSrc.start();
+}
+
+async function refreshDevices() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) return;
+  const devs = await navigator.mediaDevices.enumerateDevices();
+  fillDevices($('inDev'), devs.filter((d) => d.kind === 'audioinput'), 'chipmunk.in', true);
+  fillDevices($('outDev'), devs.filter((d) => d.kind === 'audiooutput'), 'chipmunk.out', false);
+  const canPickOut = 'setSinkId' in (window.AudioContext || function () {}).prototype || 'setSinkId' in HTMLMediaElement.prototype;
+  if (!canPickOut) {
+    $('outDev').replaceChildren(new Option('System default (change it in your computer\'s sound settings)', ''));
+    $('outDev').disabled = true;
+  }
+}
+
+async function setOutput() {
+  const id = $('outDev').value;
+  if (!ctx) return;
+  if (ctx.setSinkId) { await ctx.setSinkId(id); return; }
+  if (!id && !outEl) return;
+  // Older browsers: play through an <audio> element, which can pick a device.
+  if (!outEl) {
+    const d = ctx.createMediaStreamDestination();
+    master.disconnect(ctx.destination);
+    master.connect(d);
+    outEl = new Audio();
+    outEl.srcObject = d.stream;
+    await outEl.play();
+  }
+  if (outEl.setSinkId) await outEl.setSinkId(id);
+}
+
+$('inDev').addEventListener('change', async () => {
+  store.set('chipmunk.in', $('inDev').value);
+  if (!running) return;
+  disconnectMic();
+  try { await connectMic(); setStatus('Switched mic input.', 'ok'); }
+  catch (err) { setStatus('Could not open that input: ' + err.message, 'err'); }
+});
+$('inCh').addEventListener('change', () => { store.set('chipmunk.ch', $('inCh').value); routeChannel(); });
+$('outDev').addEventListener('change', async () => {
+  store.set('chipmunk.out', $('outDev').value);
+  try { await setOutput(); if (running) setStatus('Switched output.', 'ok'); }
+  catch (err) { setStatus('Could not play through that output: ' + err.message, 'err'); }
+});
+if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {
+  navigator.mediaDevices.addEventListener('devicechange', () => refreshDevices().catch(() => {}));
 }
 
 // ---------- Controls ----------
@@ -293,7 +380,6 @@ function applyAll() {
   $('mixVal').textContent = Math.round(mix * 100) + '%';
   $('volVal').textContent = $('vol').value + '%';
   $('grainVal').textContent = $('grain').value + ' ms';
-  $('rainVal').textContent = $('rainVol').value + '%';
   document.querySelectorAll('#presets button').forEach((b) => b.classList.toggle('active', +b.dataset.st === st));
   if (!ctx) return;
   const t = ctx.currentTime;
@@ -303,9 +389,8 @@ function applyAll() {
   wetGain.gain.setTargetAtTime(mix, t, 0.02);
   dryGain.gain.setTargetAtTime(1 - mix, t, 0.02);
   master.gain.setTargetAtTime($('vol').value / 100, t, 0.02);
-  rainGain.gain.setTargetAtTime($('rainOn').checked ? ($('rainVol').value / 100) * 0.6 : 0, t, 0.1);
 }
-['pitch', 'mix', 'vol', 'grain', 'rainVol', 'rainOn'].forEach((id) => $(id).addEventListener('input', applyAll));
+['pitch', 'mix', 'vol', 'grain'].forEach((id) => $(id).addEventListener('input', applyAll));
 $('presets').addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
@@ -329,6 +414,8 @@ $('power').addEventListener('click', async () => {
     if (!ctx) await buildGraph();
     await ctx.resume();
     await connectMic();
+    await refreshDevices();
+    await setOutput().catch((e) => console.warn('Output selection failed', e));
     running = true;
     $('power').textContent = '⏹ Stop';
     $('recBtn').disabled = false;
@@ -390,10 +477,18 @@ function draw() {
     i ? g.lineTo(x, y) : g.moveTo(x, y);
   }
   g.stroke();
+  for (const m of chanMeters) {
+    m.an.getFloatTimeDomainData(m.data);
+    let sum = 0;
+    for (const v of m.data) sum += v * v;
+    const db = 20 * Math.log10(Math.sqrt(sum / m.data.length) + 1e-9);
+    m.fill.style.width = Math.max(0, Math.min(100, (db + 60) / 60 * 100)) + '%';
+  }
   requestAnimationFrame(draw);
 }
 
 applyAll();
+refreshDevices().catch(() => {});
 </script>
 </body>
 </html>
