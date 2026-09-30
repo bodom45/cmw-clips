@@ -7,7 +7,7 @@
 <meta name="description" content="Kyran Woods — event recaps, artist content and interviews. Shot and edited for creators and brands.">
 <meta property="og:title" content="Kyran Woods — Video Portfolio">
 <meta property="og:description" content="Event recaps, artist content and interviews.">
-<meta property="og:image" content="/media/hero.jpg">
+<meta property="og:image" content="media/hero.jpg">
 <meta name="theme-color" content="#0b0a09">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,7 +121,7 @@
     </div>
   </div>
   <div class="phone">
-    <video src="/media/hero.mp4" poster="/media/hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Kyran Woods showreel montage"></video>
+    <video src="media/hero.mp4" poster="media/hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Kyran Woods showreel montage"></video>
   </div>
 </header>
 
@@ -179,8 +179,8 @@
   for (const w of WORK) {
     const b = document.createElement("button");
     b.className = "card"; b.type = "button";
-    b.innerHTML = `<div class="thumb"><img src="/media/${w.id}.jpg" alt="" loading="lazy">
-        <video muted loop playsinline preload="none" src="/media/${w.id}.mp4"></video><span class="play"></span></div>
+    b.innerHTML = `<div class="thumb"><img src="media/${w.id}.jpg" alt="" loading="lazy">
+        <video muted loop playsinline preload="none" src="media/${w.id}.mp4"></video><span class="play"></span></div>
       <div class="meta"><div class="client">${w.client}</div><h3>${w.title}</h3><div class="type">${w.type}</div></div>`;
     const pv = b.querySelector("video");
     b.addEventListener("mouseenter", () => pv.play().catch(()=>{}));
@@ -191,7 +191,7 @@
 
   const lb = document.getElementById("lb"), lbv = document.getElementById("lbv");
   function openLb(w){
-    lbv.src = `/media/${w.id}.mp4`; lbv.poster = `/media/${w.id}.jpg`;
+    lbv.src = `media/${w.id}.mp4`; lbv.poster = `media/${w.id}.jpg`;
     document.getElementById("lbt").textContent = `${w.client} — ${w.title}`;
     lb.showModal(); lbv.play().catch(()=>{});
   }
