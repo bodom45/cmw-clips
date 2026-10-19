@@ -1,4 +1,4 @@
-<title>CMW Automation Portfolio</title>
+<title>Brandon Odom Systems Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -40,8 +40,87 @@ footer{font:400 .85rem var(--mono);color:var(--muted)}
 
 <div class="wrap">
 <header>
-  <div class="eyebrow"><i class="onair"></i>Live in production since June 2026</div>
-  <h1>Creative Music Television: automated content pipeline</h1>
+  <div class="eyebrow"><i class="onair"></i>AI automation · Dallas, TX</div>
+  <h1>Production AI systems I've designed, built and run</h1>
+  <p class="lede">An AI outreach platform used by multiple organizations, a Claude-powered operating console, a music-marketing app with built-in payments, and an automated publishing pipeline. Every one of them is live and used to run Creative Music Television and Area 51 Radio.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>System</th><th>What it does</th><th>Live</th></tr></thead>
+    <tbody>
+      <tr><td>Orbit</td><td>Finds Instagram leads and runs DM outreach, with an AI agent that handles replies</td><td><a href="https://dmoutreachtool.vercel.app">dmoutreachtool.vercel.app</a></td></tr>
+      <tr><td>The Captain's HQ</td><td>Claude-powered operating console that rebuilds itself every morning</td><td><a href="https://area51hq.vercel.app">area51hq.vercel.app</a></td></tr>
+      <tr><td>The Motion Hub</td><td>Music marketing app for artists, with Stripe payments and scheduled jobs</td><td><a href="https://area51radio-artist-hub.vercel.app">area51radio-artist-hub.vercel.app</a></td></tr>
+      <tr><td>Grant Radar</td><td>Ranks grant opportunities and explains each score</td><td><a href="https://cmt-grant-radar.vercel.app">cmt-grant-radar.vercel.app</a></td></tr>
+      <tr><td>CMW Autopost</td><td>Publishes Instagram Reels and YouTube Shorts from a content calendar</td><td>Runs every hour</td></tr>
+    </tbody>
+  </table></div>
+</header>
+
+<section>
+  <div class="eyebrow">Orbit</div>
+  <h2>AI outreach platform with an AI agent that handles replies</h2>
+  <p>Software used by several separate organizations, each seeing only its own data. Orbit scrapes Instagram leads and personalizes and queues DMs, then runs follow-ups. When someone replies, Claude reads it and drafts or sends an answer. Every week, a model rewrites the outreach copy based on what got responses. The sending queue checks for duplicates in four separate ways, retries with growing delays, and cancels stale messages after 48 hours.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  UI[React dashboard] --> SB[(Supabase Postgres<br/>24 tables, per-org access rules)]
+  SC[Lead scraper<br/>Apify] --> SB
+  CB[AI campaign builder<br/>Claude Sonnet] --> SB
+  SB --> Q[DM queue<br/>4 duplicate checks, 3 retries]
+  Q --> S[Senders<br/>Graph API, workers, Chrome extension]
+  S --> IG[Instagram]
+  IG --> IN[Inbox sync]
+  IN --> AC[AI reply agent<br/>Claude Haiku]
+  AC --> S
+  SB --> OPT[Weekly copy rewrite<br/>LLM] --> SB
+  </pre></div>
+  <div class="stats">
+    <div class="stat"><b>19</b><span>serverless edge functions</span></div>
+    <div class="stat"><b>24</b><span>tables with per-org access rules</span></div>
+    <div class="stat"><b>2,584</b><span>leads in one org's pipeline</span></div>
+    <div class="stat"><b>31k+</b><span>industry contacts loaded in</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">The Captain's HQ</div>
+  <h2>A Claude console that knows the business</h2>
+  <p>A private console that opens with the day's most important task, plus posting status, email sequences, projects and the outreach pipeline. The built-in Claude chat streams its answers and keeps the full business background on hand without resending it each time, using prompt caching. It can look up live data and has hourly and monthly usage limits. Every morning at 6:00 a scheduled job rebuilds that background, runs the tests, deploys, and shows a warning on the console if the data is out of date.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  L((Daily 6:00 job)) --> B[Business context build<br/>memory, campaigns, leads]
+  B --> T[Tests: 77 cases] --> D[Vercel deploy]
+  D --> APP[Next.js console<br/>passcode-protected]
+  APP --> API[Chat API<br/>limit 40/hr, 1,500/mo]
+  API --> C[Claude<br/>streaming, prompt caching]
+  C -->|tool calls| PC[(Post Control DB)]
+  C -->|tool calls| PJ[Projects]
+  C --> APP
+  </pre></div>
+</section>
+
+<section>
+  <div class="eyebrow">The Motion Hub</div>
+  <h2>Music marketing app for independent artists</h2>
+  <p>Artists use it to generate pitches and captions with AI and search a database of thousands of industry contacts. They can also plan releases, set up smart links and pre-saves, build press kits and manage ads. Payments run through Stripe credit packs and subscriptions. Scheduled jobs sync new opportunities every day and tune ad campaigns every 6 hours.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  U[Next.js app] --> A[NextAuth] --> R[53 API routes]
+  R --> P[(Prisma + Postgres<br/>28 models)]
+  R --> AI[OpenAI, HeyGen]
+  R --> EXT[Spotify, TikTok, Meta, Eventbrite]
+  R --> ST[Stripe credits and plans]
+  CR((Scheduled jobs)) --> R
+  </pre></div>
+</section>
+
+<section>
+  <div class="eyebrow">Grant Radar</div>
+  <h2>Grant matching you can explain</h2>
+  <p>Scores about 32 music, media and arts grants against the company's profile across 8 weighted categories. Each match shows why it scored the way it did, and each grant comes with a starting draft of the application. An AI step that searches the web for new grants is planned next.</p>
+</section>
+
+<section>
+  <div class="eyebrow">CMW Autopost</div>
+  <h2>Automated content publishing</h2>
   <p class="lede">A hands-off publishing system I designed and run. It takes a library of short-form music, DJ and AI clips, follows a content calendar, and publishes Instagram Reels and YouTube Shorts on schedule with no one touching it. It recovers from errors and keeps a record of everything it posts.</p>
   <div class="stats">
     <div class="stat"><b>260+</b><span>Reels published automatically</span></div>
@@ -49,11 +128,10 @@ footer{font:400 .85rem var(--mono);color:var(--muted)}
     <div class="stat"><b>24/7</b><span>runs every hour on a schedule</span></div>
     <div class="stat"><b>0</b><span>servers to maintain</span></div>
   </div>
-</header>
+</section>
 
 <section>
-  <div class="eyebrow">System 1</div>
-  <h2>End-to-end publishing flow</h2>
+  <h3>End-to-end publishing flow</h3>
   <p>A scheduled GitHub Actions job wakes up every hour. It reads the content calendar, works out which posts are due in Central time, and publishes up to a set number per run so a backlog never floods the feed. Each finished post is saved back to the repo, so the system never posts the same clip twice.</p>
   <div class="diagram"><pre class="mermaid">
 flowchart LR
@@ -70,8 +148,7 @@ flowchart LR
 </section>
 
 <section>
-  <div class="eyebrow">System 2</div>
-  <h2>Reliable Instagram Reels publishing</h2>
+  <h3>Reliable Instagram Reels publishing</h3>
   <p>Instagram processes video in the background and sometimes reports an error before it finishes. The publisher waits through that instead of giving up, and only fails a post after repeated errors. A failed post is retried on the next hourly run.</p>
   <div class="diagram"><pre class="mermaid">
 sequenceDiagram
@@ -89,8 +166,7 @@ sequenceDiagram
 </section>
 
 <section>
-  <div class="eyebrow">System 3</div>
-  <h2>Cross-posting to YouTube Shorts</h2>
+  <h3>Cross-posting to YouTube Shorts</h3>
   <p>Rows marked for YouTube are reposted as Shorts. The uploader swaps its saved login for a fresh access token each run, downloads the clip from where it's hosted, turns the Instagram caption into a YouTube title, and uploads in one step. A separate setup script handles the one-time Google login.</p>
   <div class="diagram"><pre class="mermaid">
 flowchart LR
@@ -121,13 +197,16 @@ flowchart LR
   <div class="eyebrow">What this shows</div>
   <h2>Skills used</h2>
   <ul>
+    <li>Building agentic AI in production: Claude tool use, streaming, prompt caching, usage limits, and switching between Claude and GPT models</li>
+    <li>Multi-tenant SaaS on Supabase: per-org access rules, 19 edge functions, queues, deduplication and retries</li>
+    <li>Payments and subscriptions with Stripe, plus scheduled jobs on Vercel</li>
     <li>Designing systems that run without servers, using scheduled CI jobs, controlled concurrency and saved state</li>
     <li>Building on third-party APIs: Meta Graph (Reels), YouTube Data v3, Google OAuth 2.0</li>
     <li>Building for reliability: retries, tolerance for brief errors, per-run limits and duplicate protection</li>
     <li>Keeping secrets safe (tokens stored in GitHub Secrets) and handling time zones correctly</li>
     <li>Running content operations at scale, from a large clip library to a dated multi-platform calendar</li>
   </ul>
-  <div class="tags"><span class="tag">Python 3.12</span><span class="tag">GitHub Actions</span><span class="tag">Instagram Graph API</span><span class="tag">YouTube Data API</span><span class="tag">OAuth 2.0</span><span class="tag">Cron scheduling</span><span class="tag">AI content</span></div>
+  <div class="tags"><span class="tag">Claude API</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Stripe</span><span class="tag">Vercel</span><span class="tag">Python 3.12</span><span class="tag">GitHub Actions</span><span class="tag">Instagram Graph API</span><span class="tag">YouTube Data API</span><span class="tag">OAuth 2.0</span><span class="tag">Cron scheduling</span><span class="tag">AI content</span></div>
 </section>
 
 <footer>Creative Music Television · Dallas, TX · Code available on request</footer>
