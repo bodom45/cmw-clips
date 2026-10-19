@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: '47 11 * * *'   # ~6:47am Central, daily
   workflow_dispatch: {}
+  push:
+    branches: [claude/linkedin-job-search-0r7a3z]
+    paths: [jobhunt/companies.json, jobhunt/find_jobs.py, .github/workflows/jobhunt.yml]
 permissions:
   contents: write
 concurrency: jobhunt
