@@ -1,0 +1,82 @@
+<title>Brandon Odom Resume</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: single US-letter page, white, name band then two-column body (experience left, skills right) */
+:root{--bg:#ffffff;--fg:#14181f;--muted:#566070;--line:#dfe3e8;--accent:#c8321c;
+  --display:"Archivo",system-ui,sans-serif;--body:"Source Serif 4",Georgia,serif;color-scheme:light}
+@page{size:letter;margin:0.5in}
+body{background:var(--bg);color:var(--fg);font:10pt/1.42 var(--body)}
+.page{max-width:7.5in;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px;display:grid;gap:14px}
+@media print{.page{padding:0}}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.15}
+h1{font-size:24pt;font-weight:800;letter-spacing:-.01em}
+.role{font:600 11pt var(--display);color:var(--accent)}
+.contact{font:9pt var(--display);color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
+.contact a{color:inherit;text-decoration:none}
+p{margin:0}
+h2{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:3px;margin-bottom:6px}
+.cols{display:grid;grid-template-columns:1fr 2.1in;gap:22px}
+.cols>*{min-width:0;display:grid;gap:12px;align-content:start}
+.job{display:grid;gap:3px}
+.job h3{font-size:10.5pt;font-weight:700;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.job h3 span{font-weight:500;color:var(--muted);font-size:9pt}
+.sub{font:9pt var(--display);color:var(--muted)}
+ul{margin:0;padding-left:1.05em;display:grid;gap:2px}
+.side ul{list-style:none;padding:0}
+.side li{font-size:9.3pt}
+.side b{font-family:var(--display);font-size:8.5pt;font-weight:600}
+@media(max-width:620px){.cols{grid-template-columns:1fr}}
+</style>
+
+<div class="page">
+<header>
+  <h1>Brandon Odom</h1>
+  <div class="role">AI Automation Engineer · Agentic Systems · Founder</div>
+  <div class="contact"><span>Dallas, TX</span><span>brandon.niles.odom@gmail.com</span><a href="https://github.com/bodom45">github.com/bodom45</a><a href="https://area51hq.vercel.app">area51hq.vercel.app</a></div>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p>I've spent years building automation and now design, ship and run AI systems in production. They include a platform used by several separate organizations, Claude agents that use live tools, and scheduled pipelines that run with no one watching them. I run each one end to end, from database design and API integrations to deploys, cost limits and failure recovery, and they handle real business work every day at Creative Music Television and Area 51 Radio.</p>
+</section>
+
+<div class="cols">
+<div>
+  <section>
+    <h2>Experience</h2>
+    <div class="job">
+      <h3>Founder &amp; Lead Automation Engineer <span>Dallas, TX</span></h3>
+      <div class="sub">Creative Music Television (CTV) · Area 51 Radio</div>
+      <ul>
+        <li><b>Orbit, AI outreach platform:</b> built software for several organizations, each seeing only its own data, on Supabase (24 tables with access rules and 19 edge functions). It scrapes leads, sends personalized DMs from a queue that checks for duplicates and retries, and uses a Claude agent that reads and answers replies. A model rewrites the outreach copy every week. It manages 2,584 leads and 31k+ industry contacts.</li>
+        <li><b>The Captain's HQ, Claude operations console:</b> a Next.js app where Claude uses live tools, streams its answers and keeps business context on hand with prompt caching, under hourly and monthly usage limits. A job rebuilds its context, runs 77 tests and redeploys every morning.</li>
+        <li><b>CMW Autopost:</b> a pipeline on scheduled GitHub Actions jobs that has published 260+ Instagram Reels and YouTube Shorts from a 350-clip library. It runs every hour, retries when the platform reports temporary errors, keeps a record of posts so nothing goes out twice, and needs no servers.</li>
+        <li><b>The Motion Hub:</b> a music marketing app for artists, built with Next.js and Prisma (28 data models, 53 API routes). It includes Stripe credit packs and subscriptions, connects to OpenAI, HeyGen, Spotify, TikTok and Meta, and runs scheduled jobs that tune ad campaigns.</li>
+        <li><b>Grant Radar:</b> scores grant opportunities against the company's profile across 8 weighted categories, explains each score, and drafts the start of each application.</li>
+        <li>Lead a production team and a paid media internship program. Our content has reached 1M+ organic views.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<aside class="side">
+  <section>
+    <h2>AI &amp; Agents</h2>
+    <ul><li>Claude API: tool use, streaming, prompt caching</li><li>Switching between Claude and GPT models</li><li>AI agents that answer messages</li><li>Automated prompt and copy improvement</li></ul>
+  </section>
+  <section>
+    <h2>Engineering</h2>
+    <ul><li>TypeScript, React, Next.js</li><li>Python, Node.js</li><li>Supabase, Postgres, Prisma</li><li>Edge functions, queues, retries</li><li>GitHub Actions, Vercel, scheduled jobs</li></ul>
+  </section>
+  <section>
+    <h2>Integrations</h2>
+    <ul><li>Meta Graph and Instagram APIs</li><li>YouTube Data API, Google sign-in (OAuth)</li><li>Stripe, Spotify, TikTok</li><li>Apify, Resend, HeyGen</li></ul>
+  </section>
+  <section>
+    <h2>Live work</h2>
+    <ul><li>dmoutreachtool.vercel.app</li><li>area51hq.vercel.app</li><li>area51radio-artist-hub.vercel.app</li><li>cmt-grant-radar.vercel.app</li></ul>
+  </section>
+</aside>
+</div>
+</div>
