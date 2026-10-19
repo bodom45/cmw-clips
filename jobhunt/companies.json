@@ -1,5 +1,43 @@
 {
-  "greenhouse": ["anthropic", "scaleai", "databricks", "gleanwork", "figma", "airtable", "samsara", "twilio", "honeycomb", "future", "discord", "reddit", "twitch", "duolingo", "squarespace", "vimeo", "soundcloud", "epidemicsound", "bandcamp"],
-  "lever": ["palantir", "spotify", "mistral", "zoox", "whoop"],
-  "ashby": ["cohere", "openai", "perplexity", "elevenlabs", "runwayml", "notion", "linear", "ramp", "replit", "harvey", "decagon", "sierra", "eigen-labs", "suno", "pika", "captions", "descript", "hebbia", "writer"]
+  "greenhouse": [
+    "anthropic",
+    "scaleai",
+    "databricks",
+    "gleanwork",
+    "figma",
+    "airtable",
+    "samsara",
+    "twilio",
+    "honeycomb",
+    "future",
+    "discord",
+    "reddit",
+    "twitch",
+    "duolingo",
+    "squarespace"
+  ],
+  "lever": [
+    "palantir",
+    "spotify",
+    "mistral",
+    "zoox",
+    "whoop"
+  ],
+  "ashby": [
+    "cohere",
+    "openai",
+    "perplexity",
+    "elevenlabs",
+    "notion",
+    "linear",
+    "ramp",
+    "replit",
+    "harvey",
+    "decagon",
+    "sierra",
+    "eigen-labs",
+    "suno",
+    "pika",
+    "writer"
+  ]
 }

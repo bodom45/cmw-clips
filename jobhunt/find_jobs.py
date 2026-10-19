@@ -16,7 +16,10 @@ QUEUE = HERE / "QUEUE.md"
 TITLE_YES = re.compile(r"\b(ai|a\.i\.|ml|llm|genai|generative|agent|agentic|automation|machine learning|applied ai|solutions? architect|forward deployed)\b", re.I)
 TITLE_NO = re.compile(r"\b(intern|internship|new grad|junior|jr\.?|associate|recruiter|sales development|account executive|counsel|paralegal)\b", re.I)
 SENIOR = re.compile(r"\b(senior|sr\.?|staff|principal|lead|head|director|manager|architect|founding|forward deployed)\b", re.I)
-LOC_YES = re.compile(r"(dallas|fort worth|dfw|plano|irving|frisco|addison|richardson|austin|texas|\btx\b|remote)", re.I)
+TEXAS = re.compile(r"(dallas|fort worth|dfw|plano|irving|frisco|addison|richardson|austin|houston|texas|\btx\b)", re.I)
+# Remote only counts when the listing itself is US-remote, not "San Francisco (remote ok)".
+US_REMOTE = re.compile(r"(^\s*remote\b|remote\s*[-–(,:]\s*(us|u\.s|usa|united states|north america|americas)|\bor remote\b|(united states|usa|\bus\b)\s*[-–(,]?\s*remote|anywhere in the us)", re.I)
+TITLE_DROP = re.compile(r"\b(research|scientist|policy|security|finance|ranking|relevance|retrieval|ads|safety|recruit|legal|hardware|silicon|kernel|compiler|gpu|inference|pretraining|multimodal)\b", re.I)
 LOC_NO = re.compile(r"remote.{0,20}\b(uk|emea|europe|canada|india|apac|latam|germany|france|poland|brazil|australia)\b", re.I)
 
 
@@ -49,14 +52,14 @@ def lever(co):
         sr = j.get("salaryRange") or {}
         pay = int(sr.get("max") or 0) or money(j.get("descriptionPlain", "") + j.get("additionalPlain", ""))
         posted = dt.datetime.fromtimestamp(j.get("createdAt", 0) / 1000).date().isoformat()
-        yield dict(company=co, title=j["text"], location=cats.get("location", "") + (" remote" if j.get("workplaceType") == "remote" else ""),
+        yield dict(company=co, title=j["text"], location=cats.get("location", ""),
                    url=j.get("applyUrl") or j["hostedUrl"], pay=pay, ats="lever", posted=posted)
 
 
 def ashby(co):
     for j in get(f"https://api.ashbyhq.com/posting-api/job-board/{co}?includeCompensation=true")["jobs"]:
-        loc = " ".join(filter(None, [j.get("location", ""), "remote" if j.get("isRemote") else "",
-                                     " ".join(s.get("location", "") for s in j.get("secondaryLocations") or [])]))
+        primary = j.get("location", "") or ""
+        loc = " / ".join(filter(None, [primary] + [s.get("location", "") for s in j.get("secondaryLocations") or []]))
         comp = (j.get("compensation") or {}).get("compensationTierSummary", "")
         yield dict(company=co, title=j["title"], location=loc, url=j.get("applyUrl") or j["jobUrl"],
                    pay=money(comp) or money(j.get("descriptionPlain", "")), ats="ashby",
@@ -65,9 +68,9 @@ def ashby(co):
 
 def keep(j):
     t, loc = j["title"], j["location"]
-    if not TITLE_YES.search(t) or TITLE_NO.search(t) or not SENIOR.search(t):
+    if not TITLE_YES.search(t) or TITLE_NO.search(t) or not SENIOR.search(t) or TITLE_DROP.search(t):
         return False
-    if not LOC_YES.search(loc) or LOC_NO.search(loc):
+    if LOC_NO.search(loc) or not (TEXAS.search(loc) or US_REMOTE.search(loc)):
         return False
     return j["pay"] == 0 or j["pay"] >= MIN_SALARY
 
@@ -83,6 +86,9 @@ def main():
                 errors.append(f"{ats}/{co}: {e}")
     seen = json.loads(SEEN.read_text()) if SEEN.exists() else {}
     today = dt.date.today().isoformat()
+    live = {j["url"] for j in found}
+    for url in [u for u, j in seen.items() if j["status"] == "new" and u not in live]:
+        del seen[url]  # closed or no longer matches the filters
     for j in found:
         seen.setdefault(j["url"], {**j, "first_seen": today, "status": "new"})
     SEEN.write_text(json.dumps(seen, indent=1, sort_keys=True))
