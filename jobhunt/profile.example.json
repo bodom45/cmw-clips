@@ -1,0 +1,12 @@
+{
+  "first_name": "YOUR_FIRST_NAME",
+  "last_name": "YOUR_LAST_NAME",
+  "email": "you@example.com",
+  "phone": "214-555-0100",
+  "location": "Dallas, TX",
+  "linkedin": "https://www.linkedin.com/in/YOUR-HANDLE",
+  "website": "https://YOUR-PORTFOLIO-LINK",
+  "github": "https://github.com/bodom45",
+  "resume_path": "jobhunt/resume.pdf",
+  "cover_letter": "I've spent years building AI automation that runs in production: a multi-tenant outreach platform with a Claude reply agent, a Claude-powered operations console with tool use and prompt caching, and a scheduled publishing pipeline that has posted 260+ videos with no one touching it. I'd bring that hands-on experience to this role."
+}
