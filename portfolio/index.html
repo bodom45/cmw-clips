@@ -1,0 +1,134 @@
+<title>CMW Automation Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, like a broadcast run-sheet; each system is a "segment" with its diagram and on-air numbers */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#14181f; --muted:#5a6372; --line:#d9dde4; --accent:#d1361f; --signal:#1f7a4d;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Serif 4",Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1218;--surface:#171b23;--fg:#e8ebf0;--muted:#9aa3b2;--line:#2a303b;--accent:#ff6a4f;--signal:#4cc68a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1218;--surface:#171b23;--fg:#e8ebf0;--muted:#9aa3b2;--line:#2a303b;--accent:#ff6a4f;--signal:#4cc68a;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--body)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:48px 72px;display:grid;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;font-weight:800}
+h3{font-size:1.05rem;font-weight:500}
+p{margin:0;max-width:65ch}
+.eyebrow{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px}
+.onair{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb,var(--signal) 25%,transparent)}
+header{display:grid;gap:18px}
+.lede{font-size:1.15rem;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--surface);padding:16px;display:grid;gap:4px}
+.stat b{font:800 1.9rem/1 var(--display);font-variant-numeric:tabular-nums}
+.stat span{font:400 .78rem/1.3 var(--mono);color:var(--muted)}
+section{display:grid;gap:18px}
+.diagram{background:var(--surface);border:1px solid var(--line);padding:16px;overflow-x:auto}
+ul{margin:0;padding-left:1.2em;display:grid;gap:6px;max-width:65ch}
+code,.tag{font-family:var(--mono);font-size:.85em}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--line);padding:3px 8px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font:500 .75rem var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.tbl{overflow-x:auto}
+footer{font:400 .85rem var(--mono);color:var(--muted)}
+@media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow"><i class="onair"></i>Live in production since June 2026</div>
+  <h1>Creative Music Television: automated content pipeline</h1>
+  <p class="lede">A hands-off publishing system I designed and run. It takes a library of short-form music, DJ and AI clips, follows a content calendar, and publishes Instagram Reels and YouTube Shorts on schedule with no one touching it. It recovers from errors and keeps a record of everything it posts.</p>
+  <div class="stats">
+    <div class="stat"><b>260+</b><span>Reels published automatically</span></div>
+    <div class="stat"><b>350</b><span>clips in the managed library</span></div>
+    <div class="stat"><b>24/7</b><span>runs every hour on a schedule</span></div>
+    <div class="stat"><b>0</b><span>servers to maintain</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">System 1</div>
+  <h2>End-to-end publishing flow</h2>
+  <p>A scheduled GitHub Actions job wakes up every hour. It reads the content calendar, works out which posts are due in Central time, and publishes up to a set number per run so a backlog never floods the feed. Each finished post is saved back to the repo, so the system never posts the same clip twice.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  A[Clip library<br/>MP4 + covers] --> B[Content calendar<br/>POSTING_SCHEDULE.csv]
+  C((Hourly cron<br/>GitHub Actions)) --> D[Due-post resolver<br/>America/Chicago, cap per run]
+  B --> D
+  E[(posted.json<br/>state ledger)] --> D
+  D --> F[Instagram Graph API<br/>Reels publisher]
+  D --> G[YouTube Data API<br/>Shorts uploader]
+  F --> H[Bot commits state<br/>back to repo]
+  G --> H
+  H --> E
+  </pre></div>
+</section>
+
+<section>
+  <div class="eyebrow">System 2</div>
+  <h2>Reliable Instagram Reels publishing</h2>
+  <p>Instagram processes video in the background and sometimes reports an error before it finishes. The publisher waits through that instead of giving up, and only fails a post after repeated errors. A failed post is retried on the next hourly run.</p>
+  <div class="diagram"><pre class="mermaid">
+sequenceDiagram
+  participant P as Publisher
+  participant IG as Instagram Graph API
+  P->>IG: Create Reels container (video URL, caption, cover)
+  loop every 8s, up to ~10 min
+    P->>IG: Check processing status
+    IG-->>P: IN_PROGRESS / brief ERROR / FINISHED
+  end
+  Note over P: Allows up to 5 brief errors.<br/>Fails on the 6th.
+  P->>IG: Publish container
+  IG-->>P: Media ID, then the post is logged
+  </pre></div>
+</section>
+
+<section>
+  <div class="eyebrow">System 3</div>
+  <h2>Cross-posting to YouTube Shorts</h2>
+  <p>Rows marked for YouTube are reposted as Shorts. The uploader swaps its saved login for a fresh access token each run, downloads the clip from where it's hosted, turns the Instagram caption into a YouTube title, and uploads in one step. A separate setup script handles the one-time Google login.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  R[Refresh token<br/>stored as a secret] --> T[OAuth token exchange]
+  T --> U[Fetch clip from host]
+  U --> V[Caption to title<br/>and description]
+  V --> W[Upload to YouTube Data API v3]
+  W --> X[(posted_yt.json)]
+  </pre></div>
+</section>
+
+<section>
+  <div class="eyebrow">Content operations</div>
+  <h2>Calendar and content series</h2>
+  <p>248 calendar entries over about three months, grouped into recurring series. Each series has its own clip naming, cover art and caption style.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Series</th><th>Calendar entries</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td>DJ</td><td>197</td><td>Daily DJ performance clips, numbered from DJ_01 up through DJ_211</td></tr>
+      <tr><td>AI</td><td>26</td><td>Explainers on AI in music</td></tr>
+      <tr><td>MUSIC</td><td>25</td><td>Music industry education, like how streaming algorithms work</td></tr>
+      <tr><td>ORBIT / Manager / MC Day</td><td>Rolling</td><td>Day-numbered series for brand and artist storytelling</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">What this shows</div>
+  <h2>Skills used</h2>
+  <ul>
+    <li>Designing systems that run without servers, using scheduled CI jobs, controlled concurrency and saved state</li>
+    <li>Building on third-party APIs: Meta Graph (Reels), YouTube Data v3, Google OAuth 2.0</li>
+    <li>Building for reliability: retries, tolerance for brief errors, per-run limits and duplicate protection</li>
+    <li>Keeping secrets safe (tokens stored in GitHub Secrets) and handling time zones correctly</li>
+    <li>Running content operations at scale, from a large clip library to a dated multi-platform calendar</li>
+  </ul>
+  <div class="tags"><span class="tag">Python 3.12</span><span class="tag">GitHub Actions</span><span class="tag">Instagram Graph API</span><span class="tag">YouTube Data API</span><span class="tag">OAuth 2.0</span><span class="tag">Cron scheduling</span><span class="tag">AI content</span></div>
+</section>
+
+<footer>Creative Music Television · Dallas, TX · Code available on request</footer>
+</div>
