@@ -362,17 +362,6 @@
   "title": "Solutions Architect - Digital Native Business (Healthtech)",
   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8782711002"
  },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8782816002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Central - United States; Remote - Texas",
-  "pay": 301300,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Solutions Architect",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8782816002"
- },
  "https://databricks.com/company/careers/open-positions/job?gh_jid=8807033002": {
   "ats": "greenhouse",
   "company": "databricks",
@@ -626,6 +615,28 @@
   "title": "Senior Machine Learning Systems Engineer, ML Platform",
   "url": "https://job-boards.greenhouse.io/reddit/jobs/8283770"
  },
+ "https://job-boards.greenhouse.io/reddit/jobs/8301736": {
+  "ats": "greenhouse",
+  "company": "reddit",
+  "first_seen": "2026-10-20",
+  "location": "Remote - United States",
+  "pay": 272400,
+  "posted": "2026-10-20",
+  "status": "new",
+  "title": "Lead Forward Deployed Engineer (AI Enablement)",
+  "url": "https://job-boards.greenhouse.io/reddit/jobs/8301736"
+ },
+ "https://job-boards.greenhouse.io/reddit/jobs/8301784": {
+  "ats": "greenhouse",
+  "company": "reddit",
+  "first_seen": "2026-10-20",
+  "location": "Remote - United States",
+  "pay": 252300,
+  "posted": "2026-10-20",
+  "status": "new",
+  "title": "Senior Forward Deployed Engineer (AI Enablement)",
+  "url": "https://job-boards.greenhouse.io/reddit/jobs/8301784"
+ },
  "https://job-boards.greenhouse.io/scaleai/jobs/4481921005": {
   "ats": "greenhouse",
   "company": "scaleai",
@@ -834,5 +845,16 @@
   "status": "new",
   "title": "Senior AI Data & Analytics Engineer II",
   "url": "https://www.samsara.com/company/careers/roles/8281491?gh_jid=8281491"
+ },
+ "https://www.samsara.com/company/careers/roles/8302004?gh_jid=8302004": {
+  "ats": "greenhouse",
+  "company": "samsara",
+  "first_seen": "2026-10-20",
+  "location": "Remote - Seattle",
+  "pay": 231000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Senior AI Data & Analytics Engineer II",
+  "url": "https://www.samsara.com/company/careers/roles/8302004?gh_jid=8302004"
  }
 }
