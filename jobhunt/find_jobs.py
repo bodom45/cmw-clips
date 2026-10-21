@@ -10,6 +10,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 MIN_SALARY = int(os.environ.get("MIN_SALARY", "80000"))
+MIN_FIT = int(os.environ.get("MIN_FIT", "55"))  # drop roles that score below this
 SEEN = HERE / "seen.json"
 QUEUE = HERE / "QUEUE.md"
 
@@ -67,10 +68,10 @@ def ashby(co):
                    posted=(j.get("publishedAt") or "")[:10])
 
 
-GOOD = re.compile(r"automation|transformation|enablement|forward deployed|solutions? architect|ai architect|operations|success|gtm|go-to-market|conversational|agent|applied ai|content|media|creator|marketing", re.I)
-BAD = re.compile(r"machine learning|\bml\b|data & analytics|data and analytics|platform|edge|quality engineering|code-gen|partner director|support engineering|infrastructure|research", re.I)
-HIGH_BAR = re.compile(r"senior staff|principal|\bstaff\b|director|\bvp\b|head of", re.I)
-MGMT = re.compile(r"manager|director", re.I)
+GOOD = re.compile(r"automation|transformation|enablement|adoption|implementation|deployment|deployed|integration|workflow|solutions?|architect|operations|success|gtm|go-to-market|conversational|agent|applied ai|ai engineer|consultant|strategist|specialist|content|media|creator|marketing|product", re.I)
+BAD = re.compile(r"machine learning|\bml\b|data & analytics|data and analytics|data engineer|platform|edge|quality engineering|code-gen|partner director|support engineering|infrastructure|research|scientist|training|silicon", re.I)
+HIGH_BAR = re.compile(r"senior staff|principal|\bstaff\b", re.I)  # big-tech engineering ladder levels
+MGMT = re.compile(r"engineering manager|manager, .*engineering", re.I)
 
 
 def fit(j):
@@ -88,7 +89,7 @@ def fit(j):
 
 def keep(j):
     t, loc = j["title"], j["location"]
-    if not TITLE_YES.search(t) or TITLE_NO.search(t) or not SENIOR.search(t) or TITLE_DROP.search(t):
+    if not TITLE_YES.search(t) or TITLE_NO.search(t) or TITLE_DROP.search(t) or fit(j) < MIN_FIT:
         return False
     if LOC_NO.search(loc) or (OTHER_STATE.search(loc) and not TEXAS.search(loc)) or not (TEXAS.search(loc) or US_REMOTE.search(loc)):
         return False
