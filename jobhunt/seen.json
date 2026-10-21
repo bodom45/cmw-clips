@@ -1,15 +1,4 @@
 {
- "https://careers.datadoghq.com/detail/8238455/?gh_jid=8238455": {
-  "ats": "greenhouse",
-  "company": "datadog",
-  "first_seen": "2026-10-21",
-  "location": "California, USA, Remote; Illinois, USA, Remote; Massachusetts, USA, Remote; New York, USA, Remote",
-  "pay": 198000,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Sales Engineer - AI Accounts",
-  "url": "https://careers.datadoghq.com/detail/8238455/?gh_jid=8238455"
- },
  "https://job-boards.greenhouse.io/anthropic/jobs/5390966008": {
   "ats": "greenhouse",
   "company": "anthropic",
@@ -119,17 +108,6 @@
   "status": "new",
   "title": "Lead Engineer - AI Agent Voice Experience ",
   "url": "https://job-boards.greenhouse.io/cresta/jobs/5155675008"
- },
- "https://job-boards.greenhouse.io/cresta/jobs/5173681008": {
-  "ats": "greenhouse",
-  "company": "cresta",
-  "first_seen": "2026-10-21",
-  "location": "United States (Remote)",
-  "pay": 205000,
-  "posted": "2026-10-19",
-  "status": "new",
-  "title": "Senior Product Designer, AI Builders",
-  "url": "https://job-boards.greenhouse.io/cresta/jobs/5173681008"
  },
  "https://job-boards.greenhouse.io/cresta/jobs/5369032008": {
   "ats": "greenhouse",
@@ -263,17 +241,6 @@
   "title": "Sr AI Architect - Conversational AI",
   "url": "https://job-boards.greenhouse.io/twilio/jobs/7926891"
  },
- "https://jobs.ashbyhq.com/deepgram/0b7494b3-a91e-4540-9439-5b10a1e5b391/application": {
-  "ats": "ashby",
-  "company": "deepgram",
-  "first_seen": "2026-10-21",
-  "location": "USA - Remote",
-  "pay": 274100,
-  "posted": "2026-07-07",
-  "status": "new",
-  "title": "Embedded AI Engineer, On-Device Models",
-  "url": "https://jobs.ashbyhq.com/deepgram/0b7494b3-a91e-4540-9439-5b10a1e5b391/application"
- },
  "https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application": {
   "ats": "ashby",
   "company": "deepgram",
@@ -350,17 +317,6 @@
   "status": "new",
   "title": "Senior AI transformation lead (Central)",
   "url": "https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application"
- },
- "https://www.samsara.com/company/careers/roles/7292081?gh_jid=7292081": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-21",
-  "location": "Remote - US",
-  "pay": 500000,
-  "posted": "2026-10-21",
-  "status": "new",
-  "title": "Specialist Seller, Enterprise Select (AI Products",
-  "url": "https://www.samsara.com/company/careers/roles/7292081?gh_jid=7292081"
  },
  "https://www.samsara.com/company/careers/roles/7578952?gh_jid=7578952": {
   "ats": "greenhouse",
