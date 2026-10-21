@@ -19,6 +19,7 @@ from playwright.sync_api import sync_playwright
 
 HERE = Path(__file__).parent
 SEEN = HERE / "seen.json"
+APPLIED = HERE / "applied.json"  # local record of what you applied to or skipped
 
 # (profile key, label pattern, direct selectors used by Greenhouse / Lever / Ashby)
 FIELDS = [
@@ -61,7 +62,9 @@ def fill(page, p):
             try: btn.first.click(timeout=3000); page.wait_for_timeout(1500); break
             except Exception: pass
     done = [key for key, rx, sels in FIELDS if try_fill(page, p.get(key, ""), rx, sels)]
-    resume = Path(p.get("resume_path", ""))
+    resume = Path(p.get("resume_path", "resume.pdf"))
+    if not resume.is_absolute() and not resume.is_file():
+        resume = HERE / resume.name
     if resume.is_file():
         files = page.locator("input[type='file']")
         if files.count():
@@ -75,23 +78,28 @@ def fill(page, p):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--limit", type=int, default=0); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--limit", type=int, default=0); ap.add_argument("--min-fit", type=int, default=0); a = ap.parse_args()
     prof_path = HERE / "profile.json"
     if not prof_path.exists():
-        sys.exit("Copy jobhunt/profile.example.json to jobhunt/profile.json and fill it in first.")
+        sys.exit("profile.json is missing. Copy profile.example.json to profile.json next to this script and fill it in.")
     profile = json.loads(prof_path.read_text())
     seen = json.loads(SEEN.read_text()) if SEEN.exists() else {}
+    handled = json.loads(APPLIED.read_text()) if APPLIED.exists() else {}
+    for url, status in handled.items():
+        if url in seen:
+            seen[url]["status"] = status
     queue = [j for j in seen.values() if j["status"] == "new"]
-    queue.sort(key=lambda j: (j["first_seen"], j["pay"]), reverse=True)
+    queue = [j for j in queue if j.get("fit", 100) >= a.min_fit]
+    queue.sort(key=lambda j: (j.get("fit", 0), j["pay"]), reverse=True)
     if a.limit: queue = queue[: a.limit]
     if not queue:
-        sys.exit("Queue is empty. Pull the latest seen.json from GitHub first.")
+        sys.exit("No new roles to apply to right now. Check back after tomorrow morning's search.")
 
     with sync_playwright() as pw:
         ctx = pw.chromium.launch_persistent_context(str(HERE / ".browser"), headless=False)
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         for n, j in enumerate(queue, 1):
-            print(f"\n[{n}/{len(queue)}] {j['company']} — {j['title']}  ({j['location']})\n  {j['url']}")
+            print(f"\n[{n}/{len(queue)}] fit {j.get('fit', '?')} · {j['company']} — {j['title'].strip()}  ({j['location']})\n  {j['url']}")
             try:
                 page.goto(j["url"], wait_until="domcontentloaded", timeout=45000); page.wait_for_timeout(2000)
                 print("  filled:", ", ".join(fill(page, profile)) or "nothing (fill it by hand)")
@@ -101,10 +109,12 @@ def main():
             ans = input("  a = applied, s = skip, q = quit > ").strip().lower()
             if ans == "q": break
             if ans in ("a", "s"):
-                seen[j["url"]]["status"] = "applied" if ans == "a" else "skipped"
+                status = "applied" if ans == "a" else "skipped"
+                seen[j["url"]]["status"] = handled[j["url"]] = status
                 SEEN.write_text(json.dumps(seen, indent=1, sort_keys=True))
+                APPLIED.write_text(json.dumps(handled, indent=1, sort_keys=True))
         ctx.close()
-    print("\nSaved. Commit jobhunt/seen.json so the daily queue drops what you've handled.")
+    print(f"\nSaved to {APPLIED.name}. Roles you marked won't come up again.")
 
 
 if __name__ == "__main__":

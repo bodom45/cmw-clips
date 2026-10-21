@@ -115,10 +115,11 @@ def main():
         del seen[url]  # closed or no longer matches the filters
     for j in found:
         seen.setdefault(j["url"], {**j, "first_seen": today, "status": "new"})
+    for j in seen.values():
+        j["fit"] = fit(j)
     SEEN.write_text(json.dumps(seen, indent=1, sort_keys=True))
 
     open_ = [j for j in seen.values() if j["status"] == "new"]
-    for j in open_: j["fit"] = fit(j)
     open_.sort(key=lambda j: (j["fit"], j["pay"]), reverse=True)
     lines = [f"# Job queue — updated {today}", "",
              f"{len(open_)} roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, "
