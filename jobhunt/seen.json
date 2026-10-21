@@ -1,422 +1,4 @@
 {
- "https://databricks.com/company/careers/open-positions/job?gh_jid=7914730002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Plano, Texas",
-  "pay": 0,
-  "posted": "2026-09-21",
-  "status": "new",
-  "title": "Sr. Manager \u2013 Data & AI Support Engineering",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7914730002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8085877002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Illinois",
-  "pay": 247500,
-  "posted": "2026-09-21",
-  "status": "new",
-  "title": "Solutions Architect - Healthcare/Life Sciences Team (HLS)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8085877002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8221491002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Atlanta, Georgia; Chicago, Illinois; Dallas, Texas; Phoenix, Arizona; Portland, Oregon; Remote - California; Remote - North Carolina; Seattle, Washington",
-  "pay": 301300,
-  "posted": "2026-09-21",
-  "status": "new",
-  "title": "Sr. Solutions Architect - Retail, Travel & Hospitality",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8221491002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8231231002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California",
-  "pay": 247500,
-  "posted": "2026-09-21",
-  "status": "new",
-  "title": "Solutions Architect - Healthcare/Life Sciences Team (HLS)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8231231002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8403943002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United Kingdom",
-  "pay": 0,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Lead Solutions Architect - Generative AI (EMEA Emerging DNB)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8403943002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8461218002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Dallas, Texas",
-  "pay": 250208,
-  "posted": "2026-10-12",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Communications, Media, Entertainment & Games",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8461218002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8461219002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Austin, Texas",
-  "pay": 250208,
-  "posted": "2026-10-12",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Communications, Media, Entertainment & Games",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8461219002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8490644002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Virginia; Remote - Washington D.C.",
-  "pay": 179200,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Engagement Manager, Forward Deployed Engineering - Public Sector",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8490644002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8494144002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Dallas, Texas",
-  "pay": 250208,
-  "posted": "2026-10-13",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Healthcare & Life Sciences",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494144002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8494145002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Austin, Texas",
-  "pay": 250208,
-  "posted": "2026-10-13",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Healthcare & Life Sciences",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8494145002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8548986002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; Remote - Oregon; Remote - Washington",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Delivery Solutions Architect - Digital Native Business",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8548986002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8549248002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; Remote - Colorado; Remote - Illinois; Remote - Massachusetts; Remote - New York; Remote - Oregon; Remote - Texas; Remote - Washington",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Delivery Solutions Architect - Startups & Emerging Enterprise",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8549248002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8563159002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; San Francisco, California",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Strategic High Tech",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8563159002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8567961002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Georgia; Illinois; Massachusetts; New York; North Carolina; Texas; Virginia; Washington, D.C.",
-  "pay": 301300,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Solutions Architect - Financial Services (Hunter)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8567961002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8567963002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; San Francisco, California",
-  "pay": 301300,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Solutions Architect - Digital Native Business (Strategic Accounts)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8567963002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8569633002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Colorado",
-  "pay": 247500,
-  "posted": "2026-10-19",
-  "status": "new",
-  "title": "Solutions Architect - Communications, Media, Entertainment and Games",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8569633002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8585019002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Washington D.C.",
-  "pay": 291300,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Manager, Forward Deployed Engineering - CMEG",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8585019002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8585599002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United Kingdom",
-  "pay": 0,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Senior Solutions Architect (Data & AI) - Leeds based",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8585599002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8592928002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Dallas, Texas",
-  "pay": 250208,
-  "posted": "2026-10-12",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Financial Services",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8592928002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8633741002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Texas",
-  "pay": 247500,
-  "posted": "2026-10-12",
-  "status": "new",
-  "title": "Solutions Architect - Public Sector (SLED)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8633741002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8637768002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Atlanta, Georgia; Chicago, Illinois; Dallas, Texas; Denver, Colorado; New York City, New York",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Financial Services (Banking and Payments) ",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8637768002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8647668002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Austin, Texas",
-  "pay": 250208,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Retail",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8647668002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8647670002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Dallas, Texas",
-  "pay": 250208,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Retail",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8647670002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8647677002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California",
-  "pay": 250208,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Retail",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8647677002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8657065002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Austin, Texas",
-  "pay": 250208,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8657065002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8661758002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Illinois; Remote - Michigan; Remote - New York",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Manufacturing",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8661758002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8687483002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Texas",
-  "pay": 247500,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Delivery Solutions Architect - Oil & Gas",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8687483002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8731212002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; San Francisco, California",
-  "pay": 245850,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Technology Partner Director - AI Code-Gen & Apps",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8731212002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8735545002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Atlanta, Georgia; Remote - Colorado; Remote - Texas",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Delivery Solutions Architect",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8735545002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8739465002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Washington D.C.",
-  "pay": 250208,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8739465002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8755476002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - New York",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Communications, Media, Entertainment and Games",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755476002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8755482002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Pennsylvania",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Communications, Media, Entertainment and Games",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755482002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8782711002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California; San Francisco, California",
-  "pay": 247500,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Solutions Architect - Digital Native Business (Healthtech)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8782711002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8807033002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - California",
-  "pay": 250208,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Digital Native Business ",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8807033002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8807049002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - New York",
-  "pay": 250208,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Sr. Forward Deployed Engineer (FDE) - Digital Native Business ",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8807049002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8819053002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Austin, Texas; Chicago, Illinois; Dallas, Texas; Phoenix, Arizona; United States",
-  "pay": 301300,
-  "posted": "2026-10-06",
-  "status": "new",
-  "title": "Senior Solutions Architect",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8819053002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8862137002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "New Jersey; Remote - Illinois; Remote - Massachusetts; Remote - New York; Remote - North Carolina; Remote - Pennsylvania; Remote - Texas",
-  "pay": 247500,
-  "posted": "2026-10-07",
-  "status": "new",
-  "title": "Solutions Architect - Digital Native Business (Fintech)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8862137002"
- },
- "https://databricks.com/company/careers/open-positions/job?gh_jid=8892968002": {
-  "ats": "greenhouse",
-  "company": "databricks",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Sweden",
-  "pay": 0,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Lead Solutions Architect - Generative AI (EMEA Emerging DNB)",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8892968002"
- },
  "https://job-boards.greenhouse.io/anthropic/jobs/5390966008": {
   "ats": "greenhouse",
   "company": "anthropic",
@@ -428,27 +10,170 @@
   "title": "Staff Software Engineer, GTM AI Engineering ",
   "url": "https://job-boards.greenhouse.io/anthropic/jobs/5390966008"
  },
- "https://job-boards.greenhouse.io/discord/jobs/8802354002": {
+ "https://job-boards.greenhouse.io/assemblyai/jobs/4728788005": {
   "ats": "greenhouse",
-  "company": "discord",
-  "first_seen": "2026-10-19",
-  "location": "San Francisco Bay Area or Remote (U.S.)",
-  "pay": 340000,
-  "posted": "2026-10-15",
+  "company": "assemblyai",
+  "first_seen": "2026-10-21",
+  "location": "Remote - North America",
+  "pay": 600000,
+  "posted": "2026-09-22",
   "status": "new",
-  "title": "Staff Software Engineer, Machine Learning (Consumer Revenue)",
-  "url": "https://job-boards.greenhouse.io/discord/jobs/8802354002"
+  "title": "Senior GTM AI Engineer",
+  "url": "https://job-boards.greenhouse.io/assemblyai/jobs/4728788005"
  },
- "https://job-boards.greenhouse.io/gleanwork/jobs/4651991005": {
+ "https://job-boards.greenhouse.io/cresta/jobs/4675710008": {
   "ats": "greenhouse",
-  "company": "gleanwork",
-  "first_seen": "2026-10-19",
-  "location": "Remote - US",
-  "pay": 270000,
-  "posted": "2026-09-15",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 215000,
+  "posted": "2026-10-19",
   "status": "new",
-  "title": "Founding Forward Deployed Engineer",
-  "url": "https://job-boards.greenhouse.io/gleanwork/jobs/4651991005"
+  "title": "AI Success Manager ",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/4675710008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/4738837008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 280000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Forward Deployed Product Manager, AI Agent",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/4738837008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/4759347008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 235000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Senior Forward Deployed Engineer (AI Agent)",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/4759347008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/4919163008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 140000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Embedded AI Expert",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/4919163008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5078921008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 175000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "AI Deployment Manager ",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5078921008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5123589008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 230000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "AI Engineer, GTM",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5123589008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5133464008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 270000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Senior Software Engineer, Backend (AI Agent)",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5133464008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5155675008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 270000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Lead Engineer - AI Agent Voice Experience ",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5155675008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5369032008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 275000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Solutions Engineer, AI Agent",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5369032008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5397262008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 275000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Solutions Engineer, AI Agent",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5397262008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5406666008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 225000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Special Projects, AI Agents Team",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5406666008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5412192008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 245000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "Director of Enterprise AI Success. ",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5412192008"
+ },
+ "https://job-boards.greenhouse.io/cresta/jobs/5446115008": {
+  "ats": "greenhouse",
+  "company": "cresta",
+  "first_seen": "2026-10-21",
+  "location": "United States (Remote)",
+  "pay": 200000,
+  "posted": "2026-10-19",
+  "status": "new",
+  "title": "AI Strategist ",
+  "url": "https://job-boards.greenhouse.io/cresta/jobs/5446115008"
+ },
+ "https://job-boards.greenhouse.io/future/jobs/4745515005": {
+  "ats": "greenhouse",
+  "company": "future",
+  "first_seen": "2026-10-21",
+  "location": "Remote ",
+  "pay": 250000,
+  "posted": "2026-10-20",
+  "status": "new",
+  "title": "Applied AI Engineer",
+  "url": "https://job-boards.greenhouse.io/future/jobs/4745515005"
  },
  "https://job-boards.greenhouse.io/gleanwork/jobs/4661878005": {
   "ats": "greenhouse",
@@ -472,28 +197,6 @@
   "title": "AI Success Manager, Central",
   "url": "https://job-boards.greenhouse.io/gleanwork/jobs/4661884005"
  },
- "https://job-boards.greenhouse.io/gleanwork/jobs/4717716005": {
-  "ats": "greenhouse",
-  "company": "gleanwork",
-  "first_seen": "2026-10-19",
-  "location": "Remote",
-  "pay": 240000,
-  "posted": "2026-09-28",
-  "status": "new",
-  "title": "Resident Solutions Architect ",
-  "url": "https://job-boards.greenhouse.io/gleanwork/jobs/4717716005"
- },
- "https://job-boards.greenhouse.io/honeycomb/jobs/5373987008": {
-  "ats": "greenhouse",
-  "company": "honeycomb",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 206000,
-  "posted": "2026-10-09",
-  "status": "new",
-  "title": "Senior Software Engineer II - Agentic Intelligence",
-  "url": "https://job-boards.greenhouse.io/honeycomb/jobs/5373987008"
- },
  "https://job-boards.greenhouse.io/honeycomb/jobs/5449331008": {
   "ats": "greenhouse",
   "company": "honeycomb",
@@ -504,116 +207,6 @@
   "status": "new",
   "title": "Staff AI Operations Lead",
   "url": "https://job-boards.greenhouse.io/honeycomb/jobs/5449331008"
- },
- "https://job-boards.greenhouse.io/honeycomb/jobs/5452445008": {
-  "ats": "greenhouse",
-  "company": "honeycomb",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 206000,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Software Engineer II - LLM Observability ",
-  "url": "https://job-boards.greenhouse.io/honeycomb/jobs/5452445008"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/6960831": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 303400,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Machine Learning Engineer",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/6960831"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/7731772": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 303400,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Machine Learning Systems Engineer",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/7731772"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/7731788": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 322000,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Staff Machine Learning Systems Engineer",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/7731788"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/7747244": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 322000,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Staff Machine Learning Engineer, Consumer ",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/7747244"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/7772274": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 409500,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Staff Machine Learning Engineer, GenAI Platform",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/7772274"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/8074860": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - British Columbia, Canada",
-  "pay": 0,
-  "posted": "2026-10-19",
-  "status": "new",
-  "title": "Senior, Business Risk & AI Automation",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/8074860"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/8095009": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 354600,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Machine Learning Manager, Feed Ecosystems",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/8095009"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/8243010": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 372400,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Staff Machine Learning Engineer, ML Understanding",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/8243010"
- },
- "https://job-boards.greenhouse.io/reddit/jobs/8283770": {
-  "ats": "greenhouse",
-  "company": "reddit",
-  "first_seen": "2026-10-19",
-  "location": "Remote - United States",
-  "pay": 303400,
-  "posted": "2026-10-15",
-  "status": "new",
-  "title": "Senior Machine Learning Systems Engineer, ML Platform",
-  "url": "https://job-boards.greenhouse.io/reddit/jobs/8283770"
  },
  "https://job-boards.greenhouse.io/reddit/jobs/8301736": {
   "ats": "greenhouse",
@@ -637,17 +230,6 @@
   "title": "Senior Forward Deployed Engineer (AI Enablement)",
   "url": "https://job-boards.greenhouse.io/reddit/jobs/8301784"
  },
- "https://job-boards.greenhouse.io/scaleai/jobs/4481921005": {
-  "ats": "greenhouse",
-  "company": "scaleai",
-  "first_seen": "2026-10-19",
-  "location": "Austin, TX; Colorado Springs, CO; Honolulu, HI; Omaha, NE; St. Louis, MO; Washington, DC",
-  "pay": 292560,
-  "posted": "2026-10-12",
-  "status": "new",
-  "title": "Forward Deployed Software Engineer, Public Sector",
-  "url": "https://job-boards.greenhouse.io/scaleai/jobs/4481921005"
- },
  "https://job-boards.greenhouse.io/twilio/jobs/7926891": {
   "ats": "greenhouse",
   "company": "twilio",
@@ -659,27 +241,49 @@
   "title": "Sr AI Architect - Conversational AI",
   "url": "https://job-boards.greenhouse.io/twilio/jobs/7926891"
  },
- "https://jobs.ashbyhq.com/decagon/cfb9edd8-8d40-40e5-bf27-368825c3c415/application": {
+ "https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application": {
   "ats": "ashby",
-  "company": "decagon",
-  "first_seen": "2026-10-19",
-  "location": "Dallas",
-  "pay": 220000,
-  "posted": "2026-08-13",
+  "company": "deepgram",
+  "first_seen": "2026-10-21",
+  "location": "USA - Remote",
+  "pay": 268000,
+  "posted": "2026-10-09",
   "status": "new",
-  "title": "Agent Strategy Manager ",
-  "url": "https://jobs.ashbyhq.com/decagon/cfb9edd8-8d40-40e5-bf27-368825c3c415/application"
+  "title": "Staff Product Manager, AI Applications",
+  "url": "https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application"
  },
- "https://jobs.ashbyhq.com/ramp/4c24a55a-ea3b-4cea-a5b5-7862938616bf/application": {
+ "https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application": {
   "ats": "ashby",
-  "company": "ramp",
-  "first_seen": "2026-10-19",
-  "location": "Remote (US) remote San Francisco, CA New York, NY (HQ)",
-  "pay": 278300,
-  "posted": "2026-09-21",
+  "company": "deepgram",
+  "first_seen": "2026-10-21",
+  "location": "USA - Remote",
+  "pay": 0,
+  "posted": "2026-09-11",
   "status": "new",
-  "title": "Procurement Solutions Architect",
-  "url": "https://jobs.ashbyhq.com/ramp/4c24a55a-ea3b-4cea-a5b5-7862938616bf/application"
+  "title": "People AI & Automation Engineer",
+  "url": "https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application"
+ },
+ "https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application": {
+  "ats": "ashby",
+  "company": "openai",
+  "first_seen": "2026-10-21",
+  "location": "San Francisco / New York City / US - Remote",
+  "pay": 278000,
+  "posted": "2026-07-08",
+  "status": "new",
+  "title": "Applied AI Engineer, Enterprise",
+  "url": "https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application"
+ },
+ "https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application": {
+  "ats": "ashby",
+  "company": "supabase",
+  "first_seen": "2026-10-21",
+  "location": "Remote, Global",
+  "pay": 0,
+  "posted": "2026-10-05",
+  "status": "new",
+  "title": "Head of AI Native Operations",
+  "url": "https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application"
  },
  "https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application": {
   "ats": "ashby",
@@ -692,6 +296,17 @@
   "title": "AI transformation lead (Central)",
   "url": "https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application"
  },
+ "https://jobs.ashbyhq.com/writer/df56ef1b-4d8b-4eda-bc03-ce9db800e533/application": {
+  "ats": "ashby",
+  "company": "writer",
+  "first_seen": "2026-10-21",
+  "location": "Chicago, IL / Austin, TX",
+  "pay": 184000,
+  "posted": "2026-09-22",
+  "status": "new",
+  "title": "AI deployment engineer (Central)",
+  "url": "https://jobs.ashbyhq.com/writer/df56ef1b-4d8b-4eda-bc03-ce9db800e533/application"
+ },
  "https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application": {
   "ats": "ashby",
   "company": "writer",
@@ -702,17 +317,6 @@
   "status": "new",
   "title": "Senior AI transformation lead (Central)",
   "url": "https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application"
- },
- "https://www.samsara.com/company/careers/roles/7266357?gh_jid=7266357": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - US",
-  "pay": 319000,
-  "posted": "2026-09-25",
-  "status": "new",
-  "title": "Staff Machine Learning Engineer - Edge AI",
-  "url": "https://www.samsara.com/company/careers/roles/7266357?gh_jid=7266357"
  },
  "https://www.samsara.com/company/careers/roles/7578952?gh_jid=7578952": {
   "ats": "greenhouse",
@@ -725,136 +329,15 @@
   "title": "AI Architect - GTM Systems",
   "url": "https://www.samsara.com/company/careers/roles/7578952?gh_jid=7578952"
  },
- "https://www.samsara.com/company/careers/roles/7721193?gh_jid=7721193": {
+ "https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110": {
   "ats": "greenhouse",
   "company": "samsara",
-  "first_seen": "2026-10-19",
+  "first_seen": "2026-10-21",
   "location": "Remote - US",
-  "pay": 357500,
-  "posted": "2026-09-25",
+  "pay": 160200,
+  "posted": "2026-10-07",
   "status": "new",
-  "title": "Lead Machine Learning Engineer - ML Infrastructure ",
-  "url": "https://www.samsara.com/company/careers/roles/7721193?gh_jid=7721193"
- },
- "https://www.samsara.com/company/careers/roles/7917475?gh_jid=7917475": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - SF Bay Area",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/7917475?gh_jid=7917475"
- },
- "https://www.samsara.com/company/careers/roles/8050373?gh_jid=8050373": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - SF Bay Area",
-  "pay": 198000,
-  "posted": "2026-09-25",
-  "status": "new",
-  "title": "Sr. Software Engineer II, AI Platform",
-  "url": "https://www.samsara.com/company/careers/roles/8050373?gh_jid=8050373"
- },
- "https://www.samsara.com/company/careers/roles/8055245?gh_jid=8055245": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - US",
-  "pay": 286000,
-  "posted": "2026-09-25",
-  "status": "new",
-  "title": "Senior Machine Learning Engineer",
-  "url": "https://www.samsara.com/company/careers/roles/8055245?gh_jid=8055245"
- },
- "https://www.samsara.com/company/careers/roles/8139255?gh_jid=8139255": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - US",
-  "pay": 290000,
-  "posted": "2026-10-09",
-  "status": "new",
-  "title": "Senior Manager, AI Quality Engineering",
-  "url": "https://www.samsara.com/company/careers/roles/8139255?gh_jid=8139255"
- },
- "https://www.samsara.com/company/careers/roles/8281479?gh_jid=8281479": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - NYC",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281479?gh_jid=8281479"
- },
- "https://www.samsara.com/company/careers/roles/8281482?gh_jid=8281482": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Dallas",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281482?gh_jid=8281482"
- },
- "https://www.samsara.com/company/careers/roles/8281483?gh_jid=8281483": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - CA",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281483?gh_jid=8281483"
- },
- "https://www.samsara.com/company/careers/roles/8281489?gh_jid=8281489": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Austin",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281489?gh_jid=8281489"
- },
- "https://www.samsara.com/company/careers/roles/8281490?gh_jid=8281490": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - Chicago",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281490?gh_jid=8281490"
- },
- "https://www.samsara.com/company/careers/roles/8281491?gh_jid=8281491": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-19",
-  "location": "Remote - MA",
-  "pay": 231000,
-  "posted": "2026-10-14",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8281491?gh_jid=8281491"
- },
- "https://www.samsara.com/company/careers/roles/8302004?gh_jid=8302004": {
-  "ats": "greenhouse",
-  "company": "samsara",
-  "first_seen": "2026-10-20",
-  "location": "Remote - Seattle",
-  "pay": 231000,
-  "posted": "2026-10-19",
-  "status": "new",
-  "title": "Senior AI Data & Analytics Engineer II",
-  "url": "https://www.samsara.com/company/careers/roles/8302004?gh_jid=8302004"
+  "title": "AI Engineer, Customer Success",
+  "url": "https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110"
  }
 }

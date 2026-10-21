@@ -14,7 +14,18 @@
     "reddit",
     "twitch",
     "duolingo",
-    "squarespace"
+    "squarespace",
+    "intercom",
+    "datadog",
+    "vercel",
+    "brex",
+    "affirm",
+    "mongodb",
+    "cloudflare",
+    "dropbox",
+    "asana",
+    "assemblyai",
+    "cresta"
   ],
   "lever": [
     "palantir",
@@ -38,6 +49,21 @@
     "eigen-labs",
     "suno",
     "pika",
-    "writer"
+    "writer",
+    "zapier",
+    "n8n",
+    "langchain",
+    "deepgram",
+    "synthesia",
+    "claylabs",
+    "vapi",
+    "hightouch",
+    "attio",
+    "posthog",
+    "supabase",
+    "cognition",
+    "mercor",
+    "relevanceai",
+    "airtable"
   ]
 }

@@ -1,84 +1,37 @@
-# Job queue — updated 2026-10-20
+# Job queue — updated 2026-10-21
 
-78 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+31 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
-| New | Company | Role | Location | Top pay | Apply |
-|---|---|---|---|---|---|
-| 🆕 | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
-| 🆕 | reddit | Senior Forward Deployed Engineer (AI Enablement) | Remote - United States | $252,300 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301784) |
-| 🆕 | samsara | Senior AI Data & Analytics Engineer II | Remote - Seattle | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8302004?gh_jid=8302004) |
-|  | reddit | Senior Staff Machine Learning Engineer, GenAI Platform | Remote - United States | $409,500 | [apply](https://job-boards.greenhouse.io/reddit/jobs/7772274) |
-|  | anthropic | Staff Software Engineer, GTM AI Engineering  | Remote-Friendly (Travel-Required) | San  | $405,000 | [apply](https://job-boards.greenhouse.io/anthropic/jobs/5390966008) |
-|  | reddit | Senior Staff Machine Learning Engineer, ML Understanding | Remote - United States | $372,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8243010) |
-|  | samsara | Lead Machine Learning Engineer - ML Infrastructure  | Remote - US | $357,500 | [apply](https://www.samsara.com/company/careers/roles/7721193?gh_jid=7721193) |
-|  | reddit | Machine Learning Manager, Feed Ecosystems | Remote - United States | $354,600 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8095009) |
-|  | discord | Staff Software Engineer, Machine Learning (Consumer Revenue) | San Francisco Bay Area or Remote (U.S.) | $340,000 | [apply](https://job-boards.greenhouse.io/discord/jobs/8802354002) |
-|  | twilio | Sr AI Architect - Conversational AI | Remote - US | $324,480 | [apply](https://job-boards.greenhouse.io/twilio/jobs/7926891) |
-|  | reddit | Staff Machine Learning Systems Engineer | Remote - United States | $322,000 | [apply](https://job-boards.greenhouse.io/reddit/jobs/7731788) |
-|  | reddit | Staff Machine Learning Engineer, Consumer  | Remote - United States | $322,000 | [apply](https://job-boards.greenhouse.io/reddit/jobs/7747244) |
-|  | samsara | Staff Machine Learning Engineer - Edge AI | Remote - US | $319,000 | [apply](https://www.samsara.com/company/careers/roles/7266357?gh_jid=7266357) |
-|  | reddit | Senior Machine Learning Engineer | Remote - United States | $303,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/6960831) |
-|  | reddit | Senior Machine Learning Systems Engineer | Remote - United States | $303,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/7731772) |
-|  | reddit | Senior Machine Learning Systems Engineer, ML Platform | Remote - United States | $303,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8283770) |
-|  | databricks | Sr. Solutions Architect - Retail, Travel & Hospitality | Atlanta, Georgia; Chicago, Illinois; Dal | $301,300 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8221491002) |
-|  | databricks | Sr. Solutions Architect - Financial Services (Hunter) | Georgia; Illinois; Massachusetts; New Yo | $301,300 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8567961002) |
-|  | databricks | Sr. Solutions Architect - Digital Native Business (Strategic Accounts) | Remote - California; San Francisco, Cali | $301,300 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8567963002) |
-|  | databricks | Senior Solutions Architect | Austin, Texas; Chicago, Illinois; Dallas | $301,300 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8819053002) |
-|  | scaleai | Forward Deployed Software Engineer, Public Sector | Austin, TX; Colorado Springs, CO; Honolu | $292,560 | [apply](https://job-boards.greenhouse.io/scaleai/jobs/4481921005) |
-|  | databricks | Manager, Forward Deployed Engineering - CMEG | Remote - Washington D.C. | $291,300 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8585019002) |
-|  | samsara | Senior Manager, AI Quality Engineering | Remote - US | $290,000 | [apply](https://www.samsara.com/company/careers/roles/8139255?gh_jid=8139255) |
-|  | samsara | Senior Machine Learning Engineer | Remote - US | $286,000 | [apply](https://www.samsara.com/company/careers/roles/8055245?gh_jid=8055245) |
-|  | ramp | Procurement Solutions Architect | Remote (US) remote San Francisco, CA New | $278,300 | [apply](https://jobs.ashbyhq.com/ramp/4c24a55a-ea3b-4cea-a5b5-7862938616bf/application) |
-|  | gleanwork | Founding Forward Deployed Engineer | Remote - US | $270,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4651991005) |
-|  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Communications, Media, Entertainment & Games | Dallas, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8461218002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Communications, Media, Entertainment & Games | Austin, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8461219002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Healthcare & Life Sciences | Dallas, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8494144002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Healthcare & Life Sciences | Austin, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8494145002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Financial Services | Dallas, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8592928002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Retail | Austin, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8647668002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Retail | Dallas, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8647670002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Retail | Remote - California | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8647677002) |
-|  | databricks | Sr. Forward Deployed Engineer | Austin, Texas | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8657065002) |
-|  | databricks | Sr. Forward Deployed Engineer | Remote - Washington D.C. | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8739465002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Digital Native Business  | Remote - California | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8807033002) |
-|  | databricks | Sr. Forward Deployed Engineer (FDE) - Digital Native Business  | Remote - New York | $250,208 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8807049002) |
-|  | databricks | Solutions Architect - Healthcare/Life Sciences Team (HLS) | Remote - Illinois | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8085877002) |
-|  | databricks | Solutions Architect - Healthcare/Life Sciences Team (HLS) | Remote - California | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8231231002) |
-|  | databricks | Delivery Solutions Architect - Digital Native Business | Remote - California; Remote - Oregon; Re | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8548986002) |
-|  | databricks | Delivery Solutions Architect - Startups & Emerging Enterprise | Remote - California; Remote - Colorado;  | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8549248002) |
-|  | databricks | Solutions Architect - Strategic High Tech | Remote - California; San Francisco, Cali | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8563159002) |
-|  | databricks | Solutions Architect - Communications, Media, Entertainment and Games | Remote - Colorado | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8569633002) |
-|  | databricks | Solutions Architect - Public Sector (SLED) | Remote - Texas | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8633741002) |
-|  | databricks | Solutions Architect - Financial Services (Banking and Payments)  | Atlanta, Georgia; Chicago, Illinois; Dal | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8637768002) |
-|  | databricks | Solutions Architect - Manufacturing | Remote - Illinois; Remote - Michigan; Re | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8661758002) |
-|  | databricks | Delivery Solutions Architect - Oil & Gas | Remote - Texas | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8687483002) |
-|  | databricks | Delivery Solutions Architect | Atlanta, Georgia; Remote - Colorado; Rem | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8735545002) |
-|  | databricks | Solutions Architect - Communications, Media, Entertainment and Games | Remote - New York | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8755476002) |
-|  | databricks | Solutions Architect - Communications, Media, Entertainment and Games | Remote - Pennsylvania | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8755482002) |
-|  | databricks | Solutions Architect - Digital Native Business (Healthtech) | Remote - California; San Francisco, Cali | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8782711002) |
-|  | databricks | Solutions Architect - Digital Native Business (Fintech) | New Jersey; Remote - Illinois; Remote -  | $247,500 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8862137002) |
-|  | databricks | Sr. Technology Partner Director - AI Code-Gen & Apps | Remote - California; San Francisco, Cali | $245,850 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8731212002) |
-|  | gleanwork | Resident Solutions Architect  | Remote | $240,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4717716005) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - SF Bay Area | $231,000 | [apply](https://www.samsara.com/company/careers/roles/7917475?gh_jid=7917475) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - NYC | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281479?gh_jid=8281479) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - Dallas | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281482?gh_jid=8281482) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - CA | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281483?gh_jid=8281483) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - Austin | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281489?gh_jid=8281489) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - Chicago | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281490?gh_jid=8281490) |
-|  | samsara | Senior AI Data & Analytics Engineer II | Remote - MA | $231,000 | [apply](https://www.samsara.com/company/careers/roles/8281491?gh_jid=8281491) |
-|  | writer | Senior AI transformation lead (Central) | Chicago, IL remote Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
-|  | decagon | Agent Strategy Manager  | Dallas | $220,000 | [apply](https://jobs.ashbyhq.com/decagon/cfb9edd8-8d40-40e5-bf27-368825c3c415/application) |
-|  | honeycomb | Senior Software Engineer II - Agentic Intelligence | Remote - United States | $206,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5373987008) |
-|  | honeycomb | Senior Software Engineer II - LLM Observability  | Remote - United States | $206,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5452445008) |
-|  | gleanwork | AI Success Manager, East  | Remote - US | $200,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661878005) |
-|  | writer | AI transformation lead (Central) | Chicago, IL remote Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
-|  | samsara | Sr. Software Engineer II, AI Platform | Remote - SF Bay Area | $198,000 | [apply](https://www.samsara.com/company/careers/roles/8050373?gh_jid=8050373) |
-|  | databricks | Sr. Engagement Manager, Forward Deployed Engineering - Public Sector | Remote - Virginia; Remote - Washington D | $179,200 | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8490644002) |
-|  | samsara | AI Architect - GTM Systems | Remote - US | $176,400 | [apply](https://www.samsara.com/company/careers/roles/7578952?gh_jid=7578952) |
-|  | gleanwork | AI Success Manager, Central | Remote - US | $170,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661884005) |
-|  | databricks | Sr. Manager – Data & AI Support Engineering | Plano, Texas | not listed | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=7914730002) |
-|  | databricks | Lead Solutions Architect - Generative AI (EMEA Emerging DNB) | Remote - United Kingdom | not listed | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8403943002) |
-|  | databricks | Senior Solutions Architect (Data & AI) - Leeds based | Remote - United Kingdom | not listed | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8585599002) |
-|  | databricks | Lead Solutions Architect - Generative AI (EMEA Emerging DNB) | Remote - Sweden | not listed | [apply](https://databricks.com/company/careers/open-positions/job?gh_jid=8892968002) |
-|  | reddit | Senior, Business Risk & AI Automation | Remote - British Columbia, Canada | not listed | [apply](https://job-boards.greenhouse.io/reddit/jobs/8074860) |
+| Fit | New | Company | Role | Location | Top pay | Apply |
+|---|---|---|---|---|---|---|
+| 88 | 🆕 | assemblyai | Senior GTM AI Engineer | Remote - North America | $600,000 | [apply](https://job-boards.greenhouse.io/assemblyai/jobs/4728788005) |
+| 88 | 🆕 | cresta | AI Engineer, GTM | United States (Remote) | $230,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5123589008) |
+| 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL remote Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
+| 88 |  | writer | AI transformation lead (Central) | Chicago, IL remote Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
+| 88 | 🆕 | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/writer/df56ef1b-4d8b-4eda-bc03-ce9db800e533/application) |
+| 88 |  | samsara | AI Architect - GTM Systems | Remote - US | $176,400 | [apply](https://www.samsara.com/company/careers/roles/7578952?gh_jid=7578952) |
+| 88 | 🆕 | deepgram | People AI & Automation Engineer | USA - Remote | not listed | [apply](https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application) |
+| 80 |  | twilio | Sr AI Architect - Conversational AI | Remote - US | $324,480 | [apply](https://job-boards.greenhouse.io/twilio/jobs/7926891) |
+| 80 | 🆕 | cresta | Forward Deployed Product Manager, AI Agent | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4738837008) |
+| 80 | 🆕 | openai | Applied AI Engineer, Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application) |
+| 80 | 🆕 | cresta | Solutions Engineer, AI Agent | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5369032008) |
+| 80 | 🆕 | cresta | Solutions Engineer, AI Agent | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
+| 80 |  | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
+| 80 | 🆕 | cresta | Senior Software Engineer, Backend (AI Agent) | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5133464008) |
+| 80 | 🆕 | cresta | Lead Engineer - AI Agent Voice Experience  | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5155675008) |
+| 80 |  | reddit | Senior Forward Deployed Engineer (AI Enablement) | Remote - United States | $252,300 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301784) |
+| 80 | 🆕 | future | Applied AI Engineer | Remote  | $250,000 | [apply](https://job-boards.greenhouse.io/future/jobs/4745515005) |
+| 80 | 🆕 | cresta | Senior Forward Deployed Engineer (AI Agent) | United States (Remote) | $235,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4759347008) |
+| 80 | 🆕 | cresta | Special Projects, AI Agents Team | United States (Remote) | $225,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5406666008) |
+| 80 | 🆕 | cresta | AI Deployment Manager  | United States (Remote) | $175,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5078921008) |
+| 80 | 🆕 | samsara | AI Engineer, Customer Success | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
+| 80 | 🆕 | supabase | Head of AI Native Operations | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application) |
+| 76 |  | anthropic | Staff Software Engineer, GTM AI Engineering  | Remote-Friendly (Travel-Required) | San  | $405,000 | [apply](https://job-boards.greenhouse.io/anthropic/jobs/5390966008) |
+| 70 | 🆕 | cresta | Director of Enterprise AI Success.  | United States (Remote) | $245,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5412192008) |
+| 70 | 🆕 | cresta | AI Success Manager  | United States (Remote) | $215,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4675710008) |
+| 70 | 🆕 | cresta | AI Strategist  | United States (Remote) | $200,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5446115008) |
+| 70 |  | gleanwork | AI Success Manager, East  | Remote - US | $200,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661878005) |
+| 70 |  | gleanwork | AI Success Manager, Central | Remote - US | $170,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661884005) |
+| 58 | 🆕 | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
+| 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
+| 55 | 🆕 | cresta | Embedded AI Expert | United States (Remote) | $140,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4919163008) |
