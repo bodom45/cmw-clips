@@ -16,7 +16,6 @@
     "duolingo",
     "squarespace",
     "intercom",
-    "gong",
     "datadog",
     "vercel",
     "brex",
@@ -25,23 +24,15 @@
     "cloudflare",
     "dropbox",
     "asana",
-    "grammarly",
-    "matchgroup",
-    "patreon",
-    "jasper",
     "assemblyai",
-    "cresta",
-    "alkami"
+    "cresta"
   ],
   "lever": [
     "palantir",
     "spotify",
     "mistral",
     "zoox",
-    "whoop",
-    "plaid",
-    "jasper",
-    "cresta"
+    "whoop"
   ],
   "ashby": [
     "cohere",
@@ -61,14 +52,10 @@
     "writer",
     "zapier",
     "n8n",
-    "retool",
     "langchain",
     "deepgram",
     "synthesia",
-    "heygen",
     "claylabs",
-    "lindy",
-    "typeface",
     "vapi",
     "hightouch",
     "attio",
@@ -76,11 +63,6 @@
     "supabase",
     "cognition",
     "mercor",
-    "ada",
-    "glean",
-    "jasper",
-    "11x",
-    "crewai",
     "relevanceai",
     "airtable"
   ]

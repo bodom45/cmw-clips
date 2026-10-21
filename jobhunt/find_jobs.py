@@ -20,7 +20,7 @@ SENIOR = re.compile(r"\b(senior|sr\.?|staff|principal|lead|head|director|manager
 TEXAS = re.compile(r"(dallas|fort worth|dfw|plano|irving|frisco|addison|richardson|austin|houston|texas|\btx\b)", re.I)
 # Remote only counts when the listing itself is US-remote, not "San Francisco (remote ok)".
 US_REMOTE = re.compile(r"(^\s*remote\b|remote\s*[-–(,:]\s*(us|u\.s|usa|united states|north america|americas)|\bor remote\b|(united states|usa|\bus\b)\s*[-–(,]?\s*remote|anywhere in the us)", re.I)
-TITLE_DROP = re.compile(r"\b(research|scientist|policy|security|finance|ranking|relevance|retrieval|ads|safety|recruit|legal|hardware|silicon|kernel|compiler|gpu|inference|pretraining|multimodal)\b", re.I)
+TITLE_DROP = re.compile(r"\b(seller|sales|designer|design|on-device|research|scientist|policy|security|finance|ranking|relevance|retrieval|ads|safety|recruit|legal|hardware|silicon|kernel|compiler|gpu|inference|pretraining|multimodal)\b", re.I)
 LOC_NO = re.compile(r"\b(uk|united kingdom|emea|europe|canada|british columbia|ontario|india|apac|latam|germany|france|poland|brazil|australia|sweden|ireland|netherlands|spain|japan|singapore)\b", re.I)
 OTHER_STATE = re.compile(r"remote\s*-\s*(sf|bay area|nyc|ca\b|california|ma\b|seattle|chicago|new york|washington|colorado|illinois|oregon|pennsylvania|michigan|georgia)", re.I)
 
@@ -68,7 +68,8 @@ def ashby(co):
                    posted=(j.get("publishedAt") or "")[:10])
 
 
-GOOD = re.compile(r"automation|transformation|enablement|adoption|implementation|deployment|deployed|integration|workflow|solutions?|architect|operations|success|gtm|go-to-market|conversational|agent|applied ai|ai engineer|consultant|strategist|specialist|content|media|creator|marketing|product", re.I)
+GOOD = re.compile(r"automation|transformation|enablement|adoption|implementation|deployment|deployed|integration|workflow|gtm|go-to-market|conversational|agent|applied ai|ai engineer|ai native|content|media|creator", re.I)
+OK = re.compile(r"solutions?|architect|operations|success|consultant|strategist|specialist|marketing|product|special projects", re.I)
 BAD = re.compile(r"machine learning|\bml\b|data & analytics|data and analytics|data engineer|platform|edge|quality engineering|code-gen|partner director|support engineering|infrastructure|research|scientist|training|silicon", re.I)
 HIGH_BAR = re.compile(r"senior staff|principal|\bstaff\b", re.I)  # big-tech engineering ladder levels
 MGMT = re.compile(r"engineering manager|manager, .*engineering", re.I)
@@ -80,9 +81,11 @@ def fit(j):
     without a big-tech ML or infrastructure background."""
     t = j["title"]; score = 55
     if GOOD.search(t): score += 25
+    elif OK.search(t): score += 15
+    if re.search(r"automation|gtm|go-to-market", t, re.I): score += 8  # closest to the work already shipped
     if BAD.search(t): score -= 30
     if HIGH_BAR.search(t): score -= 12
-    if MGMT.search(t) and not GOOD.search(t): score -= 8
+    if MGMT.search(t) and not (GOOD.search(t) or OK.search(t)): score -= 8
     if TEXAS.search(j["location"]): score += 8
     return max(0, min(100, score))
 
