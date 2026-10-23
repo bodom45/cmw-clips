@@ -1,4 +1,4 @@
-# Job queue — updated 2026-10-22
+# Job queue — updated 2026-10-23
 
 32 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -9,7 +9,7 @@
 | 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL remote Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
 | 88 |  | writer | AI transformation lead (Central) | Chicago, IL remote Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
 | 88 |  | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/writer/df56ef1b-4d8b-4eda-bc03-ce9db800e533/application) |
-| 88 | 🆕 | samsara | Digital Customer Success Manager, AI & Automation | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8306612?gh_jid=8306612) |
+| 88 |  | samsara | Digital Customer Success Manager, AI & Automation | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8306612?gh_jid=8306612) |
 | 88 |  | deepgram | People AI & Automation Engineer | USA - Remote | not listed | [apply](https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application) |
 | 80 |  | twilio | Sr AI Architect - Conversational AI | Remote - US | $324,480 | [apply](https://job-boards.greenhouse.io/twilio/jobs/7926891) |
 | 80 |  | cresta | Forward Deployed Product Manager, AI Agent | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4738837008) |
@@ -25,7 +25,7 @@
 | 80 |  | cresta | Special Projects, AI Agents Team | United States (Remote) | $225,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5406666008) |
 | 80 |  | cresta | AI Deployment Manager  | United States (Remote) | $175,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5078921008) |
 | 80 |  | samsara | AI Engineer, Customer Success | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
-| 80 | 🆕 | cresta | Senior Technical Product Marketing Manager, AI Agent | New York, United, States (Hybrid); San F | $150,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5460669008) |
+| 80 |  | cresta | Senior Technical Product Marketing Manager, AI Agent | New York, United, States (Hybrid); San F | $150,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5460669008) |
 | 80 |  | supabase | Head of AI Native Operations | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application) |
 | 76 |  | anthropic | Staff Software Engineer, GTM AI Engineering  | Remote-Friendly (Travel-Required) | San  | $405,000 | [apply](https://job-boards.greenhouse.io/anthropic/jobs/5390966008) |
 | 70 |  | cresta | Director of Enterprise AI Success.  | United States (Remote) | $245,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5412192008) |
