@@ -19,6 +19,7 @@ h2{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.14em
 .cols{display:grid;grid-template-columns:1fr 2.1in;gap:22px}
 .cols>*{min-width:0;display:grid;gap:12px;align-content:start}
 .job{display:grid;gap:3px}
+.job+.job{margin-top:12px}
 .job h3{font-size:10.5pt;font-weight:700;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .job h3 span{font-weight:500;color:var(--muted);font-size:9pt}
 .sub{font:9pt var(--display);color:var(--muted)}
@@ -32,13 +33,13 @@ ul{margin:0;padding-left:1.05em;display:grid;gap:2px}
 <div class="page">
 <header>
   <h1>Brandon Odom</h1>
-  <div class="role">AI Automation Engineer · Agentic Systems · Founder</div>
+  <div class="role">AI Automation Engineer · GTM Systems · Agentic AI</div>
   <div class="contact"><span>Dallas, TX</span><span>brandon.niles.odom@gmail.com</span><a href="https://github.com/bodom45">github.com/bodom45</a><a href="https://area51hq.vercel.app">area51hq.vercel.app</a></div>
 </header>
 
 <section>
   <h2>Summary</h2>
-  <p>I've spent years building automation and now design, ship and run AI systems in production. They include a platform used by several separate organizations, Claude agents that use live tools, and scheduled pipelines that run with no one watching them. I run each one end to end, from database design and API integrations to deploys, cost limits and failure recovery, and they handle real business work every day at Creative Music Television and Area 51 Radio.</p>
+  <p>I've spent years building automation and now design, ship and run AI systems in production. They include an outreach platform built to serve multiple clients, Claude agents that use live tools, and scheduled pipelines that run with no one watching them. I run each one end to end, from database design and API integrations to deploys, cost limits and failure recovery, and they handle real business work every day at Creative Music Television and Area 51 Radio.</p>
 </section>
 
 <div class="cols">
@@ -46,15 +47,29 @@ ul{margin:0;padding-left:1.05em;display:grid;gap:2px}
   <section>
     <h2>Experience</h2>
     <div class="job">
-      <h3>Founder &amp; Lead Automation Engineer <span>Dallas, TX</span></h3>
-      <div class="sub">Creative Music Television (CTV) · Area 51 Radio</div>
+      <h3>AI Automation Engineer &amp; Technical Lead <span>Dallas, TX</span></h3>
+      <div class="sub">Creative Music Television (CTV)</div>
       <ul>
-        <li><b>Orbit, AI outreach platform:</b> built software for several organizations, each seeing only its own data, on Supabase (24 tables with access rules and 19 edge functions). It scrapes leads, sends personalized DMs from a queue that checks for duplicates and retries, and uses a Claude agent that reads and answers replies. A model rewrites the outreach copy every week. It manages 2,584 leads and 31k+ industry contacts.</li>
-        <li><b>The Captain's HQ, Claude operations console:</b> a Next.js app where Claude uses live tools, streams its answers and keeps business context on hand with prompt caching, under hourly and monthly usage limits. A job rebuilds its context, runs 77 tests and redeploys every morning.</li>
-        <li><b>CMW Autopost:</b> a pipeline on scheduled GitHub Actions jobs that has published 260+ Instagram Reels and YouTube Shorts from a 350-clip library. It runs every hour, retries when the platform reports temporary errors, keeps a record of posts so nothing goes out twice, and needs no servers.</li>
-        <li><b>The Motion Hub:</b> a music marketing app for artists, built with Next.js and Prisma (28 data models, 53 API routes). It includes Stripe credit packs and subscriptions, connects to OpenAI, HeyGen, Spotify, TikTok and Meta, and runs scheduled jobs that tune ad campaigns.</li>
-        <li><b>Grant Radar:</b> scores grant opportunities against the company's profile across 8 weighted categories, explains each score, and drafts the start of each application.</li>
-        <li>Lead a production team and a paid media internship program. Our content has reached 1M+ organic views.</li>
+        <li><b>Orbit, AI prospecting and outreach:</b> built a system that can serve several client organizations, each seeing only its own data, on Supabase (24 tables, 19 edge functions). It finds and fills in lead details, runs outreach sequences from a queue that blocks duplicates and retries failures, and uses a Claude agent to read and answer replies. A model rewrites the outreach copy every week. It manages 2,584 leads and 31k+ industry contacts.</li>
+        <li><b>The Captain's HQ, Claude operations console:</b> the Next.js console the business runs on. Claude looks up live pipeline data, streams its answers and uses prompt caching under usage limits. It rebuilds its context, runs 77 tests and redeploys every morning.</li>
+        <li><b>CMW Autopost:</b> a scheduled GitHub Actions pipeline that has published 260+ Instagram Reels and YouTube Shorts unattended, with retries and duplicate protection.</li>
+        <li><b>Grant Radar:</b> scores funding opportunities across 8 weighted criteria, explains each score and drafts the start of each application.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Product Engineer <span>Dallas, TX</span></h3>
+      <div class="sub">Area 51 Radio</div>
+      <ul>
+        <li>Built The Motion Hub, a music marketing app for independent artists (Next.js, Prisma, 28 data models, 53 API routes), with Stripe credit packs and subscriptions.</li>
+        <li>Connected OpenAI, HeyGen, Spotify, TikTok and Meta, and added scheduled jobs that sync opportunities daily and tune ad campaigns every 6 hours.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <h3>Content Systems &amp; Production Lead <span>Dallas–Fort Worth</span></h3>
+      <div class="sub">CTV Motion Media</div>
+      <ul>
+        <li>Deliver done-for-you content systems for DFW service businesses, from scripting and shoots to automated posting. Client and company content has reached 1M+ organic views.</li>
+        <li>Lead the production team and run a paid media internship program.</li>
       </ul>
     </div>
   </section>
