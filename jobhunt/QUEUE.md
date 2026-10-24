@@ -1,6 +1,6 @@
-# Job queue — updated 2026-10-23
+# Job queue — updated 2026-10-24
 
-32 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+31 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
@@ -32,7 +32,6 @@
 | 70 |  | cresta | AI Success Manager  | United States (Remote) | $215,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4675710008) |
 | 70 |  | cresta | AI Strategist  | United States (Remote) | $200,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5446115008) |
 | 70 |  | gleanwork | AI Success Manager, East  | Remote - US | $200,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661878005) |
-| 70 |  | gleanwork | AI Success Manager, Central | Remote - US | $170,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661884005) |
 | 58 |  | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
 | 55 |  | cresta | Embedded AI Expert | United States (Remote) | $140,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4919163008) |
