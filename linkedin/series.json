@@ -1,0 +1,589 @@
+{
+  "series": "Systems I Build",
+  "author": "Brandon Odom",
+  "tagline": "AI Automation · GTM Systems · Dallas",
+  "posts": [
+    {
+      "id": "01-agent-layers",
+      "text": "Most \"AI agents\" are a prompt and a hope.\n\nThe ones that survive contact with a real business have five layers. I build every agent against this checklist:\n\n1. Interface: where people actually work. Chat, Slack, a console, an inbox.\n2. Reasoning: the model, plus routing. Which model for which job, and what happens when one is down.\n3. Tools: the agent reads live data and takes actions through narrow, typed functions. Never raw database access.\n4. Context: what the agent knows about the business, cached so you don't pay to resend it on every call.\n5. Guardrails: auth, rate limits, budgets, logging and tests.\n\nIn production for me: an operations console my company runs on every day. Claude answers questions by calling tools against live business data, keeps roughly 200 KB of business context cached, is capped at 40 requests an hour and 1,500 a month, and rebuilds itself every morning after 77 tests pass.\n\nThe model is the easy part. Layers 3 to 5 are where agents earn trust.\n\nWhich layer do teams skip most often in your experience?\n\n#AIAgents #AIEngineering #GTM",
+      "visual": {
+        "kind": "stack",
+        "title": "The 5 layers of a production AI agent",
+        "subtitle": "Most demos stop at layer 2. Production starts at layer 3.",
+        "rows": [
+          {
+            "name": "Interface",
+            "chips": [
+              "Console",
+              "Chat",
+              "Slack",
+              "Inbox"
+            ]
+          },
+          {
+            "name": "Reasoning",
+            "chips": [
+              "Claude",
+              "GPT fallback",
+              "Model routing"
+            ]
+          },
+          {
+            "name": "Tools",
+            "chips": [
+              "Typed functions",
+              "Live data reads",
+              "Scoped actions"
+            ]
+          },
+          {
+            "name": "Context",
+            "chips": [
+              "Business memory",
+              "Prompt caching",
+              "Daily rebuild"
+            ]
+          },
+          {
+            "name": "Guardrails",
+            "chips": [
+              "Auth",
+              "Rate limits",
+              "Budgets",
+              "Tests"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "40 req/hr cap · 1,500/mo budget · 77 tests · daily redeploy"
+      }
+    },
+    {
+      "id": "02-gtm-loop",
+      "text": "Every GTM team has the same six-stage machine, whether they've drawn it or not:\n\nSignals → Enrich → Score → Route → Engage → Learn\n\nMost teams buy a tool per stage and the handoffs between them are where pipeline leaks. The fix isn't another tool. It's owning the data model that runs through all six.\n\nWhat that looked like when I built our outreach system:\n• One database as the source of truth, with each client organization isolated at the row level\n• Leads pulled in and enriched automatically\n• Sequenced outreach from a queue, so nobody gets contacted twice\n• A Claude agent that reads replies and drafts or sends the answer\n• A weekly job that reviews which messages earned replies and rewrites the copy\n\nThe numbers it runs on today: 31,195 industry contacts loaded, 2,584 leads in pipeline, 22 campaigns, 19 serverless functions.\n\nThe Learn stage is the one most teams never close. If your outreach copy is the same as it was last quarter, the loop is open.\n\n#GTMEngineering #RevOps #AIAutomation",
+      "visual": {
+        "kind": "dashboard",
+        "title": "GTM outreach engine",
+        "badge": "LIVE SYSTEM",
+        "counter": {
+          "value": 31195,
+          "label": "Industry contacts loaded",
+          "note": "Playlists, radio, A&R"
+        },
+        "bars": [
+          [
+            "Spotify playlists",
+            9736
+          ],
+          [
+            "Apple playlists",
+            3385
+          ],
+          [
+            "A&R contacts",
+            1710
+          ],
+          [
+            "Radio stations",
+            1130
+          ]
+        ],
+        "tiles": [
+          [
+            "Leads in pipeline",
+            2584
+          ],
+          [
+            "Campaigns",
+            22
+          ],
+          [
+            "Serverless functions",
+            19
+          ]
+        ],
+        "cta": "Signals → Enrich → Score → Route → Engage → Learn"
+      },
+      "diagram": {
+        "kind": "flow",
+        "title": "The GTM loop most teams leave open",
+        "subtitle": "Six stages, one data model.",
+        "steps": [
+          {
+            "name": "Signals",
+            "note": "Scraped and inbound leads"
+          },
+          {
+            "name": "Enrich",
+            "note": "Fill in contact and context"
+          },
+          {
+            "name": "Score",
+            "note": "Weighted, explainable fit"
+          },
+          {
+            "name": "Route",
+            "note": "Queue with duplicate blocking"
+          },
+          {
+            "name": "Engage",
+            "note": "Sequences + AI reply agent"
+          },
+          {
+            "name": "Learn",
+            "note": "Weekly copy rewrite from reply data",
+            "accent": true
+          }
+        ],
+        "loop": "Learn feeds back into Engage every week",
+        "proof": "31,195 contacts · 2,584 leads · 22 campaigns"
+      }
+    },
+    {
+      "id": "03-idempotency",
+      "text": "The least glamorous skill in AI automation is the one that decides whether you get trusted with production: making sure the same action never happens twice.\n\nAutomations retry. Networks drop. Schedulers fire late and then fire again. Without protection, that means a prospect gets the same DM twice, a customer gets two invoices, a video posts twice.\n\nWhat I build into every queue:\n1. A unique key for every action, checked before it runs\n2. Duplicate checks at more than one layer, because one always gets bypassed eventually. My outreach queue checks four.\n3. Retries with growing delays, capped (mine stop at 3)\n4. A ledger of what already happened, stored next to the code\n5. Stale work expires instead of firing late (48 hours in my queue)\n\nThe publishing pipeline I run commits its ledger back to the repository after every run. 263 videos published, each one checked against that ledger before it goes out.\n\nIf you're evaluating an automation vendor or a candidate, ask one question: what happens when this runs twice?\n\n#AIAutomation #SystemsDesign #Reliability",
+      "visual": {
+        "kind": "flow",
+        "title": "What happens when it runs twice?",
+        "subtitle": "Five checks between an automation and a duplicate.",
+        "steps": [
+          {
+            "name": "Unique action key",
+            "note": "Every action gets one before it runs"
+          },
+          {
+            "name": "Layered dedupe",
+            "note": "4 independent duplicate checks"
+          },
+          {
+            "name": "Bounded retries",
+            "note": "Growing delays, max 3"
+          },
+          {
+            "name": "Ledger",
+            "note": "Record of what already happened"
+          },
+          {
+            "name": "Expiry",
+            "note": "Stale work cancels after 48h",
+            "accent": true
+          }
+        ],
+        "proof": "263 videos · every post checked against the ledger"
+      }
+    },
+    {
+      "id": "04-serverless-pipeline",
+      "text": "You don't need a server to run a production pipeline. You do still need architecture.\n\nOne of my systems publishes short-form video to Instagram and YouTube on a schedule. It has no server, no database host and no monthly infrastructure bill. It's a scheduled GitHub Actions job:\n\n• Wakes every hour\n• Reads a dated content calendar\n• Works out what's due in Central time and caps posts per run so a backlog never floods the feed\n• Waits through the platform's processing errors instead of failing on the first one\n• Commits a ledger of what posted back to the repo, so every run knows what the last one did\n\n263 videos published across five content series, with no one pressing a button.\n\nThe lesson that transfers to any company: put the state somewhere you can read, diff and roll back. For a small system that's a file in git. For a big one it's a table with an audit log. Either way, never let the automation's memory live only inside the automation.\n\n#Automation #DevOps #ContentOps",
+      "visual": {
+        "kind": "dashboard",
+        "title": "Unattended publishing pipeline",
+        "badge": "LIVE SYSTEM",
+        "counter": {
+          "value": 263,
+          "label": "Videos published automatically",
+          "note": "Instagram Reels + YouTube Shorts"
+        },
+        "bars": [
+          [
+            "DJ series",
+            204
+          ],
+          [
+            "AI series",
+            28
+          ],
+          [
+            "Music series",
+            26
+          ],
+          [
+            "Manager series",
+            4
+          ],
+          [
+            "Orbit series",
+            1
+          ]
+        ],
+        "tiles": [
+          [
+            "Clips in library",
+            350
+          ],
+          [
+            "Runs per day",
+            24
+          ],
+          [
+            "Servers",
+            0
+          ]
+        ],
+        "cta": "Cron → Calendar → Publish → Ledger"
+      },
+      "diagram": {
+        "kind": "flow",
+        "title": "A production pipeline with no server",
+        "subtitle": "State you can read, diff and roll back.",
+        "steps": [
+          {
+            "name": "Hourly schedule",
+            "note": "GitHub Actions cron"
+          },
+          {
+            "name": "Due-post resolver",
+            "note": "Central time, capped per run"
+          },
+          {
+            "name": "Publishers",
+            "note": "Instagram Graph API, YouTube Data API"
+          },
+          {
+            "name": "Patient polling",
+            "note": "Rides out processing errors"
+          },
+          {
+            "name": "Ledger commit",
+            "note": "State written back to git",
+            "accent": true
+          }
+        ],
+        "proof": "263 videos · 0 servers"
+      }
+    },
+    {
+      "id": "05-explainable-scoring",
+      "text": "If a sales rep can't explain why an account scored 82, they won't work it.\n\nThat's why I build explainable scoring before I reach for a model. Weighted criteria, visible reasons, and a number a human can argue with.\n\nTwo scoring systems I run:\n• Grant Radar ranks funding opportunities across 8 weighted criteria and shows the reason behind every score.\n• A job-matching engine scans 61 company job boards every morning, screens about 8,700 open roles, scores each one 0 to 100 on fit, and tailors a resume to every match.\n\nSame pattern both times:\n1. Define what \"good\" looks like as weights the business agrees on\n2. Score every record the same way\n3. Show the reasons next to the number\n4. Review the misses weekly and adjust the weights\n\nAn ML model can come later, once you have labeled outcomes. Most GTM teams don't, and an explainable score gets adopted while the black box gets ignored.\n\n#RevOps #GTMEngineering #AI",
+      "visual": {
+        "kind": "dashboard",
+        "title": "Job-matching engine",
+        "badge": "RUNS DAILY",
+        "counter": {
+          "value": 8734,
+          "label": "Open roles screened this morning",
+          "note": "61 company job boards · Greenhouse, Lever, Ashby APIs"
+        },
+        "bars": [
+          [
+            "Fit 80+",
+            0
+          ],
+          [
+            "Fit 70-79",
+            0
+          ],
+          [
+            "Fit 55-69",
+            0
+          ]
+        ],
+        "tiles": [
+          [
+            "Job boards",
+            61
+          ],
+          [
+            "Matched",
+            30
+          ],
+          [
+            "Strong fits",
+            27
+          ]
+        ],
+        "cta": "Score → Explain → Tailor → Apply",
+        "live": "jobhunt"
+      },
+      "diagram": {
+        "kind": "flow",
+        "title": "Scores people actually use",
+        "subtitle": "Explainable first. Machine learning once you have labels.",
+        "steps": [
+          {
+            "name": "Agree on weights",
+            "note": "What good looks like, in numbers"
+          },
+          {
+            "name": "Score everything",
+            "note": "Same rules for every record"
+          },
+          {
+            "name": "Show the reasons",
+            "note": "The why sits next to the number"
+          },
+          {
+            "name": "Act",
+            "note": "Route, prioritize, tailor"
+          },
+          {
+            "name": "Tune weekly",
+            "note": "Review misses, adjust weights",
+            "accent": true
+          }
+        ],
+        "proof": "8-criteria grant scoring · 8,734 roles screened daily"
+      }
+    },
+    {
+      "id": "06-multi-tenant",
+      "text": "The first question an enterprise buyer asks about an AI tool isn't about the AI. It's \"can another customer ever see my data?\"\n\nWhen I built our outreach platform, I made the answer architectural instead of procedural:\n\n• Every table carries the organization it belongs to\n• Row-level security in Postgres enforces it on all 24 tables, so isolation holds even when application code has a bug\n• 19 serverless edge functions handle scraping, queueing, inbox sync and the AI features\n• New users join an organization through emailed invites\n\nThe AI pieces, the reply agent and the campaign builder, are built on top of that foundation, not beside it.\n\nThat's the design principle I'd bring into any company rolling out AI: put the security boundary in the data layer, then let the AI live inside it.\n\n#AIEngineering #SaaS #Security",
+      "visual": {
+        "kind": "stack",
+        "title": "Isolation is a feature",
+        "subtitle": "Put the boundary in the data layer. Let the AI live inside it.",
+        "rows": [
+          {
+            "name": "AI features",
+            "chips": [
+              "Reply agent",
+              "Campaign builder",
+              "Copy optimizer"
+            ]
+          },
+          {
+            "name": "Edge functions",
+            "chips": [
+              "19 functions",
+              "Scrape · queue · sync"
+            ]
+          },
+          {
+            "name": "Membership",
+            "chips": [
+              "Organizations",
+              "Email invites"
+            ]
+          },
+          {
+            "name": "Row-level security",
+            "chips": [
+              "24 tables",
+              "Org on every row",
+              "Enforced by Postgres"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "multi-tenant Supabase · 24 RLS tables · 19 functions"
+      }
+    },
+    {
+      "id": "07-cost-controls",
+      "text": "An AI feature without a budget is a liability with a nice demo.\n\nFive controls I put on every LLM feature before anyone outside my team touches it:\n\n1. Rate limits. Mine: 40 requests an hour.\n2. A monthly ceiling the system enforces on its own: 1,500 calls.\n3. Prompt caching for the big, stable context, so roughly 200 KB of business knowledge isn't re-billed on every question.\n4. A fallback model, so one provider's outage isn't your outage.\n5. Fail closed. If a key or passcode is missing, the feature refuses to run instead of running open.\n\nNone of this is visible in a demo. All of it is visible on the invoice and in the incident report.\n\nIf you're the person approving AI spend, ask your team which of these five they have. If the answer is \"we'll add them later,\" later usually arrives as a surprise bill.\n\n#AI #FinOps #AIGovernance",
+      "visual": {
+        "kind": "stack",
+        "title": "Five controls before an LLM feature ships",
+        "subtitle": "Invisible in the demo. Very visible on the invoice.",
+        "rows": [
+          {
+            "name": "Rate limit",
+            "chips": [
+              "40 requests / hour"
+            ]
+          },
+          {
+            "name": "Budget ceiling",
+            "chips": [
+              "1,500 / month",
+              "Enforced in code"
+            ]
+          },
+          {
+            "name": "Prompt caching",
+            "chips": [
+              "~200 KB context",
+              "Not re-billed"
+            ]
+          },
+          {
+            "name": "Fallback model",
+            "chips": [
+              "Claude ↔ GPT"
+            ]
+          },
+          {
+            "name": "Fail closed",
+            "chips": [
+              "No key, no run"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "All five live in the console my company runs on daily"
+      }
+    },
+    {
+      "id": "08-human-in-the-loop",
+      "text": "The most important design decision in an automation is where it stops.\n\nI sort every step into one of three lanes:\n\nAutomate: high volume, low risk, easy to undo. Publishing a scheduled post. Enriching a lead. Syncing an inbox.\n\nAssist: the system does 90% and a person finishes. My job-application assistant opens each role, fills every field and attaches a resume tailored to that posting. I solve the captcha and press Submit.\n\nApprove: anything public, irreversible or brand-defining waits for a human. My TikTok publishing is built to land videos in drafts for review instead of going live.\n\nTeams get this wrong in both directions. Automate too little and nobody gets their time back. Automate too much and one bad run reaches every customer at once.\n\nWhen I scope an AI project, this map comes before any code.\n\n#AIStrategy #Automation #HumanInTheLoop",
+      "visual": {
+        "kind": "lanes",
+        "title": "Where should the automation stop?",
+        "subtitle": "Map every step before writing any code.",
+        "lanes": [
+          {
+            "name": "Automate",
+            "rule": "High volume · low risk · easy to undo",
+            "items": [
+              "Scheduled posts",
+              "Lead enrichment",
+              "Inbox sync"
+            ]
+          },
+          {
+            "name": "Assist",
+            "rule": "System does 90%, a person finishes",
+            "items": [
+              "Job applications",
+              "Reply drafts",
+              "Tailored resumes"
+            ]
+          },
+          {
+            "name": "Approve",
+            "rule": "Public · irreversible · on-brand",
+            "items": [
+              "TikTok drafts",
+              "New campaigns",
+              "Pricing"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "Every system I run has all three lanes"
+      }
+    },
+    {
+      "id": "09-90-day-rollout",
+      "text": "If I were rolling out AI across a 200-person GTM org, here's the 90-day plan I'd run.\n\nDays 1–15: Audit. Shadow reps, marketers and ops. List every repetitive task with its weekly hours. Pick the five with the most hours and the least risk.\n\nDays 15–45: Quick wins. Ship those five as small, owned automations inside the tools people already use. Measure hours saved. Publish the number.\n\nDays 45–75: Platform. Consolidate what worked onto shared foundations: one data model, one place for prompts and context, one set of guardrails for cost, access and logging.\n\nDays 75–90: Scale and enable. Train champions on each team, write the playbook, and hand over a backlog ranked by hours saved.\n\nThe order matters. Platform-first rollouts stall because nobody has felt the value yet. Quick-wins-only rollouts sprawl because nothing is shared.\n\nIt's the same order I've followed automating my own companies: outreach, publishing, operations, scoring.\n\n#AITransformation #GTM #Enablement",
+      "visual": {
+        "kind": "timeline",
+        "title": "AI across a GTM org in 90 days",
+        "subtitle": "Value first, platform second, scale third.",
+        "phases": [
+          {
+            "days": "1–15",
+            "name": "Audit",
+            "items": [
+              "Shadow every team",
+              "Rank tasks by hours",
+              "Pick 5 low-risk wins"
+            ]
+          },
+          {
+            "days": "15–45",
+            "name": "Quick wins",
+            "items": [
+              "Ship inside existing tools",
+              "Measure hours saved",
+              "Publish the number"
+            ]
+          },
+          {
+            "days": "45–75",
+            "name": "Platform",
+            "items": [
+              "One data model",
+              "Shared context + prompts",
+              "Shared guardrails"
+            ]
+          },
+          {
+            "days": "75–90",
+            "name": "Scale",
+            "items": [
+              "Train champions",
+              "Write the playbook",
+              "Ranked backlog"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "The sequence behind my own outreach, publishing and ops automation"
+      }
+    },
+    {
+      "id": "10-tests-as-guardrails",
+      "text": "Policies in a doc get forgotten. Policies in a test suite get enforced on every deploy.\n\nThe AI console I run my business from has 77 automated tests. A lot of them aren't testing features. They're testing promises:\n\n• No passcode or secret ever appears in source code\n• The 200 KB business-context bundle never reaches the browser\n• Every route requires a signed session\n• Text meets accessibility contrast standards\n\nIf any of those breaks, the morning rebuild stops and the old version keeps running.\n\nThis is the habit I'd push hardest on any team shipping AI: turn each \"we should never\" into a test. Security reviews get faster, onboarding gets safer, and nobody has to remember the rules.\n\nWhat's one rule your team keeps in a doc that should be a test?\n\n#AIEngineering #Testing #Governance",
+      "visual": {
+        "kind": "stack",
+        "title": "Turn every \"we should never\" into a test",
+        "subtitle": "77 tests guard the console my business runs on.",
+        "rows": [
+          {
+            "name": "Secrets",
+            "chips": [
+              "No passcode in source"
+            ]
+          },
+          {
+            "name": "Data exposure",
+            "chips": [
+              "Context never reaches the browser"
+            ]
+          },
+          {
+            "name": "Access",
+            "chips": [
+              "Every route needs a session"
+            ]
+          },
+          {
+            "name": "Accessibility",
+            "chips": [
+              "Contrast meets WCAG AA"
+            ]
+          },
+          {
+            "name": "Deploy gate",
+            "chips": [
+              "Any failure keeps the old version live"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "77 tests · runs before every daily redeploy"
+      }
+    },
+    {
+      "id": "11-build-vs-buy",
+      "text": "Clay, Salesforce, a sequencer, an enrichment API, or build it yourself?\n\nI've worked both sides, and I use one test for every piece of the GTM stack:\n\nBuy it when the workflow is standard and the vendor's roadmap will outrun yours. CRM, enrichment, calendar booking.\n\nBuild it when the workflow is your advantage, or when the glue between tools is where the value leaks. Scoring your specific ICP. Routing that knows your territories. An AI agent that answers in your voice using your data.\n\nWrap it when you need both: keep the bought system as the source of truth and build a thin, owned layer on top that reads from it and writes back to it.\n\nMost of what I build lives in that third box. It's also where a GTM engineer earns their keep, because it's the part no vendor will ever build for you.\n\nWhat's one tool in your stack you'd rip out if you could build the piece you actually use?\n\n#GTMEngineering #Salesforce #Clay",
+      "visual": {
+        "kind": "lanes",
+        "title": "Buy, build, or wrap?",
+        "subtitle": "One test for every piece of the GTM stack.",
+        "lanes": [
+          {
+            "name": "Buy",
+            "rule": "Standard workflow · vendor moves faster",
+            "items": [
+              "CRM",
+              "Enrichment",
+              "Scheduling"
+            ]
+          },
+          {
+            "name": "Build",
+            "rule": "The workflow is your edge",
+            "items": [
+              "ICP scoring",
+              "Territory routing",
+              "Voice-matched AI agent"
+            ]
+          },
+          {
+            "name": "Wrap",
+            "rule": "Bought source of truth, owned layer on top",
+            "items": [
+              "Read from CRM",
+              "Act with AI",
+              "Write back"
+            ],
+            "accent": true
+          }
+        ],
+        "proof": "Where a GTM engineer earns their keep: the wrap layer"
+      }
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+<title>Systems I Build</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a review board; one row per post, media left at feed size, copy right */
+:root{--bg:#f6f7f9;--card:#ffffff;--fg:#0f1b2d;--muted:#5b6678;--line:#dde2ea;--accent:#e2470f;--soft:#fff0e9;
+ --display:"Archivo",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d131c;--card:#151d29;--fg:#e8edf4;--muted:#9aa6b8;--line:#263142;--accent:#ff7a45;--soft:#2a1c16;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d131c;--card:#151d29;--fg:#e8edf4;--muted:#9aa6b8;--line:#263142;--accent:#ff7a45;--soft:#2a1c16;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--display)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px;display:grid;gap:28px}
+header{display:grid;gap:10px}
+.eyebrow{font:500 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-size:clamp(2rem,5vw,2.8rem);font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:65ch}
+.post{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:28px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.media{display:grid;gap:8px;align-content:start}
+.media img,.media video{width:100%;max-width:100%;aspect-ratio:4/5;border-radius:10px;border:1px solid var(--line);background:var(--bg);display:block}
+.alt{font:500 .8rem var(--mono);color:var(--accent)}
+.copy{min-width:0;display:grid;gap:12px;align-content:start}
+.meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:500 .78rem var(--mono);color:var(--muted)}
+.num{color:var(--fg);font-weight:600}
+.kind{border:1px solid var(--line);padding:2px 8px;border-radius:999px}
+.kind.v{border-color:var(--accent);color:var(--accent);background:var(--soft)}
+h2{margin:0;font-size:1.35rem;font-weight:800;text-wrap:balance}
+pre{margin:0;white-space:pre-wrap;font:15px/1.55 var(--display);max-height:420px;overflow:auto;border-top:1px solid var(--line);padding-top:12px}
+button{justify-self:start;font:600 .9rem var(--display);background:var(--fg);color:var(--bg);border:0;border-radius:8px;padding:10px 16px;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:720px){.post{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">LinkedIn series · 11 posts</div>
+  <h1>Systems I Build</h1>
+  <p>Senior-level posts on the kinds of systems you build: agents, GTM pipelines, reliability, multi-tenant SaaS, cost controls, scoring and rollout strategy. Each has a diagram, and three have animated dashboard videos built from your real numbers.</p>
+</header>
+<article class="post" id="p1">
+  <div class="media"><img src="media/01-agent-layers.png" alt="The 5 layers of a production AI agent" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">01</span><span class="kind">Image</span><span class="len">1,076 characters</span></div>
+    <h2>The 5 layers of a production AI agent</h2>
+    <pre id="t1">Most &quot;AI agents&quot; are a prompt and a hope.
+
+The ones that survive contact with a real business have five layers. I build every agent against this checklist:
+
+1. Interface: where people actually work. Chat, Slack, a console, an inbox.
+2. Reasoning: the model, plus routing. Which model for which job, and what happens when one is down.
+3. Tools: the agent reads live data and takes actions through narrow, typed functions. Never raw database access.
+4. Context: what the agent knows about the business, cached so you don&#x27;t pay to resend it on every call.
+5. Guardrails: auth, rate limits, budgets, logging and tests.
+
+In production for me: an operations console my company runs on every day. Claude answers questions by calling tools against live business data, keeps roughly 200 KB of business context cached, is capped at 40 requests an hour and 1,500 a month, and rebuilds itself every morning after 77 tests pass.
+
+The model is the easy part. Layers 3 to 5 are where agents earn trust.
+
+Which layer do teams skip most often in your experience?
+
+#AIAgents #AIEngineering #GTM</pre>
+    <button type="button" data-copy="t1" id="c1">Copy post text</button>
+  </div>
+</article><article class="post" id="p2">
+  <div class="media"><video src="media/02-gtm-loop.mp4" poster="media/02-gtm-loop-final.png" controls muted loop playsinline preload="none"></video><a class="alt" href="media/02-gtm-loop.png" target="_blank" rel="noopener">Diagram version</a></div>
+  <div class="copy">
+    <div class="meta"><span class="num">02</span><span class="kind v">Video</span><span class="len">1,006 characters</span></div>
+    <h2>The GTM loop most teams leave open</h2>
+    <pre id="t2">Every GTM team has the same six-stage machine, whether they&#x27;ve drawn it or not:
+
+Signals → Enrich → Score → Route → Engage → Learn
+
+Most teams buy a tool per stage and the handoffs between them are where pipeline leaks. The fix isn&#x27;t another tool. It&#x27;s owning the data model that runs through all six.
+
+What that looked like when I built our outreach system:
+• One database as the source of truth, with each client organization isolated at the row level
+• Leads pulled in and enriched automatically
+• Sequenced outreach from a queue, so nobody gets contacted twice
+• A Claude agent that reads replies and drafts or sends the answer
+• A weekly job that reviews which messages earned replies and rewrites the copy
+
+The numbers it runs on today: 31,195 industry contacts loaded, 2,584 leads in pipeline, 22 campaigns, 19 serverless functions.
+
+The Learn stage is the one most teams never close. If your outreach copy is the same as it was last quarter, the loop is open.
+
+#GTMEngineering #RevOps #AIAutomation</pre>
+    <button type="button" data-copy="t2" id="c2">Copy post text</button>
+  </div>
+</article><article class="post" id="p3">
+  <div class="media"><img src="media/03-idempotency.png" alt="What happens when it runs twice?" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">03</span><span class="kind">Image</span><span class="len">1,069 characters</span></div>
+    <h2>What happens when it runs twice?</h2>
+    <pre id="t3">The least glamorous skill in AI automation is the one that decides whether you get trusted with production: making sure the same action never happens twice.
+
+Automations retry. Networks drop. Schedulers fire late and then fire again. Without protection, that means a prospect gets the same DM twice, a customer gets two invoices, a video posts twice.
+
+What I build into every queue:
+1. A unique key for every action, checked before it runs
+2. Duplicate checks at more than one layer, because one always gets bypassed eventually. My outreach queue checks four.
+3. Retries with growing delays, capped (mine stop at 3)
+4. A ledger of what already happened, stored next to the code
+5. Stale work expires instead of firing late (48 hours in my queue)
+
+The publishing pipeline I run commits its ledger back to the repository after every run. 263 videos published, each one checked against that ledger before it goes out.
+
+If you&#x27;re evaluating an automation vendor or a candidate, ask one question: what happens when this runs twice?
+
+#AIAutomation #SystemsDesign #Reliability</pre>
+    <button type="button" data-copy="t3" id="c3">Copy post text</button>
+  </div>
+</article><article class="post" id="p4">
+  <div class="media"><video src="media/04-serverless-pipeline.mp4" poster="media/04-serverless-pipeline-final.png" controls muted loop playsinline preload="none"></video><a class="alt" href="media/04-serverless-pipeline.png" target="_blank" rel="noopener">Diagram version</a></div>
+  <div class="copy">
+    <div class="meta"><span class="num">04</span><span class="kind v">Video</span><span class="len">988 characters</span></div>
+    <h2>A production pipeline with no server</h2>
+    <pre id="t4">You don&#x27;t need a server to run a production pipeline. You do still need architecture.
+
+One of my systems publishes short-form video to Instagram and YouTube on a schedule. It has no server, no database host and no monthly infrastructure bill. It&#x27;s a scheduled GitHub Actions job:
+
+• Wakes every hour
+• Reads a dated content calendar
+• Works out what&#x27;s due in Central time and caps posts per run so a backlog never floods the feed
+• Waits through the platform&#x27;s processing errors instead of failing on the first one
+• Commits a ledger of what posted back to the repo, so every run knows what the last one did
+
+263 videos published across five content series, with no one pressing a button.
+
+The lesson that transfers to any company: put the state somewhere you can read, diff and roll back. For a small system that&#x27;s a file in git. For a big one it&#x27;s a table with an audit log. Either way, never let the automation&#x27;s memory live only inside the automation.
+
+#Automation #DevOps #ContentOps</pre>
+    <button type="button" data-copy="t4" id="c4">Copy post text</button>
+  </div>
+</article><article class="post" id="p5">
+  <div class="media"><video src="media/05-explainable-scoring.mp4" poster="media/05-explainable-scoring-final.png" controls muted loop playsinline preload="none"></video><a class="alt" href="media/05-explainable-scoring.png" target="_blank" rel="noopener">Diagram version</a></div>
+  <div class="copy">
+    <div class="meta"><span class="num">05</span><span class="kind v">Video</span><span class="len">924 characters</span></div>
+    <h2>Scores people actually use</h2>
+    <pre id="t5">If a sales rep can&#x27;t explain why an account scored 82, they won&#x27;t work it.
+
+That&#x27;s why I build explainable scoring before I reach for a model. Weighted criteria, visible reasons, and a number a human can argue with.
+
+Two scoring systems I run:
+• Grant Radar ranks funding opportunities across 8 weighted criteria and shows the reason behind every score.
+• A job-matching engine scans 61 company job boards every morning, screens about 8,700 open roles, scores each one 0 to 100 on fit, and tailors a resume to every match.
+
+Same pattern both times:
+1. Define what &quot;good&quot; looks like as weights the business agrees on
+2. Score every record the same way
+3. Show the reasons next to the number
+4. Review the misses weekly and adjust the weights
+
+An ML model can come later, once you have labeled outcomes. Most GTM teams don&#x27;t, and an explainable score gets adopted while the black box gets ignored.
+
+#RevOps #GTMEngineering #AI</pre>
+    <button type="button" data-copy="t5" id="c5">Copy post text</button>
+  </div>
+</article><article class="post" id="p6">
+  <div class="media"><img src="media/06-multi-tenant.png" alt="Isolation is a feature" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">06</span><span class="kind">Image</span><span class="len">828 characters</span></div>
+    <h2>Isolation is a feature</h2>
+    <pre id="t6">The first question an enterprise buyer asks about an AI tool isn&#x27;t about the AI. It&#x27;s &quot;can another customer ever see my data?&quot;
+
+When I built our outreach platform, I made the answer architectural instead of procedural:
+
+• Every table carries the organization it belongs to
+• Row-level security in Postgres enforces it on all 24 tables, so isolation holds even when application code has a bug
+• 19 serverless edge functions handle scraping, queueing, inbox sync and the AI features
+• New users join an organization through emailed invites
+
+The AI pieces, the reply agent and the campaign builder, are built on top of that foundation, not beside it.
+
+That&#x27;s the design principle I&#x27;d bring into any company rolling out AI: put the security boundary in the data layer, then let the AI live inside it.
+
+#AIEngineering #SaaS #Security</pre>
+    <button type="button" data-copy="t6" id="c6">Copy post text</button>
+  </div>
+</article><article class="post" id="p7">
+  <div class="media"><img src="media/07-cost-controls.png" alt="Five controls before an LLM feature ships" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">07</span><span class="kind">Image</span><span class="len">842 characters</span></div>
+    <h2>Five controls before an LLM feature ships</h2>
+    <pre id="t7">An AI feature without a budget is a liability with a nice demo.
+
+Five controls I put on every LLM feature before anyone outside my team touches it:
+
+1. Rate limits. Mine: 40 requests an hour.
+2. A monthly ceiling the system enforces on its own: 1,500 calls.
+3. Prompt caching for the big, stable context, so roughly 200 KB of business knowledge isn&#x27;t re-billed on every question.
+4. A fallback model, so one provider&#x27;s outage isn&#x27;t your outage.
+5. Fail closed. If a key or passcode is missing, the feature refuses to run instead of running open.
+
+None of this is visible in a demo. All of it is visible on the invoice and in the incident report.
+
+If you&#x27;re the person approving AI spend, ask your team which of these five they have. If the answer is &quot;we&#x27;ll add them later,&quot; later usually arrives as a surprise bill.
+
+#AI #FinOps #AIGovernance</pre>
+    <button type="button" data-copy="t7" id="c7">Copy post text</button>
+  </div>
+</article><article class="post" id="p8">
+  <div class="media"><img src="media/08-human-in-the-loop.png" alt="Where should the automation stop?" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">08</span><span class="kind">Image</span><span class="len">858 characters</span></div>
+    <h2>Where should the automation stop?</h2>
+    <pre id="t8">The most important design decision in an automation is where it stops.
+
+I sort every step into one of three lanes:
+
+Automate: high volume, low risk, easy to undo. Publishing a scheduled post. Enriching a lead. Syncing an inbox.
+
+Assist: the system does 90% and a person finishes. My job-application assistant opens each role, fills every field and attaches a resume tailored to that posting. I solve the captcha and press Submit.
+
+Approve: anything public, irreversible or brand-defining waits for a human. My TikTok publishing is built to land videos in drafts for review instead of going live.
+
+Teams get this wrong in both directions. Automate too little and nobody gets their time back. Automate too much and one bad run reaches every customer at once.
+
+When I scope an AI project, this map comes before any code.
+
+#AIStrategy #Automation #HumanInTheLoop</pre>
+    <button type="button" data-copy="t8" id="c8">Copy post text</button>
+  </div>
+</article><article class="post" id="p9">
+  <div class="media"><img src="media/09-90-day-rollout.png" alt="AI across a GTM org in 90 days" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">09</span><span class="kind">Image</span><span class="len">981 characters</span></div>
+    <h2>AI across a GTM org in 90 days</h2>
+    <pre id="t9">If I were rolling out AI across a 200-person GTM org, here&#x27;s the 90-day plan I&#x27;d run.
+
+Days 1–15: Audit. Shadow reps, marketers and ops. List every repetitive task with its weekly hours. Pick the five with the most hours and the least risk.
+
+Days 15–45: Quick wins. Ship those five as small, owned automations inside the tools people already use. Measure hours saved. Publish the number.
+
+Days 45–75: Platform. Consolidate what worked onto shared foundations: one data model, one place for prompts and context, one set of guardrails for cost, access and logging.
+
+Days 75–90: Scale and enable. Train champions on each team, write the playbook, and hand over a backlog ranked by hours saved.
+
+The order matters. Platform-first rollouts stall because nobody has felt the value yet. Quick-wins-only rollouts sprawl because nothing is shared.
+
+It&#x27;s the same order I&#x27;ve followed automating my own companies: outreach, publishing, operations, scoring.
+
+#AITransformation #GTM #Enablement</pre>
+    <button type="button" data-copy="t9" id="c9">Copy post text</button>
+  </div>
+</article><article class="post" id="p10">
+  <div class="media"><img src="media/10-tests-as-guardrails.png" alt="Turn every &quot;we should never&quot; into a test" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">10</span><span class="kind">Image</span><span class="len">797 characters</span></div>
+    <h2>Turn every &quot;we should never&quot; into a test</h2>
+    <pre id="t10">Policies in a doc get forgotten. Policies in a test suite get enforced on every deploy.
+
+The AI console I run my business from has 77 automated tests. A lot of them aren&#x27;t testing features. They&#x27;re testing promises:
+
+• No passcode or secret ever appears in source code
+• The 200 KB business-context bundle never reaches the browser
+• Every route requires a signed session
+• Text meets accessibility contrast standards
+
+If any of those breaks, the morning rebuild stops and the old version keeps running.
+
+This is the habit I&#x27;d push hardest on any team shipping AI: turn each &quot;we should never&quot; into a test. Security reviews get faster, onboarding gets safer, and nobody has to remember the rules.
+
+What&#x27;s one rule your team keeps in a doc that should be a test?
+
+#AIEngineering #Testing #Governance</pre>
+    <button type="button" data-copy="t10" id="c10">Copy post text</button>
+  </div>
+</article><article class="post" id="p11">
+  <div class="media"><img src="media/11-build-vs-buy.png" alt="Buy, build, or wrap?" loading="lazy"></div>
+  <div class="copy">
+    <div class="meta"><span class="num">11</span><span class="kind">Image</span><span class="len">924 characters</span></div>
+    <h2>Buy, build, or wrap?</h2>
+    <pre id="t11">Clay, Salesforce, a sequencer, an enrichment API, or build it yourself?
+
+I&#x27;ve worked both sides, and I use one test for every piece of the GTM stack:
+
+Buy it when the workflow is standard and the vendor&#x27;s roadmap will outrun yours. CRM, enrichment, calendar booking.
+
+Build it when the workflow is your advantage, or when the glue between tools is where the value leaks. Scoring your specific ICP. Routing that knows your territories. An AI agent that answers in your voice using your data.
+
+Wrap it when you need both: keep the bought system as the source of truth and build a thin, owned layer on top that reads from it and writes back to it.
+
+Most of what I build lives in that third box. It&#x27;s also where a GTM engineer earns their keep, because it&#x27;s the part no vendor will ever build for you.
+
+What&#x27;s one tool in your stack you&#x27;d rip out if you could build the piece you actually use?
+
+#GTMEngineering #Salesforce #Clay</pre>
+    <button type="button" data-copy="t11" id="c11">Copy post text</button>
+  </div>
+</article>
+</div>
+<script>
+document.addEventListener('click', async ev => {
+  const b = ev.target.closest('[data-copy]'); if (!b) return;
+  const pre = document.getElementById(b.dataset.copy);
+  try { await navigator.clipboard.writeText(pre.textContent); b.textContent = 'Copied'; }
+  catch (e) { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press copy'; }
+  setTimeout(() => b.textContent = 'Copy post text', 2000);
+});
+</script>
