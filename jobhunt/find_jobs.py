@@ -109,11 +109,13 @@ def keep(j):
 
 def main():
     cos = json.loads((HERE / "companies.json").read_text())
-    found, errors = [], []
+    found, errors, screened = [], [], 0
     for ats, fn in (("greenhouse", greenhouse), ("lever", lever), ("ashby", ashby)):
         for co in cos.get(ats, []):
             try:
-                found += [j for j in fn(co) if keep(j)]
+                roles = list(fn(co))
+                screened += len(roles)
+                found += [j for j in roles if keep(j)]
             except Exception as e:
                 errors.append(f"{ats}/{co}: {e}")
     seen = json.loads(SEEN.read_text()) if SEEN.exists() else {}
@@ -143,7 +145,10 @@ def main():
     if errors:
         lines += ["", "<details><summary>Boards that failed this run</summary>", ""] + [f"- {e}" for e in errors] + ["", "</details>"]
     QUEUE.write_text("\n".join(lines) + "\n")
-    print(f"{len(found)} matches, {sum(j['first_seen']==today for j in open_)} new, {len(errors)} board errors")
+    (HERE / "stats.json").write_text(json.dumps({
+        "date": today, "boards": sum(len(v) for v in cos.values()) - len(errors), "roles_screened": screened,
+        "matched": len(open_), "strong_fits": sum(j["fit"] >= 70 for j in open_)}, indent=1))
+    print(f"{screened} roles screened, {len(found)} matches, {sum(j['first_seen']==today for j in open_)} new, {len(errors)} board errors")
 
 
 if __name__ == "__main__":

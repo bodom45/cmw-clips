@@ -21,7 +21,7 @@ jobs:
       - run: python jobhunt/find_jobs.py
       - name: save queue
         run: |
-          git add jobhunt/seen.json jobhunt/QUEUE.md
+          git add jobhunt/seen.json jobhunt/QUEUE.md jobhunt/stats.json
           if ! git diff --cached --quiet; then
             git config user.name "jobhunt-bot"
             git config user.email "bot@users.noreply.github.com"
