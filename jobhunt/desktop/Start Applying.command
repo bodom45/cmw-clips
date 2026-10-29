@@ -11,7 +11,7 @@ if [ ! -x .venv/bin/python ]; then
     || { echo "Setup failed. Send me the message above."; read -p "Press Enter to close."; exit 1; }
 fi
 echo "Getting today's job list..."
-curl -fsSL https://raw.githubusercontent.com/bodom45/cmw-clips/main/jobhunt/seen.json -o seen.json.new && mv seen.json.new seen.json \
+for f in seen.json apply_assist.py tailor.py; do curl -fsSL "https://raw.githubusercontent.com/bodom45/cmw-clips/main/jobhunt/$f" -o "$f.new" && mv "$f.new" "$f"; done \
   || echo "Couldn't download today's list, using the last one."
 .venv/bin/python apply_assist.py --min-fit 55 "$@"
 read -p "All done. Press Enter to close."

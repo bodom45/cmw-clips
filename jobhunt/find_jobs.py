@@ -5,7 +5,7 @@ that pay at least MIN_SALARY (or don't list pay), and writes QUEUE.md with
 direct apply links. New roles are tracked in seen.json so each shows up once.
 """
 from __future__ import annotations
-import json, os, re, sys, urllib.request, datetime as dt
+import html, json, os, re, sys, urllib.request, datetime as dt
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -41,11 +41,17 @@ def money(text):
     return best
 
 
+def plain(text, limit=6000):
+    """Job description as plain text, for tailoring resumes to the posting."""
+    text = re.sub(r"<[^>]+>", " ", html.unescape(html.unescape(text or "")))
+    return re.sub(r"\s+", " ", text).strip()[:limit]
+
+
 def greenhouse(co):
     for j in get(f"https://boards-api.greenhouse.io/v1/boards/{co}/jobs?content=true")["jobs"]:
         yield dict(company=co, title=j["title"], location=(j.get("location") or {}).get("name", ""),
                    url=j["absolute_url"], pay=money(j.get("content", "")), ats="greenhouse",
-                   posted=j.get("updated_at", "")[:10])
+                   posted=j.get("updated_at", "")[:10], desc=plain(j.get("content", "")))
 
 
 def lever(co):
@@ -55,7 +61,9 @@ def lever(co):
         pay = int(sr.get("max") or 0) or money(j.get("descriptionPlain", "") + j.get("additionalPlain", ""))
         posted = dt.datetime.fromtimestamp(j.get("createdAt", 0) / 1000).date().isoformat()
         yield dict(company=co, title=j["text"], location=cats.get("location", ""),
-                   url=j.get("applyUrl") or j["hostedUrl"], pay=pay, ats="lever", posted=posted)
+                   url=j.get("applyUrl") or j["hostedUrl"], pay=pay, ats="lever", posted=posted,
+                   desc=plain(j.get("descriptionPlain", "") + " " + " ".join(
+                       l.get("text", "") + " " + plain(l.get("content", "")) for l in j.get("lists") or [])))
 
 
 def ashby(co):
@@ -65,7 +73,7 @@ def ashby(co):
         comp = (j.get("compensation") or {}).get("compensationTierSummary", "")
         yield dict(company=co, title=j["title"], location=loc, url=j.get("applyUrl") or j["jobUrl"],
                    pay=money(comp) or money(j.get("descriptionPlain", "")), ats="ashby",
-                   posted=(j.get("publishedAt") or "")[:10])
+                   posted=(j.get("publishedAt") or "")[:10], desc=plain(j.get("descriptionPlain", "")))
 
 
 GOOD = re.compile(r"automation|transformation|enablement|adoption|implementation|deployment|deployed|integration|workflow|gtm|go-to-market|conversational|agent|applied ai|ai engineer|ai native|content|media|creator", re.I)
@@ -101,11 +109,13 @@ def keep(j):
 
 def main():
     cos = json.loads((HERE / "companies.json").read_text())
-    found, errors = [], []
+    found, errors, screened = [], [], 0
     for ats, fn in (("greenhouse", greenhouse), ("lever", lever), ("ashby", ashby)):
         for co in cos.get(ats, []):
             try:
-                found += [j for j in fn(co) if keep(j)]
+                roles = list(fn(co))
+                screened += len(roles)
+                found += [j for j in roles if keep(j)]
             except Exception as e:
                 errors.append(f"{ats}/{co}: {e}")
     seen = json.loads(SEEN.read_text()) if SEEN.exists() else {}
@@ -114,7 +124,10 @@ def main():
     for url in [u for u, j in seen.items() if j["status"] == "new" and u not in live]:
         del seen[url]  # closed or no longer matches the filters
     for j in found:
-        seen.setdefault(j["url"], {**j, "first_seen": today, "status": "new"})
+        if j["url"] in seen:
+            seen[j["url"]].update(desc=j["desc"], pay=j["pay"], location=j["location"], title=j["title"])
+        else:
+            seen[j["url"]] = {**j, "first_seen": today, "status": "new"}
     for j in seen.values():
         j["fit"] = fit(j)
     SEEN.write_text(json.dumps(seen, indent=1, sort_keys=True))
@@ -132,7 +145,10 @@ def main():
     if errors:
         lines += ["", "<details><summary>Boards that failed this run</summary>", ""] + [f"- {e}" for e in errors] + ["", "</details>"]
     QUEUE.write_text("\n".join(lines) + "\n")
-    print(f"{len(found)} matches, {sum(j['first_seen']==today for j in open_)} new, {len(errors)} board errors")
+    (HERE / "stats.json").write_text(json.dumps({
+        "date": today, "boards": sum(len(v) for v in cos.values()) - len(errors), "roles_screened": screened,
+        "matched": len(open_), "strong_fits": sum(j["fit"] >= 70 for j in open_)}, indent=1))
+    print(f"{screened} roles screened, {len(found)} matches, {sum(j['first_seen']==today for j in open_)} new, {len(errors)} board errors")
 
 
 if __name__ == "__main__":

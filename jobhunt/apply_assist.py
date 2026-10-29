@@ -53,7 +53,7 @@ def try_fill(page, value, label_re, selectors):
     return False
 
 
-def fill(page, p):
+def fill(page, p, resume_override=None):
     p = {**p, "full_name": f"{p.get('first_name','')} {p.get('last_name','')}".strip()}
     # Ashby and some Greenhouse pages show the description first; open the form.
     for name in ("Apply for this job", "Apply", "Application"):
@@ -62,7 +62,7 @@ def fill(page, p):
             try: btn.first.click(timeout=3000); page.wait_for_timeout(1500); break
             except Exception: pass
     done = [key for key, rx, sels in FIELDS if try_fill(page, p.get(key, ""), rx, sels)]
-    resume = Path(p.get("resume_path", "resume.pdf"))
+    resume = Path(resume_override or p.get("resume_path", "resume.pdf"))
     if not resume.is_absolute() and not resume.is_file():
         resume = HERE / resume.name
     if resume.is_file():
@@ -100,9 +100,17 @@ def main():
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         for n, j in enumerate(queue, 1):
             print(f"\n[{n}/{len(queue)}] fit {j.get('fit', '?')} · {j['company']} — {j['title'].strip()}  ({j['location']})\n  {j['url']}")
+            tailored = None
+            if j.get("desc"):
+                try:
+                    import tailor
+                    tailored, info = tailor.for_job(j, out_dir=HERE / "resumes", pw=pw)
+                    print(f"  resume tailored for {info['lead']}" + (f", highlights {', '.join(info['named'])}" if info["named"] else "") + f"\n  -> {tailored}")
+                except Exception as e:
+                    print("  using your standard resume (couldn't tailor:", e, ")")
             try:
                 page.goto(j["url"], wait_until="domcontentloaded", timeout=45000); page.wait_for_timeout(2000)
-                print("  filled:", ", ".join(fill(page, profile)) or "nothing (fill it by hand)")
+                print("  filled:", ", ".join(fill(page, profile, tailored)) or "nothing (fill it by hand)")
             except Exception as e:
                 print("  could not pre-fill:", e)
             print("  Check the form, answer any extra questions, solve the captcha and press Submit.")

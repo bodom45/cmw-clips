@@ -1,24 +1,23 @@
-# Job queue — updated 2026-10-28
+# Job queue — updated 2026-10-29
 
-31 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+30 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
-| 88 |  | assemblyai | Senior GTM AI Engineer | Remote - North America | $600,000 | [apply](https://job-boards.greenhouse.io/assemblyai/jobs/4728788005) |
 | 88 |  | cresta | AI Engineer, GTM | United States (Remote) | $230,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5123589008) |
-| 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL remote Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
-| 88 |  | writer | AI transformation lead (Central) | Chicago, IL remote Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
+| 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL / Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
+| 88 |  | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
 | 88 |  | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/writer/df56ef1b-4d8b-4eda-bc03-ce9db800e533/application) |
 | 88 |  | samsara | Digital Customer Success Manager, AI & Automation | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8306612?gh_jid=8306612) |
 | 88 |  | deepgram | People AI & Automation Engineer | USA - Remote | not listed | [apply](https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application) |
 | 80 |  | twilio | Sr AI Architect - Conversational AI | Remote - US | $324,480 | [apply](https://job-boards.greenhouse.io/twilio/jobs/7926891) |
 | 80 |  | cresta | Forward Deployed Product Manager, AI Agent | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4738837008) |
 | 80 |  | openai | Applied AI Engineer, Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application) |
-| 80 |  | cresta | Solutions Engineer, AI Agent | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5369032008) |
-| 80 |  | cresta | Solutions Engineer, AI Agent | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
+| 80 |  | cresta | Solutions Engineer, AI Agent (Strategic)  | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
 | 80 |  | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
 | 80 |  | cresta | Senior Software Engineer, Backend (AI Agent) | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5133464008) |
 | 80 |  | cresta | Lead Engineer - AI Agent Voice Experience  | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5155675008) |
+| 80 |  | cresta | Solutions Engineer, AI Agent (Enterprise)  | United States (Remote) | $265,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5369032008) |
 | 80 |  | reddit | Senior Forward Deployed Engineer (AI Enablement) | Remote - United States | $252,300 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301784) |
 | 80 |  | future | Applied AI Engineer | Remote  | $250,000 | [apply](https://job-boards.greenhouse.io/future/jobs/4745515005) |
 | 80 |  | cresta | Senior Forward Deployed Engineer (AI Agent) | United States (Remote) | $235,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4759347008) |
