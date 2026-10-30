@@ -47,7 +47,7 @@ SUMMARIES = {
     "agents": "I build production LLM systems: Claude agents with tool use, streaming and prompt caching, model fallback between Claude and GPT, usage limits, and tests that guard them. I take them from prototype to always-on, and they handle real work every day at Creative Music Television and Area 51 Radio.",
     "deploy": "I turn business problems into working AI systems quickly: scope the workflow, integrate the APIs, ship, and stay with it in production. My systems span AI outreach with a reply agent, an AI operations console, a multi-tenant SaaS app and unattended content pipelines, all used every day at Creative Music Television and Area 51 Radio.",
     "transform": "I lead AI adoption by building it: find the manual work, automate it, and get the team using it. At Creative Music Television and Area 51 Radio that meant AI outreach and reply agents, an AI console the business runs on, unattended publishing pipelines and explainable scoring tools, while leading the production team and an internship program.",
-    "content": "I build the systems behind content and growth, from unattended publishing pipelines that have shipped 260+ videos to AI-written outreach and a music marketing platform, and I lead the production team that makes the content. Everything runs in production every day at Creative Music Television and Area 51 Radio.",
+    "content": "I build the systems behind content and growth, from unattended publishing pipelines that have shipped 260+ videos to AI-written outreach and a self-serve marketing platform, and I lead the production team that makes the content. Everything runs in production every day at Creative Music Television and Area 51 Radio.",
 }
 
 ROLES = [
@@ -58,7 +58,7 @@ ROLES = [
         (["data", "transform", "gtm"], "<b>Grant Radar:</b> scores funding opportunities across 8 weighted criteria, explains each score and drafts the start of each application."),
     ]},
     {"title": "Product Engineer", "place": "Dallas, TX", "org": "Area 51 Radio", "bullets": [
-        (["platform", "deploy", "data"], "Built The Motion Hub, a music marketing app for independent artists (Next.js, Prisma, 28 data models, 53 API routes), with Stripe credit packs and subscriptions."),
+        (["platform", "deploy", "data"], "Built The Motion Hub, a self-serve marketing platform for independent creators (Next.js, Prisma, 28 data models, 53 API routes), with Stripe credit packs and subscriptions."),
         (["agents", "automation", "content", "deploy"], "Connected OpenAI, HeyGen, Spotify, TikTok and Meta, and added scheduled jobs that sync opportunities daily and tune ad campaigns every 6 hours."),
     ]},
     {"title": "Content Systems &amp; Production Lead", "place": "Dallas–Fort Worth", "org": "CTV Motion Media", "bullets": [

@@ -63,28 +63,28 @@
       "text": "Every GTM team has the same six-stage machine, whether they've drawn it or not:\n\nSignals → Enrich → Score → Route → Engage → Learn\n\nMost teams buy a tool per stage and the handoffs between them are where pipeline leaks. The fix isn't another tool. It's owning the data model that runs through all six.\n\nWhat that looked like when I built our outreach system:\n• One database as the source of truth, with each client organization isolated at the row level\n• Leads pulled in and enriched automatically\n• Sequenced outreach from a queue, so nobody gets contacted twice\n• A Claude agent that reads replies and drafts or sends the answer\n• A weekly job that reviews which messages earned replies and rewrites the copy\n\nThe numbers it runs on today: 31,195 industry contacts loaded, 2,584 leads in pipeline, 22 campaigns, 19 serverless functions.\n\nThe Learn stage is the one most teams never close. If your outreach copy is the same as it was last quarter, the loop is open.\n\n#GTMEngineering #RevOps #AIAutomation",
       "visual": {
         "kind": "dashboard",
-        "title": "GTM outreach engine",
+        "title": "B2B prospecting engine",
         "badge": "LIVE SYSTEM",
         "counter": {
           "value": 31195,
-          "label": "Industry contacts loaded",
-          "note": "Playlists, radio, A&R"
+          "label": "Contacts in the prospect database",
+          "note": "Partner accounts, decision-makers, media outlets"
         },
         "bars": [
           [
-            "Spotify playlists",
+            "Tier A partners",
             9736
           ],
           [
-            "Apple playlists",
+            "Tier B partners",
             3385
           ],
           [
-            "A&R contacts",
+            "Decision-makers",
             1710
           ],
           [
-            "Radio stations",
+            "Media outlets",
             1130
           ]
         ],
@@ -94,7 +94,7 @@
             2584
           ],
           [
-            "Campaigns",
+            "Active campaigns",
             22
           ],
           [
@@ -174,41 +174,37 @@
     },
     {
       "id": "04-serverless-pipeline",
-      "text": "You don't need a server to run a production pipeline. You do still need architecture.\n\nOne of my systems publishes short-form video to Instagram and YouTube on a schedule. It has no server, no database host and no monthly infrastructure bill. It's a scheduled GitHub Actions job:\n\n• Wakes every hour\n• Reads a dated content calendar\n• Works out what's due in Central time and caps posts per run so a backlog never floods the feed\n• Waits through the platform's processing errors instead of failing on the first one\n• Commits a ledger of what posted back to the repo, so every run knows what the last one did\n\n263 videos published across five content series, with no one pressing a button.\n\nThe lesson that transfers to any company: put the state somewhere you can read, diff and roll back. For a small system that's a file in git. For a big one it's a table with an audit log. Either way, never let the automation's memory live only inside the automation.\n\n#Automation #DevOps #ContentOps",
+      "text": "You don't need a server to run a production pipeline. You do still need architecture.\n\nOne of my systems publishes short-form video to Instagram and YouTube on a schedule. It has no server, no database host and no monthly infrastructure bill. It's a scheduled GitHub Actions job:\n\n• Wakes every hour\n• Reads a dated content calendar\n• Works out what's due in Central time and caps posts per run so a backlog never floods the feed\n• Waits through the platform's processing errors instead of failing on the first one\n• Commits a ledger of what posted back to the repo, so every run knows what the last one did\n\n263 branded videos published across five content campaigns, with no one pressing a button.\n\nThe lesson that transfers to any company: put the state somewhere you can read, diff and roll back. For a small system that's a file in git. For a big one it's a table with an audit log. Either way, never let the automation's memory live only inside the automation.\n\n#Automation #DevOps #ContentOps",
       "visual": {
         "kind": "dashboard",
-        "title": "Unattended publishing pipeline",
+        "title": "Content operations pipeline",
         "badge": "LIVE SYSTEM",
         "counter": {
           "value": 263,
-          "label": "Videos published automatically",
+          "label": "Branded videos published automatically",
           "note": "Instagram Reels + YouTube Shorts"
         },
         "bars": [
           [
-            "DJ series",
+            "Daily highlights",
             204
           ],
           [
-            "AI series",
+            "AI explainers",
             28
           ],
           [
-            "Music series",
+            "Industry education",
             26
           ],
           [
-            "Manager series",
-            4
-          ],
-          [
-            "Orbit series",
-            1
+            "Pilot series",
+            5
           ]
         ],
         "tiles": [
           [
-            "Clips in library",
+            "Assets in library",
             350
           ],
           [
@@ -216,7 +212,7 @@
             24
           ],
           [
-            "Servers",
+            "Servers to manage",
             0
           ]
         ],
