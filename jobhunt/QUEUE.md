@@ -1,6 +1,6 @@
-# Job queue — updated 2026-10-29
+# Job queue — updated 2026-10-30
 
-31 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+32 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
@@ -26,12 +26,19 @@
 | 80 |  | samsara | AI Engineer, Customer Success | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
 | 80 |  | cresta | Senior Technical Product Marketing Manager, AI Agent | New York, United, States (Hybrid); San F | $150,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5460669008) |
 | 80 |  | supabase | Head of AI Native Operations | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application) |
+| 80 | 🆕 | cresta | Senior Partner AI Enablement Manager | United States (Remote) | not listed | [apply](https://job-boards.greenhouse.io/cresta/jobs/5465196008) |
 | 76 |  | anthropic | Staff Software Engineer, GTM AI Engineering  | Remote-Friendly (Travel-Required) | San  | $405,000 | [apply](https://job-boards.greenhouse.io/anthropic/jobs/5390966008) |
 | 70 |  | cresta | Director of Enterprise AI Success.  | United States (Remote) | $245,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5412192008) |
 | 70 |  | cresta | AI Success Manager  | United States (Remote) | $215,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4675710008) |
 | 70 |  | cresta | AI Strategist  | United States (Remote) | $200,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5446115008) |
 | 70 |  | gleanwork | AI Success Manager, East  | Remote - US | $200,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661878005) |
-| 70 | 🆕 | supabase | Partner Solutions Architect , AI Builder  | Remote, AMER | not listed | [apply](https://jobs.ashbyhq.com/supabase/282d1dfb-b162-4ce4-a938-c4b2173230e0/application) |
+| 70 |  | supabase | Partner Solutions Architect , AI Builder  | Remote, AMER | not listed | [apply](https://jobs.ashbyhq.com/supabase/282d1dfb-b162-4ce4-a938-c4b2173230e0/application) |
 | 58 |  | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
 | 55 |  | cresta | Embedded AI Expert | United States (Remote) | $140,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4919163008) |
+
+<details><summary>Boards that failed this run</summary>
+
+- lever/palantir: The read operation timed out
+
+</details>
