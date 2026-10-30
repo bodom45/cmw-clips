@@ -109,7 +109,7 @@ If you&#x27;re evaluating an automation vendor or a candidate, ask one question:
 </article><article class="post" id="p4">
   <div class="media"><video src="media/04-serverless-pipeline.mp4" poster="media/04-serverless-pipeline-final.png" controls muted loop playsinline preload="none"></video><a class="alt" href="media/04-serverless-pipeline.png" target="_blank" rel="noopener">Diagram version</a></div>
   <div class="copy">
-    <div class="meta"><span class="num">04</span><span class="kind v">Video</span><span class="len">988 characters</span></div>
+    <div class="meta"><span class="num">04</span><span class="kind v">Video</span><span class="len">999 characters</span></div>
     <h2>A production pipeline with no server</h2>
     <pre id="t4">You don&#x27;t need a server to run a production pipeline. You do still need architecture.
 
@@ -121,7 +121,7 @@ One of my systems publishes short-form video to Instagram and YouTube on a sched
 • Waits through the platform&#x27;s processing errors instead of failing on the first one
 • Commits a ledger of what posted back to the repo, so every run knows what the last one did
 
-263 videos published across five content series, with no one pressing a button.
+263 branded videos published across five content campaigns, with no one pressing a button.
 
 The lesson that transfers to any company: put the state somewhere you can read, diff and roll back. For a small system that&#x27;s a file in git. For a big one it&#x27;s a table with an audit log. Either way, never let the automation&#x27;s memory live only inside the automation.
 
