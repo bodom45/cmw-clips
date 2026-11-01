@@ -1,10 +1,10 @@
-# Job queue — updated 2026-10-31
+# Job queue — updated 2026-11-01
 
 33 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
-| 88 | 🆕 | samsara | Director, GTM AI Engineering | Remote - US | $325,000 | [apply](https://www.samsara.com/company/careers/roles/8261007?gh_jid=8261007) |
+| 88 |  | samsara | Director, GTM AI Engineering | Remote - US | $325,000 | [apply](https://www.samsara.com/company/careers/roles/8261007?gh_jid=8261007) |
 | 88 |  | cresta | AI Engineer, GTM | United States (Remote) | $230,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5123589008) |
 | 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL / Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/eaa203c7-1bc5-41ca-952c-50e019effa36/application) |
 | 88 |  | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/d9ea8ca0-c837-4339-b48e-af69f0acefdd/application) |
