@@ -1,6 +1,6 @@
-# Job queue — updated 2026-11-01
+# Job queue — updated 2026-11-02
 
-33 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+32 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
@@ -22,7 +22,6 @@
 | 80 |  | reddit | Senior Forward Deployed Engineer (AI Enablement) | Remote - United States | $252,300 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301784) |
 | 80 |  | future | Applied AI Engineer | Remote  | $250,000 | [apply](https://job-boards.greenhouse.io/future/jobs/4745515005) |
 | 80 |  | cresta | Senior Forward Deployed Engineer (AI Agent) | United States (Remote) | $235,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4759347008) |
-| 80 |  | cresta | Special Projects, AI Agents Team | United States (Remote) | $225,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5406666008) |
 | 80 |  | cresta | AI Deployment Manager  | United States (Remote) | $175,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5078921008) |
 | 80 |  | samsara | AI Engineer, Customer Success | Remote - US | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
 | 80 |  | cresta | Senior Technical Product Marketing Manager, AI Agent | New York, United, States (Hybrid); San F | $150,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5460669008) |
