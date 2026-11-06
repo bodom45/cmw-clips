@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-05
+# Job queue — updated 2026-11-06
 
 33 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -7,12 +7,12 @@
 | 96 |  | samsara | Digital Customer Success Manager, AI & Automation | Remote - Austin; Remote - CA; Remote - C | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8306612?gh_jid=8306612) |
 | 88 |  | samsara | Director, GTM AI Engineering | Remote - US | $325,000 | [apply](https://www.samsara.com/company/careers/roles/8261007?gh_jid=8261007) |
 | 88 |  | cresta | AI Engineer, GTM | United States (Remote) | $230,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5123589008) |
-| 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL / Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/writer/02acc8ae-76ae-41c5-b5b0-f0b7d6bfd3fc/application) |
-| 88 |  | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/writer/bb04804e-6332-4a89-8651-b962ca529fd7/application) |
-| 88 |  | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/writer/6ac02771-059b-490b-960b-f5616f255b65/application) |
+| 88 | 🆕 | writer | Senior AI transformation lead (Central) | Chicago, IL / Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/WRITER/02acc8ae-76ae-41c5-b5b0-f0b7d6bfd3fc/application) |
+| 88 | 🆕 | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/WRITER/bb04804e-6332-4a89-8651-b962ca529fd7/application) |
+| 88 | 🆕 | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/WRITER/6ac02771-059b-490b-960b-f5616f255b65/application) |
 | 88 |  | samsara | AI Engineer, Customer Success | Remote - Austin; Remote - CA; Remote - C | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
-| 88 |  | deepgram | People AI & Automation Engineer | USA - Remote | not listed | [apply](https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application) |
-| 80 | 🆕 | openai | Applied AI Delivery Lead - Remote in AMER | US - Remote | $335,000 | [apply](https://jobs.ashbyhq.com/openai/2c531790-726c-4d39-b3bd-900c59a09a4d/application) |
+| 88 | 🆕 | deepgram | People AI & Automation Engineer | USA - Remote | not listed | [apply](https://jobs.ashbyhq.com/Deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application) |
+| 80 |  | openai | Applied AI Delivery Lead - Remote in AMER | US - Remote | $335,000 | [apply](https://jobs.ashbyhq.com/openai/2c531790-726c-4d39-b3bd-900c59a09a4d/application) |
 | 80 |  | cresta | Forward Deployed Product Manager, AI Agent | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4738837008) |
 | 80 |  | openai | Applied AI Engineer, Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application) |
 | 80 |  | cresta | Solutions Engineer, AI Agent (Strategic)  | United States (Remote) | $275,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
@@ -34,7 +34,7 @@
 | 70 |  | gleanwork | AI Success Manager, East  | Remote - US | $200,000 | [apply](https://job-boards.greenhouse.io/gleanwork/jobs/4661878005) |
 | 70 |  | asana | Customer Success Manager (AI Success Architect) | US - Remote | $148,800 | [apply](https://www.asana.com/jobs/apply/8349347?gh_jid=8349347) |
 | 70 |  | supabase | Partner Solutions Architect, AI Builder  | Remote, AMER | not listed | [apply](https://jobs.ashbyhq.com/supabase/282d1dfb-b162-4ce4-a938-c4b2173230e0/application) |
-| 58 |  | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
+| 58 | 🆕 | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/Deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
 | 55 |  | cresta | Embedded AI Expert | United States (Remote) | $140,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4919163008) |
 
