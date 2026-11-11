@@ -1,6 +1,6 @@
-# Job queue — updated 2026-11-10
+# Job queue — updated 2026-11-11
 
-37 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
+36 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
 | Fit | New | Company | Role | Location | Top pay | Apply |
 |---|---|---|---|---|---|---|
@@ -21,7 +21,6 @@
 | 80 |  | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
 | 80 |  | cresta | Senior Software Engineer, Backend (AI Agent) | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5133464008) |
 | 80 |  | cresta | Lead Engineer - AI Agent Voice Experience  | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5155675008) |
-| 80 |  | cresta | Solutions Engineer, AI Agent (Enterprise)  | United States (Remote) | $265,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5369032008) |
 | 80 |  | reddit | Senior Forward Deployed Engineer (AI Enablement) | Remote - United States | $252,300 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301784) |
 | 80 |  | future | Applied AI Engineer | Remote  | $250,000 | [apply](https://job-boards.greenhouse.io/future/jobs/4745515005) |
 | 80 |  | cresta | Senior Forward Deployed Engineer (AI Agent) | United States (Remote) | $235,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4759347008) |
@@ -40,7 +39,7 @@
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
 | 55 |  | cresta | AI Growth Engineer | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5476118008) |
 | 55 |  | cresta | Embedded AI Expert | United States (Remote) | $140,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4919163008) |
-| 55 | 🆕 | supabase | Software Engineer - AI Tooling | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/0055f731-cffa-4c74-9c00-8abfa579873d/application) |
+| 55 |  | supabase | Software Engineer - AI Tooling | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/0055f731-cffa-4c74-9c00-8abfa579873d/application) |
 
 <details><summary>Boards that failed this run</summary>
 
