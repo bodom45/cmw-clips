@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-12
+# Job queue — updated 2026-11-13
 
 35 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -6,7 +6,6 @@
 |---|---|---|---|---|---|---|
 | 96 |  | samsara | Digital Customer Success Manager, AI & Automation | Remote - Austin; Remote - CA; Remote - C | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8306612?gh_jid=8306612) |
 | 88 |  | samsara | Director, GTM AI Engineering | Remote - US | $325,000 | [apply](https://www.samsara.com/company/careers/roles/8261007?gh_jid=8261007) |
-| 88 |  | cresta | AI Engineer, GTM | United States (Remote) | $230,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5123589008) |
 | 88 |  | writer | Senior AI transformation lead (Central) | Chicago, IL / Austin, TX | $225,000 | [apply](https://jobs.ashbyhq.com/WRITER/02acc8ae-76ae-41c5-b5b0-f0b7d6bfd3fc/application) |
 | 88 |  | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/WRITER/bb04804e-6332-4a89-8651-b962ca529fd7/application) |
 | 88 |  | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/WRITER/6ac02771-059b-490b-960b-f5616f255b65/application) |
@@ -28,6 +27,7 @@
 | 80 |  | cresta | Senior Partner AI Enablement Manager | United States (Remote) | not listed | [apply](https://job-boards.greenhouse.io/cresta/jobs/5465196008) |
 | 80 |  | supabase | Head of AI Native Operations | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/9c04bc60-78a1-4529-950d-4704ab475764/application) |
 | 76 |  | anthropic | Staff Software Engineer, GTM AI Engineering  | Remote-Friendly (Travel-Required) | San  | $405,000 | [apply](https://job-boards.greenhouse.io/anthropic/jobs/5390966008) |
+| 70 | 🆕 | reddit | Product Manager, AI Foundations | Remote - United States | $365,100 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8367400) |
 | 70 |  | cresta | Director of Enterprise AI Success.  | United States (Remote) | $245,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5412192008) |
 | 70 |  | cresta | AI Success Manager  | United States (Remote) | $215,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4675710008) |
 | 70 |  | cresta | AI Strategist  | United States (Remote) | $200,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5446115008) |
