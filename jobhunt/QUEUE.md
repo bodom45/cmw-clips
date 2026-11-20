@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-19
+# Job queue — updated 2026-11-20
 
 39 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -39,7 +39,7 @@
 | 68 |  | cresta | Principal Solutions Engineer, AI Agent | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
 | 58 |  | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/Deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
-| 55 | 🆕 | dropbox | Director, Strategic AI Partnerships | Remote - US: San Francisco, CA | $342,700 | [apply](https://jobs.dropbox.com/listing/8048844?gh_jid=8048844) |
+| 55 |  | dropbox | Director, Strategic AI Partnerships | Remote - US: San Francisco, CA | $342,700 | [apply](https://jobs.dropbox.com/listing/8048844?gh_jid=8048844) |
 | 55 |  | cresta | AI Growth Engineer | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5476118008) |
 | 55 |  | samsara | Sr Software Engineer I/II, Operational AI | Remote - US | $260,000 | [apply](https://www.samsara.com/company/careers/roles/8223641?gh_jid=8223641) |
 | 55 |  | supabase | Software Engineer - AI Tooling | Remote, Global | not listed | [apply](https://jobs.ashbyhq.com/supabase/0055f731-cffa-4c74-9c00-8abfa579873d/application) |
