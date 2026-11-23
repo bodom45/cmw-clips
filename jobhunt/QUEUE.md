@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-22
+# Job queue — updated 2026-11-23
 
 39 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -19,6 +19,7 @@
 | 80 |  | cresta | Marketing Engineer (AI Agents) | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5476127008) |
 | 80 |  | openai | Applied AI Engineer, Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application) |
 | 80 |  | openai | Applied AI Engineer, Enterprise - EDU | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/087aa4f5-1192-413a-ba34-3ae324cf90e5/application) |
+| 80 | 🆕 | openai | Applied AI Engineer, Mid-Market Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/1af2996f-046c-466f-bf35-4b13da116af4/application) |
 | 80 |  | openai | Applied AI Architect | US - Remote | $276,000 | [apply](https://jobs.ashbyhq.com/openai/be87a51f-067f-499c-a4df-97c145946ae6/application) |
 | 80 |  | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
 | 80 |  | cresta | Senior Software Engineer, Backend (AI Agent) | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5133464008) |
@@ -36,7 +37,6 @@
 | 70 |  | deepgram | People AI Operations Specialist | USA - Remote / San Francisco, CA / Ann A | $150,000 | [apply](https://jobs.ashbyhq.com/Deepgram/dbf72159-6a8f-4825-ae7c-124cfda76de4/application) |
 | 70 |  | asana | Customer Success Manager (AI Success Architect) | US - Remote | $148,800 | [apply](https://www.asana.com/jobs/apply/8349347?gh_jid=8349347) |
 | 70 |  | supabase | Partner Solutions Architect, AI Builder  | Remote, AMER | not listed | [apply](https://jobs.ashbyhq.com/supabase/282d1dfb-b162-4ce4-a938-c4b2173230e0/application) |
-| 68 |  | cresta | Principal Solutions Engineer, AI Agent | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5397262008) |
 | 58 |  | deepgram | Staff Product Manager, AI Applications | USA - Remote | $268,000 | [apply](https://jobs.ashbyhq.com/Deepgram/9762d2a1-3d07-4e65-a0bb-6ed8162ca7d5/application) |
 | 58 |  | honeycomb | Staff AI Operations Lead | Remote - United States | $265,000 | [apply](https://job-boards.greenhouse.io/honeycomb/jobs/5449331008) |
 | 55 |  | dropbox | Director, Strategic AI Partnerships | Remote - US: San Francisco, CA | $342,700 | [apply](https://jobs.dropbox.com/listing/8048844?gh_jid=8048844) |
