@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-24
+# Job queue — updated 2026-11-25
 
 41 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
@@ -13,7 +13,7 @@
 | 88 |  | writer | AI transformation lead (Central) | Chicago, IL / Austin, TX | $198,000 | [apply](https://jobs.ashbyhq.com/WRITER/bb04804e-6332-4a89-8651-b962ca529fd7/application) |
 | 88 |  | writer | AI deployment engineer (Central) | Chicago, IL / Austin, TX | $184,000 | [apply](https://jobs.ashbyhq.com/WRITER/6ac02771-059b-490b-960b-f5616f255b65/application) |
 | 88 |  | samsara | AI Engineer, Customer Success | Remote - Austin; Remote - CA; Remote - C | $160,200 | [apply](https://www.samsara.com/company/careers/roles/8024110?gh_jid=8024110) |
-| 80 | 🆕 | openai | Cyber Partner Applied AI Architect | Washington, DC / US - Remote | $375,000 | [apply](https://jobs.ashbyhq.com/openai/aa22d0b6-38e9-4853-aff6-bc891ccc9747/application) |
+| 80 |  | openai | Cyber Partner Applied AI Architect | Washington, DC / US - Remote | $375,000 | [apply](https://jobs.ashbyhq.com/openai/aa22d0b6-38e9-4853-aff6-bc891ccc9747/application) |
 | 80 |  | openai | Applied AI Delivery Lead | US - Remote | $335,000 | [apply](https://jobs.ashbyhq.com/openai/2c531790-726c-4d39-b3bd-900c59a09a4d/application) |
 | 80 |  | samsara | Senior Manager, Software Engineering - AI Developer Productivity (Dev Agents and SRE AI) | Remote - US | $290,000 | [apply](https://www.samsara.com/company/careers/roles/8374911?gh_jid=8374911) |
 | 80 |  | cresta | Forward Deployed Product Manager, AI Agent | United States (Remote) | $280,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/4738837008) |
@@ -21,7 +21,7 @@
 | 80 |  | openai | Applied AI Engineer, Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/01091aed-427d-4e10-8cdb-fb500cf55bb9/application) |
 | 80 |  | openai | Applied AI Engineer, Enterprise - EDU | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/087aa4f5-1192-413a-ba34-3ae324cf90e5/application) |
 | 80 |  | openai | Applied AI Engineer, Mid-Market Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/1af2996f-046c-466f-bf35-4b13da116af4/application) |
-| 80 | 🆕 | openai | Applied AI Engineer, Mid-Market Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/f568de05-d557-4e70-aa12-256c637c7ef5/application) |
+| 80 |  | openai | Applied AI Engineer, Mid-Market Enterprise | San Francisco / New York City / US - Rem | $278,000 | [apply](https://jobs.ashbyhq.com/openai/f568de05-d557-4e70-aa12-256c637c7ef5/application) |
 | 80 |  | openai | Applied AI Architect | US - Remote | $276,000 | [apply](https://jobs.ashbyhq.com/openai/be87a51f-067f-499c-a4df-97c145946ae6/application) |
 | 80 |  | reddit | Lead Forward Deployed Engineer (AI Enablement) | Remote - United States | $272,400 | [apply](https://job-boards.greenhouse.io/reddit/jobs/8301736) |
 | 80 |  | cresta | Senior Software Engineer, Backend (AI Agent) | United States (Remote) | $270,000 | [apply](https://job-boards.greenhouse.io/cresta/jobs/5133464008) |
