@@ -1,4 +1,4 @@
-# Job queue — updated 2026-11-25
+# Job queue — updated 2026-11-26
 
 41 roles waiting. Run `python jobhunt/apply_assist.py` to open and pre-fill them, then solve the captcha and press Submit yourself.
 
